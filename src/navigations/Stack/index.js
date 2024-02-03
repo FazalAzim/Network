@@ -15,7 +15,6 @@ export const AuthStack = () => {
             <Screen name={ROUTES.SIGNUP} component={Signup} />
             <Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
             <Screen name={ROUTES.RESET_PASSWORD} component={VerifyCode} />
-
         </Navigator>        
     )
 }

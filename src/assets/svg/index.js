@@ -14,5 +14,7 @@ import VideoLarge from './vid_icon_larg.svg';
 import VideoIcon from './vid_icon_small.svg';
 import Cart from './cart.svg';
 import Comment from './comment.svg';
+import LargeLogo from './logo_text2.svg';
+import Eye from './eye.svg'
 
-export {Apple, Google, Facebook, Chat, LogoText, Logo, AddressBook, Favorites, Product, Schedules, Settings, Star, VideoLarge, VideoIcon, Cart, Comment}
+export {Apple, Google, Facebook, Chat, LogoText, Logo, AddressBook, Favorites, Product, Schedules, Settings, Star, VideoLarge, VideoIcon, Cart, Comment, LargeLogo, Eye}

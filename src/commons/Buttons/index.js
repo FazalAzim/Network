@@ -47,14 +47,14 @@ export const SocialButton = ({ onPress, icon, text, disabled, loading, style }) 
     )
 }
 
-export const TextButton = ({ style, onPress, text }) => {
+export const TextButton = ({ style, onPress, text, textBtnStyle }) => {
     const { styles } = stylez()
     return (
         <TouchableOpacity activeOpacity={.8}
             style={style}
             hitSlop={{ right: 10, left: 10, top: 10, bottom: 10 }}
             onPress={onPress}>
-            <Text style={styles.btnText}>{text}</Text>
+            <Text style={[styles.btnText, textBtnStyle]}>{text}</Text>
         </TouchableOpacity>
     )
 }

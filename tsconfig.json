@@ -62,7 +62,6 @@
       "@validations": [
         "./src/validations/"
       ],
-   
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

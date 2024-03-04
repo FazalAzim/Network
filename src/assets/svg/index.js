@@ -17,5 +17,15 @@ import Comment from './comment.svg';
 import LargeLogo from './logo_text2.svg';
 import Eye from './eye.svg';
 import Back_Caret_Arrow from './back_caret_arrow.svg';
+import Heart from './heart.svg';
+import Toggle from './toggle_icon.svg';
+import ChatIcon from './chat_icon.svg';
+import BarIcon from './bar_icon.svg';
+import Vector from './vector.svg'
 
-export {Apple, Google, Facebook, Chat, LogoText, Logo, AddressBook, Favorites, Product, Schedules, Settings, Star, VideoLarge, VideoIcon, Cart, Comment, LargeLogo, Eye, Back_Caret_Arrow}
+export {
+    Apple, Google, Facebook, Chat,
+    LogoText, Logo, AddressBook, Favorites,
+    Product, Schedules, Settings, Star, VideoLarge,
+    VideoIcon, Cart, Comment, LargeLogo, Eye, Back_Caret_Arrow, Heart,Toggle,ChatIcon,BarIcon,Vector
+}

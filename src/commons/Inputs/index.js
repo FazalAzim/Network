@@ -4,7 +4,12 @@ import { RowWrapperBasic, Wrapper } from "../Wrappers";
 import React from 'react'
 import { stylez } from './styles';
 
-export const InputWithTitle = ({ title, titleStyle, onPress, onSubmitEditing, onEndEditing, autoFocus, onChangeText, value, placeholder, editable, keyboardType, multiline, secureTextEntry, right, onPressRight, rightStyles, inputStyle, placeholderTextColor }) => {
+export const InputWithTitle = ({ 
+    title, titleStyle, onPress, onSubmitEditing, 
+    onEndEditing, autoFocus, onChangeText, value, 
+    placeholder, editable, keyboardType, multiline, 
+    secureTextEntry, right, onPressRight, rightStyles, 
+    inputStyle, placeholderTextColor }) => {
   const { styles } = stylez()
     return (
         <Wrapper>

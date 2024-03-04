@@ -17,5 +17,11 @@ import Comment from './comment.svg';
 import LargeLogo from './logo_text2.svg';
 import Eye from './eye.svg';
 import Back_Caret_Arrow from './back_caret_arrow.svg';
+import Bag from './shopping_bag.svg';
+import BagActive from './shopping_bag_active.svg'
 
-export {Apple, Google, Facebook, Chat, LogoText, Logo, AddressBook, Favorites, Product, Schedules, Settings, Star, VideoLarge, VideoIcon, Cart, Comment, LargeLogo, Eye, Back_Caret_Arrow}
+export {
+    Apple, Google, Facebook, Chat, LogoText, 
+    Logo, AddressBook, Favorites, Product, Schedules,
+    Settings, Star, VideoLarge, VideoIcon, Cart, Comment,
+    LargeLogo, Eye, Back_Caret_Arrow, Bag, BagActive}

@@ -17,5 +17,5 @@ export const ROUTES = {
     FOR_YOU: 'FOR_YOU',
     SEARCH: 'SEARCH',
     PROFILE: 'PROFILE',
-    
+    INBOX: 'INBOX'
 }

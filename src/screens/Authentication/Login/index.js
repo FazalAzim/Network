@@ -6,11 +6,17 @@ import { Logo } from '@react-native/typescript-config'
 import { COLORS, FONTS, IMG, ROUTES } from '@constants'
 import { Apple, Eye, Facebook, Google } from '@assets'
 import { height, width } from '@helpers'
+import { useAuth } from '@contexts'
 
 export const Login = ({navigation}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const {currentUser, setCurrentUser} = useAuth();
   const onIconPress = () => {
     setIsPasswordVisible(!isPasswordVisible)
+  }
+
+  const onLoginClick = () => {
+    setCurrentUser(true)
   }
   return (
   <MainWrapper style={{justifyContent:'center', backgroundColor: COLORS.WHITE}}>
@@ -24,7 +30,7 @@ export const Login = ({navigation}) => {
       <Spacer />
       <TextButton style={{ alignSelf: 'flex-end' }} text='Forgot Password?' onPress={() => navigation.navigate(ROUTES.FORGOT_PASSWORD)} />
       <Spacer />
-      <PrimaryButton text={'Login'} onPress={() => {}} style={{width: width(83)}} />
+      <PrimaryButton text={'Login'} onPress={() => onLoginClick()} style={{width: width(83)}} />
       <Spacer />
       <Seperator />
        <RowWrapper>

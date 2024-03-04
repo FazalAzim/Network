@@ -1,7 +1,19 @@
 import { View, Image } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { styles } from './styles'
-import { ComponentWrapper, H1, HeaderPrimary, InputWithTitle, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, Seperator, SocialButton, Spacer, Text, TextButton } from '@commons'
+import { 
+  ComponentWrapper, 
+  H1, 
+  HeaderPrimary, 
+  InputWithTitle, 
+  MainWrapper, 
+  PrimaryButton, 
+  RowWrapper, 
+  RowWrapperBasic, 
+  Seperator, 
+  SocialButton, 
+  Spacer, 
+  Text, TextButton } from '@commons'
 import { Logo } from '@react-native/typescript-config'
 import { COLORS, FONTS, IMG, ROUTES } from '@constants'
 import { Apple, Back_Caret_Arrow, Eye, Facebook, Google } from '@assets'

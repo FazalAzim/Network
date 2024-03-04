@@ -9,7 +9,7 @@ import { height, width } from '@helpers'
 
 import OTPTextView from 'react-native-otp-textinput';
 
-export const VerifyCode = () => {
+export const VerifyCode = ({navigation}) => {
    let otpInput = useRef(null);
     const [seconds, setSeconds] = useState(59);
   const [isActive, setIsActive] = useState(true);

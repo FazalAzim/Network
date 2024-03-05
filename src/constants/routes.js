@@ -17,5 +17,6 @@ export const ROUTES = {
     FOR_YOU: 'FOR_YOU',
     SEARCH: 'SEARCH',
     PROFILE: 'PROFILE',
-    INBOX: 'INBOX'
+    INBOX: 'INBOX',
+    VIDEO_SCREEN:'VIDEO_SCREEN'
 }

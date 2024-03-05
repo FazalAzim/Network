@@ -7,7 +7,7 @@ import { COLORS } from '@constants';
 export const MediaCard = ({ item, onClick }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => onClick(item.key)}>
+      <TouchableOpacity onPress={onClick}>
         <View style={{ height: 160 }}>
           <ImageBackground
             source={item.image}

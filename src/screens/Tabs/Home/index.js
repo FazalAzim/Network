@@ -1,23 +1,21 @@
 import {
   View,
   StyleSheet,
-  FlatList,
+  FlatList
+
 } from 'react-native';
 import React from 'react';
 import { MainWrapper, MediaCard } from '@commons';
-import { COLORS, cards } from '@constants';
+import { COLORS, ROUTES, cards } from '@constants';
 
-export const Home = () => {
-  const handlePress = (id) => {
-    console.log(id)
-  }
+export const Home = ({ navigation }) => {
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
       <View style={{ flexDirection: 'column' }}>
         <FlatList
           data={cards}
           renderItem={({ item }) => {
-            return <MediaCard item={item} onClick={handlePress} />;
+            return <MediaCard item={item} onClick={() => navigation.navigate(ROUTES.VIDEO_SCREEN)} />;
           }}
         />
       </View>

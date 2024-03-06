@@ -30,7 +30,7 @@ const CustomTabBarButton = ({ children, onPress }) => (
 );
 
 
-function HomeTabs() {
+const HomeTabs= () => {
   return (
     <Tab.Navigator
       screenOptions={{

@@ -27,16 +27,30 @@ export const styles = StyleSheet.create({
         marginTop: 12,
         borderRadius: 4
     },
-    backgroundImage_status: { color: COLORS.WHITE, fontSize: 12 },
-    backgroundImage_status_icon: { marginLeft: 6, justifyContent: 'center' },
-    backgroundImage_barIcon: { justifyContent: 'flex-end', marginRight: 12 },
+    backgroundImage_status: {
+        color: COLORS.WHITE,
+        fontSize: 12
+    },
+    backgroundImage_status_icon: {
+        marginLeft: 6,
+        justifyContent: 'center'
+    },
+    backgroundImage_barIcon: {
+        justifyContent: 'flex-end',
+        marginRight: 12
+    },
     card_bar: {
         marginTop: 8,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    card_bar_content: { marginRight: 10, flexDirection: 'row', gap: 16 },
+    card_bar_content: {
+        marginRight: 10,
+        flexDirection: 'row',
+        gap: 16
+    },
     card_bar_button_common: {
-        flexDirection: 'row', gap: 3,
+        flexDirection: 'row',
+        gap: 3,
     },
 })

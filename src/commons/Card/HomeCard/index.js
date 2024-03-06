@@ -4,7 +4,7 @@ import { styles } from './styles';
 import { BarIcon, ChatIcon, Heart, Toggle, Vector } from '@assets';
 import { COLORS } from '@constants';
 
-export const MediaCard = ({ item, onClick }) => {
+export const HomeCard = ({ item, onClick }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onClick}>

@@ -5,5 +5,6 @@ export * from './Text';
 export * from'./Inputs';
 export * from './Spacer';
 export * from './Separator';
-export * from './Headers'
-export * from './MediaCard'
+export * from './Headers';
+export * from './Card/HomeCard';
+export * from './Card/VideoCard';

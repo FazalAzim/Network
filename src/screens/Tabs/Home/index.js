@@ -5,7 +5,7 @@ import {
 
 } from 'react-native';
 import React from 'react';
-import { MainWrapper, MediaCard } from '@commons';
+import { HomeCard, MainWrapper } from '@commons';
 import { COLORS, ROUTES, cards } from '@constants';
 
 export const Home = ({ navigation }) => {
@@ -15,7 +15,7 @@ export const Home = ({ navigation }) => {
         <FlatList
           data={cards}
           renderItem={({ item }) => {
-            return <MediaCard item={item} onClick={() => navigation.navigate(ROUTES.VIDEO_SCREEN)} />;
+            return <HomeCard item={item} onClick={() => navigation.navigate(ROUTES.VIDEO_SCREEN, {item})} navigation={navigation} />;
           }}
         />
       </View>

@@ -15,5 +15,7 @@ export const COLORS = {
     XL_GRAY: '#E8E8E8',
     BLACK : "#000000",
     WHITE: '#FFFFFF',
+    _A3A3: "#A3A3A3",
     GRAY: "#646464",
+    _F1F1: "#F1F1F1",
 }

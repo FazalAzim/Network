@@ -5,7 +5,7 @@ import { COLORS } from '@constants';
 import { stylez } from './styles';
 
 
-export const PrimaryButton = ({ onPress, text, disabled, loading, style}) => {
+export const PrimaryButton = ({ onPress, text, disabled, loading, style }) => {
     const { styles } = stylez()
     return (
         <TouchableOpacity
@@ -21,7 +21,7 @@ export const PrimaryButton = ({ onPress, text, disabled, loading, style}) => {
     )
 }
 
-export const SocialButton = ({ onPress, icon, text, disabled, loading, style }) => {
+export const SocialButton = ({ onPress, icon, text, disabled, loading, style, productText }) => {
     const { styles } = stylez()
     return (
         <TouchableOpacity
@@ -29,17 +29,17 @@ export const SocialButton = ({ onPress, icon, text, disabled, loading, style }) 
             onPress={onPress}
             style={[styles.socialBtnContainer, style]}
         >
-           {text ?
-            <RowWrapperBasic>
+            {text ?
+                <RowWrapperBasic>
+                    <Wrapper style={styles.socialIcon}>
+                        {icon}
+                    </Wrapper>
+                    <Wrapper style={styles.socialBtnTxt}>
+                        {loading ? <ActivityIndicator color={COLORS.PRIMARY_COLOR} />
+                            : <Text style={[styles.socialBtnTxt, { fontSize: productText && 10 }]}>{text}</Text>}
+                    </Wrapper>
+                </RowWrapperBasic> :
                 <Wrapper style={styles.socialIcon}>
-                    {icon}
-                </Wrapper>
-                <Wrapper style={styles.socialBtnTxt}>
-                    {loading ? <ActivityIndicator color={COLORS.PRIMARY_COLOR} />
-                        : <Text style={styles.socialBtnTxt}>{text}</Text>}
-                </Wrapper>
-            </RowWrapperBasic>:
-            <Wrapper style={styles.socialIcon}>
                     {icon}
                 </Wrapper>
             }

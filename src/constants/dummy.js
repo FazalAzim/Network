@@ -65,4 +65,43 @@ const cards = [
     comments: '2k',
   },
 ];
-export { slides, cards }
+
+const product_Cards = [
+  {
+    key: '1',
+    title: 'ELV DIRECT Universal Mobile Phone Stand Holder With Cable Organise',
+    image: IMG.PRODUCT,
+    priceView: true,
+    price: '300.99',
+    actual_price: '350.99',
+    stars: '2.5',
+  },
+  {
+    key: '2',
+    title: 'Buy PC & Gaming Gear at Deep Discounts.',
+    image: IMG.PRODUCT_MOBILE,
+    priceView: false,
+    price: '299.99',
+    actual_price: '320.99',
+    stars: '5.5',
+  },
+  {
+    key: '3',
+    title: 'ELV DIRECT Universal Mobile Phone Stand Holder With Cable Organise',
+    image: IMG.SLIDE1,
+    priceView: true,
+    price: '499.99',
+    actual_price: '520.99',
+    stars: '8.5',
+  },
+  {
+    key: '4',
+    title: 'Buy PC & Gaming Gear at Deep Discounts.',
+    image: IMG.SLIDE2,
+    priceView: false,
+    price: '199.99',
+    actual_price: '220.99',
+    stars: '9.5',
+  },
+];
+export { slides, cards, product_Cards }

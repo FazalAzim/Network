@@ -21,7 +21,6 @@ export const VideoCard = ({ onClick, paramData }) => {
 
   return (
     <View>
-
       <View style={{ height: 227.25 }}>
         <ImageBackground
           source={paramData.image}
@@ -84,7 +83,7 @@ export const VideoCard = ({ onClick, paramData }) => {
               : null
           }
         </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <View style={{marginTop:14, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <View style={{ flexDirection: 'row', gap: 2, alignItems: 'center' }}>
             <Chat />
             <Text style={{ color: '#9344FC', fontSize: 12, fontWeight: '600' }}>Message</Text>

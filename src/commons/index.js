@@ -5,4 +5,5 @@ export * from './Text';
 export * from'./Inputs';
 export * from './Spacer';
 export * from './Separator';
-export * from './Headers'
+export * from './Headers';
+export * from './H3'

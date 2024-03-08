@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, FlatList, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native'
 import { MainWrapper, ProductCard, VideoCard, CommentCard, InputWithTitle, } from '@commons'
-import { COLORS, comment_Cards, product_Cards } from '@constants'
+import { COLORS, ROUTES, comment_Cards, product_Cards } from '@constants'
 import { styles } from './styles'
 import { Plane } from '@assets'
 
@@ -41,7 +41,7 @@ export const VideoScreen = ({ route, navigation }) => {
             <FlatList
               data={product_Cards}
               renderItem={({ item }) => {
-                return <ProductCard item={item} />;
+                return <ProductCard item={item} onClick={() => navigation.navigate(ROUTES.PRODUCT_DETAIL)} />;
               }}
             />
           ) : (

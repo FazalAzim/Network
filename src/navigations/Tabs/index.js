@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Image, Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ROUTES, ICON, COLORS, FONTS } from '@constants';
-import { Add, Cart, Home, Inbox, Search, VideoScreen } from '@screens';
+import { Add, Cart, Home, Inbox, Search, VideoScreen, ProductDetail } from '@screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
@@ -30,7 +30,7 @@ const CustomTabBarButton = ({ children, onPress }) => (
 );
 
 
-const HomeTabs= () => {
+const HomeTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -102,6 +102,7 @@ export const Tabs = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={ROUTES.HOME} component={HomeTabs} />
       <Stack.Screen name={ROUTES.VIDEO_SCREEN} component={VideoScreen} />
+      <Stack.Screen name={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
     </Stack.Navigator>
   );
 }

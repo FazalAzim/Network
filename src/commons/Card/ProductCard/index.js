@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { COLORS } from '@constants'
 import { ViewIcon, Blue_Star } from '@assets'
 import { SocialButton } from '@commons'
@@ -7,14 +7,16 @@ import { styles } from './styles'
 import { width } from '@helpers'
 
 
-export const ProductCard = ({ item }) => {
+export const ProductCard = ({ item, onClick }) => {
   const [viewPrice, setViewPrice] = useState(item.priceView);
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={item.image} style={{ width: 63, height: 63, resizeMode: 'cover', borderRadius: 6 }} />
-      </View>
+      <TouchableOpacity onPress={onClick}>
+        <View style={styles.imageContainer}>
+          <Image source={item.image} style={{ width: 63, height: 63, resizeMode: 'cover', borderRadius: 6 }} />
+        </View>
+      </TouchableOpacity>
       <View style={{ flexDirection: 'column', gap: 8 }}>
         <View style={styles.titleContainer}>
           <Text style={{ fontSize: 14, fontWeight: '500', color: '#3C3C3C' }}>{item.title}</Text>

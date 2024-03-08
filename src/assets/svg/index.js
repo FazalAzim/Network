@@ -26,7 +26,9 @@ import Volume from './volume.svg';
 import Full_Screen from './full_screen.svg';
 import Blue_Star from './blue_star.svg';
 import ViewIcon from './view_icon.svg';
-import Plane from './plane.svg'
+import Plane from './plane.svg';
+import Favorite from './favorite.svg';
+import Share from './share.svg';
 
 export {
     Apple, Google, Facebook, Chat,
@@ -34,5 +36,5 @@ export {
     Product, Schedules, Settings, Star, VideoLarge,
     VideoIcon, Cart, Comment, LargeLogo, Eye,
     Back_Caret_Arrow, Heart, Toggle, ChatIcon,
-    BarIcon, Vector, Volume, Full_Screen, Blue_Star, ViewIcon, Plane
+    BarIcon, Vector, Volume, Full_Screen, Blue_Star, ViewIcon, Plane, Favorite, Share,
 }

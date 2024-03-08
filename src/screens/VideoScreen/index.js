@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text, FlatList, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
-import { HeaderPrimary, HomeCard, MainWrapper, ProductCard, VideoCard, CommentCard, TextButton } from '@commons'
-import { COLORS, IMG, product_Cards } from '@constants'
-import { Back_Caret_Arrow } from '@assets'
+import { View, Text, FlatList, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native'
+import { MainWrapper, ProductCard, VideoCard, CommentCard, InputWithTitle, } from '@commons'
+import { COLORS, comment_Cards, product_Cards } from '@constants'
+import { styles } from './styles'
+import { Plane } from '@assets'
 
 export const VideoScreen = ({ route, navigation }) => {
   const { item } = route?.params;
@@ -11,83 +12,57 @@ export const VideoScreen = ({ route, navigation }) => {
   const [activeTab, setActiveTab] = useState('Products');
 
   const sections = [
-    {
-      title: 'Products',
-      component: (
-        <View style={{ flexDirection: 'column' }}>
-          <ScrollView>
-
-            {
-              product_Cards.map((item) => {
-                return <ProductCard item={item} />
-              })
-            }
-          </ScrollView>
-        </View>
-      ),
-    },
-    {
-      title: 'Live Comments',
-      component: (
-        <CommentCard />
-      ),
-    },
+    { title: 'Products' },
+    { title: 'Live Comments' },
   ];
 
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
       <VideoCard onClick={() => navigation.goBack()} paramData={item} />
       <View style={styles.container}>
-        <TouchableOpacity
-          style={[styles.button, activeTab === 'Products' && styles.activeButton]}
-          onPress={() => setActiveTab('Products')}
-        >
-          <Text style={styles.buttonText}>Products</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, activeTab === 'Live Comment' && styles.activeButton]}
-          onPress={() => setActiveTab('Live Comment')}
-        >
-          <Text style={styles.buttonText}>Live Comment</Text>
-        </TouchableOpacity>
-      </View>
-      {/* <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-        {sections.map((item, index) => {
+        {sections.map((data, index) => {
           return (
-            <View>
-              <TextButton text={item.title} onPress={() => setSelected(index)} />
-            </View>
+            <TouchableOpacity
+              style={[styles.button, activeTab === data.title && styles.activeButton]}
+              onPress={() => {
+                setSelected(index);
+                setActiveTab(data.title)
+              }}
+            >
+              <Text style={styles.buttonText}>{data.title}</Text>
+            </TouchableOpacity>
           )
         })}
-      </View> */}
-      <View style={{ flex: 1, marginHorizontal: 18, marginTop: 12 }}>
-        {sections[selected].component}
+
       </View>
+      <View style={{ flex: 1, marginHorizontal: 18, marginTop: 12 }}>
+        <View style={{ flexDirection: 'column' }}>
+          {selected === 0 ? (
+            <FlatList
+              data={product_Cards}
+              renderItem={({ item }) => {
+                return <ProductCard item={item} />;
+              }}
+            />
+          ) : (
+            <FlatList
+              data={comment_Cards}
+              renderItem={({ item }) => {
+                return <CommentCard item={item} />;
+              }}
+            />
+          )
+          }
+        </View>
+      </View>
+      {selected === 1 && (
+        <KeyboardAvoidingView style={{ marginHorizontal: 18, }} behavior="padding" keyboardVerticalOffset={100}>
+          <ScrollView>
+            <InputWithTitle placeholder={'Type your comment'} placeholderTextColor={COLORS.DARK_GRAY} right={<Plane />} />
+          </ScrollView>
+        </KeyboardAvoidingView>
+      )}
     </MainWrapper>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    // backgroundColor:"blue",
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: '#ccc',
-    // paddingBottom: 5,
-  },
-  button: {
-    flex:1
-    // paddingVertical: 8,
-  },
-  buttonText: {
-    fontSize: 15,
-    color: '#555',
-  },
-  activeButton: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#000',
-    paddingBottom: 4, // Adjust this value to control the height of the half underline
-  },
-});

@@ -104,4 +104,64 @@ const product_Cards = [
     stars: '9.5',
   },
 ];
-export { slides, cards, product_Cards }
+
+const comment_Cards = [
+  {
+    key: '1',
+    title: 'Melia Elix',
+    description: 'PC $ Gaming Gears',
+    image: IMG.SLIDE1,
+    time: '1 sec ago'
+  },
+  {
+    key: '2',
+    title: 'Alix Williams',
+    description: 'Nice Product!!',
+    image: IMG.SLIDE2,
+    time: '4 sec ago'
+  },
+  {
+    key: '3',
+    title: 'Will Jack',
+    description: 'Great Product Man!!',
+    image: IMG.SLIDE1,
+    time: '5 min ago'
+  },
+  {
+    key: '4',
+    title: 'Babar Azam',
+    description: 'Good Sport Product',
+    image: IMG.SLIDE2,
+    time: '1 min ago'
+  },
+  {
+    key: '5',
+    title: 'Melia Elix',
+    description: 'PC $ Gaming Gears',
+    image: IMG.SLIDE1,
+    time: '1 sec ago'
+  },
+  {
+    key: '6',
+    title: 'Alix Williams',
+    description: 'Nice Product!!',
+    image: IMG.SLIDE2,
+    time: '4 sec ago'
+  },
+  {
+    key: '7',
+    title: 'Will Jack',
+    description: 'Great Product Man!!',
+    image: IMG.SLIDE1,
+    time: '5 min ago'
+  },
+  {
+    key: '8',
+    title: 'Babar Azam',
+    description: 'Good Sport Product',
+    image: IMG.SLIDE2,
+    time: '1 min ago'
+  },
+];
+
+export { slides, cards, product_Cards, comment_Cards }

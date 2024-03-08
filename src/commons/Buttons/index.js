@@ -36,7 +36,7 @@ export const SocialButton = ({ onPress, icon, text, disabled, loading, style, pr
                     </Wrapper>
                     <Wrapper style={styles.socialBtnTxt}>
                         {loading ? <ActivityIndicator color={COLORS.PRIMARY_COLOR} />
-                            : <Text style={[styles.socialBtnTxt, { fontSize: productText && 10 }]}>{text}</Text>}
+                            : <Text style={[styles.socialBtnTxt, { fontSize: productText === true && 10 }]}>{text}</Text>}
                     </Wrapper>
                 </RowWrapperBasic> :
                 <Wrapper style={styles.socialIcon}>

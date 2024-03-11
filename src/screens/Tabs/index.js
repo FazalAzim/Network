@@ -8,3 +8,4 @@ export * from './PreviouslyLive';
 export * from './Search';
 export * from './SpecificLive';
 export * from './Subscriptions';
+export * from './Chat';

@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { COLORS, FONTS } from '@constants';
+import { RowWrapper, Text, TextButton, H3 } from '@commons';
 
 export const HeaderPrimary = ({ title, backArrow, both, menuIcon, navigation,titleColor, backArrowPress,style }) => {
   return (
@@ -37,6 +38,18 @@ export const HeaderPrimary = ({ title, backArrow, both, menuIcon, navigation,tit
     </View>
   );
 };
+
+export const MessageHeader = ({}) => {
+  return(
+    <RowWrapper>
+      <H3>Messages</H3>
+      <TextButton
+      text={"New Message"}
+      textBtnStyle={{color: COLORS.PRIMARY_COLOR, fontFamily: FONTS.URBAN_MEDIUM}}
+      />
+    </RowWrapper>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {

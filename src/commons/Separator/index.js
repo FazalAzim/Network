@@ -14,6 +14,12 @@ export const Seperator = ({ text }) => {
     )
 }
 
+export const SeparatorBasic = () => {
+    return(
+        <Wrapper style={styles.lineBasic} />
+    )
+}
+
 export default Seperator
 
 const styles = StyleSheet.create({
@@ -22,8 +28,13 @@ const styles = StyleSheet.create({
         width: width(35),
         backgroundColor: COLORS.BD_COLOR
     },
+    lineBasic:{
+        height: 1,
+        width: width(90),
+        backgroundColor: COLORS._F1F1,
+    },
     wrapper: {
-        width: width(80),
+        width: width(90),
         alignSelf: 'center',
         marginBottom: 20
     },

@@ -4,7 +4,10 @@ import { styles } from './styles'
 
 export const Text = ({children, multiline, numOfLines, style}) => {
   return (
-    <RNText style={[styles.text, style]}>
+    <RNText
+    numOfLines={numOfLines || 1}
+    multiline={multiline || true}
+     style={[styles.text, style]}>
         {children}
     </RNText>
   )

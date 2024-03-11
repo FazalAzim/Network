@@ -3,7 +3,7 @@ import { MainWrapper, ProductSlider, RatingCard, SocialButton } from '@commons'
 import { Image, Text, View } from 'react-native'
 import { COLORS, FONTS, IMG } from '@constants'
 import { height, width } from '@helpers'
-import { StarActive, StarUnactive, Vector } from '@assets'
+import { StarActive, StarUnactive, CheckMarkIcon } from '@assets'
 
 export const ProductDetail = ({ navigation }) => {
   const [count, setCount] = useState(0)
@@ -63,7 +63,7 @@ export const ProductDetail = ({ navigation }) => {
                   <Text style={{ color: '#262626', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>Meliaya Elix</Text>
                   <View style={{
                     justifyContent: 'center'
-                  }}><Vector /></View>
+                  }}><CheckMarkIcon /></View>
                 </View>
                 <Text style={{
                   color: '#8F8F8F',

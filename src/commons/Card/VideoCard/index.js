@@ -2,7 +2,7 @@ import { COLORS, FONTS, ICON } from '@constants'
 import { PrimaryButton } from '@commons'
 import React, { useCallback, useState } from 'react'
 import { Image, ImageBackground, Text, View } from 'react-native'
-import { Volume, Full_Screen, Vector, Chat, Heart, ChatIcon, Toggle } from '@assets'
+import { Volume, Full_Screen, CheckMarkIcon, Chat, Heart, ChatIcon, Toggle } from '@assets'
 import { styles } from './styles'
 
 export const VideoCard = ({ onClick, paramData }) => {
@@ -60,7 +60,7 @@ export const VideoCard = ({ onClick, paramData }) => {
               <Text style={{ color: '#262626', fontSize: 17 }}>{paramData.title}</Text>
               < View style={{ flexDirection: 'row' }}>
                 <Text style={styles.middle_bar_status}>{paramData.status}</Text>
-                <View style={styles.middle_bar_status_icon}><Vector /></View>
+                <View style={styles.middle_bar_status_icon}><CheckMarkIcon /></View>
               </View>
             </View>
           </View>

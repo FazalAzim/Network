@@ -18,4 +18,5 @@ export const COLORS = {
     _A3A3: "#A3A3A3",
     GRAY: "#646464",
     _F1F1: "#F1F1F1",
+    _F7F7: '#F7F7FC'
 }

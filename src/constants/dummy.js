@@ -24,11 +24,22 @@ const users = [
     lastMessageTime: "2024-03-04T12:00:00Z",
     messages: [
       {
+        id: 1,
         sender: "John Doe",
         content: "Hey, how are you doing?",
-        timestamp: "2024-03-05T12:00:00Z"
+        timestamp: "2024-03-05T12:00:00Z",
+        replies:[
+          {
+            id: 1,
+            sender: "currentUser",
+            content: "Hey, how are you doing?",
+            repliedTo: 1,
+            timestamp: "2024-03-05T12:00:00Z",
+          },
+        ]
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "I'm doing well, thanks! How about you?",
         timestamp: "2024-03-07T12:05:00Z"
@@ -44,11 +55,13 @@ const users = [
     lastMessageTime: "2024-03-07T08:30:00Z",
     messages: [
       {
+        id: 1,
         sender: "currentUser",
         content: "Will we still meet at the usual place?",
         timestamp: "2024-03-06T15:00:00Z"
       },
       {
+        id: 2,
         sender: "Jane Doe",
         content: "Don't forget our meeting tomorrow.",
         timestamp: "2024-03-07T08:30:00Z"
@@ -64,11 +77,14 @@ const users = [
     lastMessageTime: "2024-03-06T16:45:00Z",
     messages: [
       {
+        id: 1,
         sender: "Bob Smith",
         content: "Thanks for the help!",
+        
         timestamp: "2024-03-06T16:45:00Z"
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "No problem, Bob! Glad I could assist.",
         timestamp: "2024-03-06T17:00:00Z"
@@ -84,11 +100,13 @@ const users = [
     lastMessageTime: "2024-03-07T09:15:00Z",
     messages: [
       {
+        id: 1,
         sender: "Alice Wonder",
         content: "Can we talk later?",
         timestamp: "2024-03-07T09:15:00Z"
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "Sure, I'll be available after 3 PM.",
         timestamp: "2024-03-07T09:30:00Z"
@@ -104,11 +122,13 @@ const users = [
     lastMessageTime: "2024-03-07T10:25:00Z",
     messages: [
       {
+        id: 1,
         sender: "currentUser",
         content: "Hey, just wanted to confirm you got the package?",
         timestamp: "2024-03-07T10:00:00Z"
       },
       {
+        id: 2,
         sender: "Mike Ross",
         content: "Received the package, thanks!",
         timestamp: "2024-03-07T10:25:00Z"
@@ -124,11 +144,13 @@ const users = [
     lastMessageTime: "2024-03-07T11:00:00Z",
     messages: [
       {
+        id: 1,
         sender: "Emily Clark",
         content: "See you at the party!",
         timestamp: "2024-03-07T11:00:00Z"
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "Can't wait! What time does it start?",
         timestamp: "2024-03-07T11:15:00Z"
@@ -144,11 +166,13 @@ const users = [
     lastMessageTime: "2024-03-06T14:20:00Z",
     messages: [
       {
+        id: 1,
         sender: "currentUser",
         content: "How's the report going?",
         timestamp: "2024-03-06T13:50:00Z"
       },
       {
+        id: 2,
         sender: "David Miller",
         content: "Finalizing the report, any updates?",
         timestamp: "2024-03-06T14:20:00Z"
@@ -164,11 +188,13 @@ const users = [
     lastMessageTime: "2024-03-07T07:55:00Z",
     messages: [
       {
+        id: 1,
         sender: "Sarah Johnson",
         content: "Loved the pictures from the trip!",
         timestamp: "2024-03-07T07:55:00Z"
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "I'm glad you enjoyed them! It was a great trip.",
         timestamp: "2024-03-07T08:10:00Z"
@@ -184,11 +210,13 @@ const users = [
     lastMessageTime: "2024-03-06T18:30:00Z",
     messages: [
       {
+        id: 1,
         sender: "Kevin Brown",
         content: "Meeting rescheduled to next week.",
         timestamp: "2024-03-06T18:30:00Z"
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "Thanks for the update, Kevin.",
         timestamp: "2024-03-06T19:00:00Z"
@@ -204,11 +232,13 @@ const users = [
     lastMessageTime: "2024-03-07T13:20:00Z",
     messages: [
       {
+        id: 1,
         sender: "Lisa White",
         content: "What time is convenient for you?",
         timestamp: "2024-03-07T13:20:00Z"
       },
       {
+        id: 2,
         sender: "currentUser",
         content: "How about tomorrow at 10 AM?",
         timestamp: "2024-03-07T13:45:00Z"

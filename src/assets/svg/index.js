@@ -21,20 +21,20 @@ import Bag from './shopping_bag.svg';
 import BagActive from './shopping_bag_active.svg';
 import TickIcon from './tick_green.svg';
 
-// import Heart from './heart.svg';
-// import Toggle from './toggle_icon.svg';
-// import ChatIcon from './chat_icon.svg';
-// import BarIcon from './bar_icon.svg';
-// import Vector from './vector.svg';
-// import Volume from './volume.svg';
-// import Full_Screen from './full_screen.svg';
-// import Blue_Star from './blue_star.svg';
-// import ViewIcon from './view_icon.svg';
-// import Plane from './plane.svg';
-// import Favorite from './favorite.svg';
-// import Share from './share.svg';
-// import StarUnactive from './star_unactive.svg';
-// import StarActive from './star_active.svg';
+import Heart from './heart.svg';
+import Toggle from './toggle_icon.svg';
+import ChatIcon from './chat_icon.svg';
+import BarIcon from './bar_icon.svg';
+import Vector from './vector.svg';
+import Volume from './volume.svg';
+import Full_Screen from './full_screen.svg';
+import Blue_Star from './blue_star.svg';
+import ViewIcon from './view_icon.svg';
+import Plane from './plane.svg';
+import Favorite from './favorite.svg';
+import Share from './share.svg';
+import StarUnactive from './star_unactive.svg';
+import StarActive from './star_active.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText, 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { MainWrapper, ProductSlider, SocialButton } from '@commons'
-import { Image,Text, View } from 'react-native'
+import { MainWrapper, ProductSlider, RatingCard, SocialButton } from '@commons'
+import { Image, Text, View } from 'react-native'
 import { COLORS, FONTS, IMG } from '@constants'
 import { height, width } from '@helpers'
 import { StarActive, StarUnactive, Vector } from '@assets'
@@ -40,11 +40,11 @@ export const ProductDetail = ({ navigation }) => {
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View style={{ flex: 1 }}>
-              <Text style={{paddingVertical:12, color: 'black', fontSize: 12, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, }}>Deliver to: 3696 Crestview Terrace,
+              <Text style={{ paddingVertical: 12, color: 'black', fontSize: 12, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, }}>Deliver to: 3696 Crestview Terrace,
                 Eagle Pass, TX 78852</Text>
             </View>
             <View style={{ flex: 1, flexDirection: 'row-reverse' }}>
-              <SocialButton style={{ borderColor: COLORS.BD_COLOR, width: width(22), height: 22 }} text={"Change"} styleText={{ color: '#9344FC', fontSize: 10 }} />
+              <SocialButton style={{ borderColor: COLORS.WHITE, backgroundColor: COLORS.BD_COLOR, width: width(22), height: 22 }} text={"Change"} styleText={{ color: '#9344FC', fontSize: 10 }} />
             </View>
           </View>
           <View>
@@ -58,7 +58,7 @@ export const ProductDetail = ({ navigation }) => {
                   borderRadius: 100,
                 }}
               />
-              <View style={{ marginLeft: 8,justifyContent:'center' }}>
+              <View style={{ marginLeft: 8, justifyContent: 'center' }}>
                 <View style={{ flexDirection: 'row', gap: 2 }}>
                   <Text style={{ color: '#262626', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>Meliaya Elix</Text>
                   <View style={{
@@ -71,6 +71,21 @@ export const ProductDetail = ({ navigation }) => {
                 }}>Seller</Text>
               </View>
             </View>
+          </View>
+          <View>
+            <View style={{ paddingTop: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text style={{ color: '#161616', fontSize: 14, fontWeight: '700', fontFamily: FONTS.URBAN_SEMIBOLD }}>
+                Customer Reviews
+              </Text>
+              <SocialButton style={{ borderColor: COLORS.WHITE, width: width(22), height: 22 }} text={"See More"} styleText={{ color: '#40BFFF', fontSize: 14, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR }} />
+            </View>
+            <View style={{ flexDirection: 'row', gap: 4 }}>
+              <Text style={{ color: '#9098B1', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_BOLD }}>4.5</Text>
+              <Text style={{ color: '#9098B1', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>(5 Reviews)</Text>
+            </View>
+          </View>
+          <View style={{flexDirection:'column'}}>
+            <RatingCard/>
           </View>
         </View>
       </View>

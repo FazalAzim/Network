@@ -3,8 +3,8 @@ import { MainWrapper, PrimaryButton, ProductSlider, RatingCard, SocialButton } f
 import { FlatList, Image, Text, View } from 'react-native'
 import { COLORS, FONTS, IMG, reviews_Cards } from '@constants'
 import { height, width } from '@helpers'
-import { Vector } from '@assets'
 import { Rating } from 'react-native-ratings'
+import {CheckMarkIcon } from '@assets'
 
 export const ProductDetail = ({ navigation }) => {
   const [count, setCount] = useState(0);
@@ -70,7 +70,7 @@ export const ProductDetail = ({ navigation }) => {
                   <Text style={{ color: '#262626', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>Meliaya Elix</Text>
                   <View style={{
                     justifyContent: 'center'
-                  }}><Vector /></View>
+                  }}><CheckMarkIcon /></View>
                 </View>
                 <Text style={{
                   color: '#8F8F8F',

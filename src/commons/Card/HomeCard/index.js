@@ -1,7 +1,7 @@
 import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { styles } from './styles';
-import { BarIcon, ChatIcon, Heart, Toggle, Vector } from '@assets';
+import { BarIcon, ChatIcon, Heart, Toggle, CheckMarkIcon } from '@assets';
 import { COLORS } from '@constants';
 
 export const HomeCard = ({ item, onClick }) => {
@@ -34,7 +34,7 @@ export const HomeCard = ({ item, onClick }) => {
                   <Text style={{ color: COLORS.WHITE }}>{item.title}</Text>
                   < View style={{ flexDirection: 'row' }}>
                     <Text style={styles.backgroundImage_status}>{item.status}</Text>
-                    <View style={styles.backgroundImage_status_icon}><Vector /></View>
+                    <View style={styles.backgroundImage_status_icon}><CheckMarkIcon /></View>
                   </View>
                 </View>
               </View>

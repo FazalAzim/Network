@@ -1,5 +1,5 @@
 import { FONTS, IMG } from '@constants'
-import { StarActive, StarUnactive, Vector } from '@assets'
+import { StarActive, StarUnactive, CheckMarkIcon } from '@assets'
 import React from 'react'
 import { Image, Text, View } from 'react-native'
 

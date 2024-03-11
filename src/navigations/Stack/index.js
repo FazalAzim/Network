@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {ROUTES} from '@constants';
 import {
+    Chat,
   ForgotPassword,
   Login,
   Onboarding,
@@ -37,6 +38,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.HOME_STACK} component={Tabs} />
       <Screen name={ROUTES.VIDEO_SCREEN} component={VideoScreen} />
       <Screen name={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
+      <Screen name={ROUTES.CHAT} component={Chat} />
     </Navigator>
   );
 }

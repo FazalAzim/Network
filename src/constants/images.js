@@ -6,4 +6,7 @@ export const IMG ={
     AVATAR2: require('../assets/images/2.png'),
     AVATAR3: require('../assets/images/3.png'),
     AVATAR4: require('../assets/images/4.png'),
+    PRODUCT:require('../assets/images/product.png'),
+    PRODUCT_MOBILE:require('../assets/images/product_mobile.png')
+
 }

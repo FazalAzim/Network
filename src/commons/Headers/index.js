@@ -1,7 +1,9 @@
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ImageBackground, Pressable } from 'react-native';
 import React from 'react';
 import { COLORS, FONTS } from '@constants';
-import { RowWrapper, Text, TextButton, H3 } from '@commons';
+import { RowWrapper, Text, TextButton, H3, RowWrapperBasic } from '@commons';
+import { Back_Caret_Arrow, Toggle } from '@assets';
+import { height, width } from '@helpers';
 
 export const HeaderPrimary = ({ title, backArrow, both, menuIcon, navigation,titleColor, backArrowPress,style }) => {
   return (
@@ -47,6 +49,22 @@ export const MessageHeader = ({}) => {
       text={"New Message"}
       textBtnStyle={{color: COLORS.PRIMARY_COLOR, fontFamily: FONTS.URBAN_MEDIUM}}
       />
+    </RowWrapper>
+  )
+}
+
+export const ChatHeader = ({title, backArrow, rightIcon, onBackPress, onRightPress}) =>{
+  return(
+    <RowWrapper style={{height: height(5)}}>
+      <RowWrapperBasic style={{alignItems: 'center'}}>
+        <Pressable onPress={onBackPress}>
+          {backArrow}
+        </Pressable>
+        <H3 style={{fontFamily: FONTS.URBAN_SEMIBOLD, marginLeft: width(2)}}>{title}</H3>
+      </RowWrapperBasic>
+      <Pressable onPress={onRightPress}>
+        {rightIcon}
+      </Pressable>
     </RowWrapper>
   )
 }

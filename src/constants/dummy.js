@@ -369,6 +369,7 @@ const comment_Cards = [
 const reviews_Cards = [
   {
     key: '1',
+    name:'James Lawson',
     title: 'air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.',
     image: IMG.PRODUCT,
     stars: 4,
@@ -376,6 +377,7 @@ const reviews_Cards = [
   },
   {
     key: '2',
+    name:'Will Jack',
     title: 'Buy PC & Gaming Gear at Deep Discounts.air max are always very comfortable fit, clean and just perfect in every way.',
     image: IMG.PRODUCT_MOBILE,
     stars: 5,
@@ -383,6 +385,7 @@ const reviews_Cards = [
   },
   {
     key: '3',
+    name:'James Smith',
     title: 'ELV DIRECT Universal Mobile Phone Stand Holder With Cable Organise Buy PC & Gaming Gear at Deep Discounts.air max are always very comfortable fit, clean and just perfect in every way.',
     image: IMG.SLIDE1,
     stars: 3,
@@ -390,6 +393,7 @@ const reviews_Cards = [
   },
   {
     key: '4',
+    name:'Colin Munro',
     title: 'Buy PC & Gaming Gear at Deep Discounts.',
     image: IMG.SLIDE2,
     stars: 2,

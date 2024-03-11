@@ -1,33 +1,25 @@
-import { FONTS, IMG } from '@constants'
-import { StarActive, StarUnactive, Vector } from '@assets'
-import React from 'react'
-import { Image, Text, View } from 'react-native'
+import React from 'react';
+import { View, Image, Text } from 'react-native';
+import { Rating } from 'react-native-ratings';
+import { styles } from './styles';
 
-export const RatingCard = () => {
+export const RatingCard = ({ item }) => {
   return (
-    <View style={{ flexDirection: 'column', gap: 8 }}>
-      <View style={{ flexDirection: 'row' }}>
+    <View style={styles.container}>
+      <View style={styles.rowContainer}>
         <Image
-          source={IMG.SLIDE1}
-          style={{
-            width: 48,
-            height: 48,
-            resizeMode: 'cover',
-            borderRadius: 100,
-          }}
+          source={item.image}
+          style={styles.profileImage}
         />
-        <View style={{ marginLeft: 8, justifyContent: 'center' }}>
-          <View style={{ flexDirection: 'column', gap: 2 }}>
-            <Text style={{ color: '#262626', fontSize: 14, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>James Lawson</Text>
-            <View style={{ flexDirection: 'row', gap: 3 }}><StarActive /><StarActive /><StarActive /><StarActive /><StarUnactive /></View>
+        <View style={styles.textContainer}>
+          <View style={styles.textColumn}>
+            <Text style={styles.nameText}>{item.name}</Text>
+            <Rating ratingCount={5} imageSize={18} defaultRating={4} />
           </View>
         </View>
       </View>
-      <Text style={{ color: '#9098B1', fontSize: 12, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR }}>
-        air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.
-      </Text>
-      <Text style={{ color: '#9098B1', fontSize: 10, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR }}>December 10, 2016</Text>
-
+      <Text style={styles.titleText}>{item.title}</Text>
+      <Text style={styles.dateText}>{item.date}</Text>
     </View>
-  )
-}
+  );
+};

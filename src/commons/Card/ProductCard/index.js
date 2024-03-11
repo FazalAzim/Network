@@ -34,7 +34,7 @@ export const ProductCard = ({ item, onClick }) => {
           </View>
         ) : (
           <View style={styles.viewPriceContainer}>
-            <SocialButton style={{ borderColor: COLORS.BD_COLOR, width: width(22), height: 22, alignSelf: 'flex-start', marginBottom: 2 }} icon={<ViewIcon />} text={"View Price"} productText={true} onPress={() => setViewPrice(!viewPrice)} />
+            <SocialButton style={{ borderColor: COLORS.BD_COLOR, width: width(22), height: 22, alignSelf: 'flex-start', marginBottom: 2 }} icon={<ViewIcon />} text={"View Price"} styleText={{fontSize:10}} onPress={() => setViewPrice(!viewPrice)} />
             <Text style={styles.vendorText}>You’ll be taken to vendor's website.</Text>
           </View>
         )}

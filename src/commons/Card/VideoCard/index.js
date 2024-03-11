@@ -1,4 +1,4 @@
-import { COLORS, ICON } from '@constants'
+import { COLORS, FONTS, ICON } from '@constants'
 import { PrimaryButton } from '@commons'
 import React, { useCallback, useState } from 'react'
 import { Image, ImageBackground, Text, View } from 'react-native'
@@ -27,18 +27,17 @@ export const VideoCard = ({ onClick, paramData }) => {
           resizeMode="cover"
           style={styles.backgroundImage}>
           <View style={styles.backgroundImage_top}>
-            <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={20} onPress={onClick}
-              style={{ alignItems: 'start' }} />
-            <View style={styles.backgroundImage_top_right}>
-              <Text><Volume /></Text>
-              <Text
-                style={[{
-                  color: paramData.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
-                  backgroundColor: paramData.stream === 'Ad' ? COLORS.WHITE : 'red',
-                }, styles.backgroundImage_stream]}>
-                {paramData.stream}
-              </Text>
-            </View>
+            <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={20} onPress={onClick}/>
+              <View style={styles.backgroundImage_top_right}>
+                <Text><Volume /></Text>
+                <Text
+                  style={[{
+                    color: paramData.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
+                    backgroundColor: paramData.stream === 'Ad' ? COLORS.WHITE : 'red',
+                  }, styles.backgroundImage_stream]}>
+                  {paramData.stream}
+                </Text>
+              </View>
           </View>
           <View style={styles.backgroundImage_bottom}>
             <Text style={{ color: 'white', fontSize: 11 }}>{paramData.watching} Watching</Text>
@@ -74,7 +73,7 @@ export const VideoCard = ({ onClick, paramData }) => {
           <Text
             onTextLayout={onTextLayout}
             numberOfLines={textShown ? undefined : 4}
-            style={{ color: '#4A4A4A', fontSize: 12, fontWeight: '400', flex: 1, alignItems: 'center' }}>{text}
+            style={{ color: '#4A4A4A', fontSize: 12, fontWeight: '400',fontFamily:FONTS.URBAN_REGULAR, flex: 1, alignItems: 'center' }}>{text}
           </Text>
           {
             lengthMore ? <Text
@@ -83,7 +82,7 @@ export const VideoCard = ({ onClick, paramData }) => {
               : null
           }
         </View>
-        <View style={{marginTop:14, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <View style={{ marginTop: 14, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <View style={{ flexDirection: 'row', gap: 2, alignItems: 'center' }}>
             <Chat />
             <Text style={{ color: '#9344FC', fontSize: 12, fontWeight: '600' }}>Message</Text>

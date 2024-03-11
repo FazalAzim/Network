@@ -1,3 +1,4 @@
+import { FONTS } from "@constants"
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
@@ -58,8 +59,9 @@ export const styles = StyleSheet.create({
     },
     content_description: {
         color: '#3C3C3C',
-        fontSize: 17,
-        fontWeight: '700'
+        fontSize: 15,
+        fontWeight: '700',
+        fontFamily: FONTS.URBAN_MEDIUM,
     },
     card_bottom_bar_content: {
         marginRight: 10,

@@ -100,7 +100,7 @@ const HomeTabs = () => {
 export const Tabs = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={ROUTES.HOME} component={HomeTabs} />
+      <Stack.Screen name={ROUTES.HOME_STACK} component={HomeTabs} />
       <Stack.Screen name={ROUTES.VIDEO_SCREEN} component={VideoScreen} />
       <Stack.Screen name={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
     </Stack.Navigator>

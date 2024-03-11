@@ -1,10 +1,11 @@
 import { View, Image, Pressable } from 'react-native'
 import React from 'react'
 import {styles} from './styles'
-import { RowWrapper, Text, Wrapper } from '@commons'
+import { RowWrapper, RowWrapperBasic, Text, Wrapper } from '@commons'
 import { height, width } from '@helpers'
 import moment from 'moment';
 import { COLORS, FONTS } from '@constants'
+import { CheckMarkIcon } from '@assets'
 
 export const ContactCard = ({chat, onPress}) => {
     // console.log(username)
@@ -27,7 +28,10 @@ function formatLastMessageTime(timestamp) {
         <Image source={chat.avatar} style={{width: 40, height: 40, borderRadius: 50, resizeMode: 'contain'}} />
         <Wrapper style={{width: width(78), height: height(5), justifyContent:'center',}}>
             <RowWrapper>
-                <Text style={{fontFamily: FONTS.URBAN_BOLD}}>{chat.username}</Text>
+                <RowWrapperBasic style={{alignItems:'center', justifyContent:'center'}}>
+                  <Text style={{fontFamily: FONTS.URBAN_BOLD, marginRight: 4}}>{chat.username}</Text>
+                  <CheckMarkIcon />
+                </RowWrapperBasic>
                 <Text style={{color: COLORS._A3A3}}>{formatLastMessageTime(chat.lastMessageTime)}</Text>
             </RowWrapper>
             <RowWrapper style={{marginTop: 8}}>

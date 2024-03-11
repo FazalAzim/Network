@@ -5,9 +5,11 @@ import {
   ForgotPassword,
   Login,
   Onboarding,
+  ProductDetail,
   Signup,
   SplashScreen,
   VerifyCode,
+  VideoScreen,
 } from '@screens';
 import {useAuth} from '@contexts';
 import {useEffect, useState} from 'react';
@@ -29,6 +31,16 @@ export const AuthStack = () => {
   );
 };
 
+export const TabStack = () => {
+  return (
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen name={ROUTES.HOME_STACK} component={Tabs} />
+      <Screen name={ROUTES.VIDEO_SCREEN} component={VideoScreen} />
+      <Screen name={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
+    </Navigator>
+  );
+}
+
 export const Root = () => {
   const {currentUser} = useAuth();
   const [isUser, setIsUser] = useState(false);
@@ -38,7 +50,7 @@ export const Root = () => {
 
   return (
     <NavigationContainer>
-      {currentUser ? <Tabs /> : <AuthStack />}
+      {currentUser ? <TabStack /> : <AuthStack />}
     </NavigationContainer>
   );
 };

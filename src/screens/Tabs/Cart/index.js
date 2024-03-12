@@ -1,10 +1,36 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { styles } from './styles'
-export const Cart = () => {
+import React from 'react';
+import { View, Text, FlatList } from 'react-native';
+import { MainWrapper, PrimaryButton, CartCard } from '@commons';
+import { ICON, product_Cards } from '@constants';
+import { styles } from './styles'; 
+
+export const Cart = ({ navigation }) => {
   return (
-    <View>
-      <Text>index</Text>
-    </View>
+    <MainWrapper style={styles.container}>
+      <View style={styles.header}>
+        <ICON.Entypo name='chevron-thin-left' color={'#383838'} size={22} onPress={() => navigation.goBack()} />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={styles.title}>My Cart</Text>
+        </View>
+      </View>
+      <View style={styles.productList}>
+        <FlatList
+          data={product_Cards}
+          renderItem={({ item }) => {
+            return <CartCard item={item} />
+          }}
+        />
+      </View>
+      <View style={styles.totalContainer}>
+        <View style={styles.totalContent}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
+            <Text style={styles.totalText}>TOTAL</Text>
+            <Text style={styles.totalTaxes}>(incl. of all taxes)</Text>
+          </View>
+          <Text style={styles.totalPrice}>$500.00</Text>
+        </View>
+        <PrimaryButton text={'Proceed to Payment'} style={{ width: '100%', height: 44 }} />
+      </View>
+    </MainWrapper>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MainWrapper, PrimaryButton, ProductSlider, RatingCard, SocialButton } from '@commons'
 import { FlatList, Image, Text, View } from 'react-native'
-import { COLORS, FONTS, IMG, reviews_Cards } from '@constants'
+import { COLORS, FONTS, IMG, ROUTES, reviews_Cards } from '@constants'
 import { height, width } from '@helpers'
 import { Rating } from 'react-native-ratings'
 import {CheckMarkIcon } from '@assets'
@@ -108,7 +108,7 @@ export const ProductDetail = ({ navigation }) => {
       <View style={{ width: '100%', position: 'absolute', bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
         <View style={{ width: width(90), flexDirection: 'row', justifyContent: 'space-around' }}>
           <PrimaryButton text={'Buy Now'} style={{ width: 160, height: 44 }} />
-          <SocialButton style={{ borderColor: COLORS.PRIMARY_COLOR, backgroundColor: COLORS.WHITE, width: 160, height: 44 }} text={"Add to Cart"} styleText={{ color: '#9344FC', fontSize: 13 }} />
+          <SocialButton style={{ borderColor: COLORS.PRIMARY_COLOR, backgroundColor: COLORS.WHITE, width: 160, height: 44 }} text={"Add to Cart"} styleText={{ color: '#9344FC', fontSize: 13 }} onPress={() => navigation.navigate(ROUTES.CART)} />
         </View>
       </View>
     </MainWrapper>

@@ -28,7 +28,7 @@ const users = [
         sender: "John Doe",
         content: "Hey, how are you doing?",
         timestamp: "2024-03-05T12:00:00Z",
-        replies:[
+        replies: [
           {
             id: 1,
             sender: "currentUser",
@@ -80,7 +80,7 @@ const users = [
         id: 1,
         sender: "Bob Smith",
         content: "Thanks for the help!",
-        
+
         timestamp: "2024-03-06T16:45:00Z"
       },
       {
@@ -202,7 +202,7 @@ const users = [
     ]
   },
   {
-    key:9,
+    key: 9,
     username: "Kevin Brown",
     avatar: IMG.AVATAR1,
     lastMessage: "Meeting rescheduled to next week.",
@@ -306,6 +306,7 @@ const product_Cards = [
     priceView: true,
     price: '300.99',
     actual_price: '350.99',
+    discount: '40',
     stars: '2.5',
   },
   {
@@ -315,6 +316,7 @@ const product_Cards = [
     priceView: false,
     price: '299.99',
     actual_price: '320.99',
+    discount: '30',
     stars: '5.5',
   },
   {
@@ -324,6 +326,7 @@ const product_Cards = [
     priceView: true,
     price: '499.99',
     actual_price: '520.99',
+    discount: '50',
     stars: '8.5',
   },
   {
@@ -333,6 +336,17 @@ const product_Cards = [
     priceView: false,
     price: '199.99',
     actual_price: '220.99',
+    discount: '20',
+    stars: '9.5',
+  },
+  {
+    key: '5',
+    title: 'Buy PC & Gaming Gear at Deep Discounts.',
+    image: IMG.SLIDE2,
+    priceView: false,
+    price: '199.99',
+    actual_price: '220.99',
+    discount: '20',
     stars: '9.5',
   },
 ];
@@ -399,36 +413,36 @@ const comment_Cards = [
 const reviews_Cards = [
   {
     key: '1',
-    name:'James Lawson',
+    name: 'James Lawson',
     title: 'air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.',
     image: IMG.PRODUCT,
     stars: 4,
-    date:'December 10, 2016'
+    date: 'December 10, 2016'
   },
   {
     key: '2',
-    name:'Will Jack',
+    name: 'Will Jack',
     title: 'Buy PC & Gaming Gear at Deep Discounts.air max are always very comfortable fit, clean and just perfect in every way.',
     image: IMG.PRODUCT_MOBILE,
     stars: 5,
-    date:'November 12, 2020'
+    date: 'November 12, 2020'
   },
   {
     key: '3',
-    name:'James Smith',
+    name: 'James Smith',
     title: 'ELV DIRECT Universal Mobile Phone Stand Holder With Cable Organise Buy PC & Gaming Gear at Deep Discounts.air max are always very comfortable fit, clean and just perfect in every way.',
     image: IMG.SLIDE1,
     stars: 3,
-    date:'December 20, 2018'
+    date: 'December 20, 2018'
   },
   {
     key: '4',
-    name:'Colin Munro',
+    name: 'Colin Munro',
     title: 'Buy PC & Gaming Gear at Deep Discounts.',
     image: IMG.SLIDE2,
     stars: 2,
-    date:'March 10, 2024'
+    date: 'March 10, 2024'
   },
 ];
 
-export { slides, users, cards, product_Cards, comment_Cards,reviews_Cards }
+export { slides, users, cards, product_Cards, comment_Cards, reviews_Cards }

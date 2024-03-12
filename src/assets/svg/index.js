@@ -38,7 +38,7 @@ import StarActive from './star_active.svg';
 import PlusIcon from './plus.svg';
 import SendIcon from './send.svg';
 import Delete from './delete.svg';
-
+import LocationIcon from './location_icon.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText,
@@ -48,5 +48,5 @@ export {
     TickIcon, Heart, Toggle, ChatIcon,
     BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon,
     Plane, Favorite, Share, StarActive, StarUnactive, CheckMarkIcon,
-    PlusIcon, SendIcon, Delete
+    PlusIcon, SendIcon, Delete,LocationIcon,
 }

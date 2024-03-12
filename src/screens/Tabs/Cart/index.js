@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { MainWrapper, PrimaryButton, CartCard } from '@commons';
-import { ICON, product_Cards } from '@constants';
+import { ICON, ROUTES, product_Cards } from '@constants';
 import { styles } from './styles'; 
 
 export const Cart = ({ navigation }) => {
@@ -29,7 +29,7 @@ export const Cart = ({ navigation }) => {
           </View>
           <Text style={styles.totalPrice}>$500.00</Text>
         </View>
-        <PrimaryButton text={'Proceed to Payment'} style={{ width: '100%', height: 44 }} />
+        <PrimaryButton text={'Proceed to Payment'} style={{ width: '100%', height: 44 }} onPress={() => navigation.navigate(ROUTES.PRODUCT_CHECKOUT)} />
       </View>
     </MainWrapper>
   )

@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.WHITE,
     alignItems: 'center',
-    position: 'relative',
   },
   header: {
     width: width(95),
@@ -26,7 +25,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   totalContainer: {
-    width: '100%',
+    width: width(95),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.WHITE,

@@ -4,6 +4,7 @@ import {ROUTES} from '@constants';
 import {
     Chat,
   ForgotPassword,
+  LiveProfile,
   Login,
   Onboarding,
   ProductDetail,
@@ -39,6 +40,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.VIDEO_SCREEN} component={VideoScreen} />
       <Screen name={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
       <Screen name={ROUTES.CHAT} component={Chat} />
+      <Screen name={ROUTES.LIVE_PROFILE} component={LiveProfile} />
     </Navigator>
   );
 }

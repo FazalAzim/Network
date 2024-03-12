@@ -13,4 +13,5 @@ export * from './Card/ProductCard';
 export * from './Card/CommentCard';
 export * from './Card/RatingCard';
 export * from './ProductSlider';
+export * from './Dot';
 

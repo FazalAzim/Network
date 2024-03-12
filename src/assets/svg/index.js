@@ -37,6 +37,9 @@ import StarUnactive from './star_unactive.svg';
 import StarActive from './star_active.svg';
 import PlusIcon from './plus.svg';
 import SendIcon from './send.svg';
+import X from './x_pink.svg';
+import FbPink from './fb_pink.svg';
+import IG from './Ig.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText, 
@@ -46,4 +49,4 @@ export {
     TickIcon,Heart, Toggle, ChatIcon,
     BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon, 
     Plane, Favorite, Share,StarActive,StarUnactive, CheckMarkIcon, 
-    PlusIcon, SendIcon }
+    PlusIcon, SendIcon, X, FbPink, IG }

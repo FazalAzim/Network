@@ -1,11 +1,11 @@
-import { COLORS, FONTS, ICON } from '@constants'
+import { COLORS, FONTS, ICON, ROUTES } from '@constants'
 import { PrimaryButton } from '@commons'
 import React, { useCallback, useState } from 'react'
-import { Image, ImageBackground, Text, View } from 'react-native'
+import { Image, ImageBackground, Pressable, Text, View } from 'react-native'
 import { Volume, Full_Screen, CheckMarkIcon, Chat, Heart, ChatIcon, Toggle } from '@assets'
 import { styles } from './styles'
 
-export const VideoCard = ({ onClick, paramData }) => {
+export const VideoCard = ({ onClick, paramData, navigation }) => {
   const [textShown, setTextShown] = useState(false);
   const [lengthMore, setLengthMore] = useState(false);
 
@@ -51,7 +51,8 @@ export const VideoCard = ({ onClick, paramData }) => {
       <View style={styles.middle_bar}>
         <View
           style={styles.middle_bar_content}>
-          <View style={{ flexDirection: 'row' }}>
+        <Pressable onPress={() => navigation.navigate(ROUTES.LIVE_PROFILE)}>
+            <View style={{ flexDirection: 'row' }}>
             <Image
               source={paramData.imageIcon}
               style={styles.middle_bar_image}
@@ -64,6 +65,7 @@ export const VideoCard = ({ onClick, paramData }) => {
               </View>
             </View>
           </View>
+        </Pressable>
           <View style={styles.middle_bar_button}>
             <PrimaryButton text={'Subscribe'} style={{ width: 90, height: 35 }} />
           </View>

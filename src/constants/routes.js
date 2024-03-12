@@ -23,5 +23,6 @@ export const ROUTES = {
     PRODUCT_DETAIL: 'PRODUCT_DETAIL',
     TABS: 'TABS',
     TABS_STACK: 'TAB_STACK',
-    CHAT: 'CHAT'
+    CHAT: 'CHAT',
+    LIVE_PROFILE: 'LIVE_PROFILE'
 }

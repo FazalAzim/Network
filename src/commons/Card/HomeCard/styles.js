@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     container: {
-        marginHorizontal: 18, marginVertical: 14, height: 200
+        marginHorizontal: 14, marginVertical: 14, height: 200
     },
     backgroundImage: {
         flex: 1,

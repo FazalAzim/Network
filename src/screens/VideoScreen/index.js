@@ -41,7 +41,7 @@ export const VideoScreen = ({ route, navigation }) => {
           })}
         </View>
       </View>
-      <View style={{ flex: 1, marginHorizontal: 18, marginTop: 12 }}>
+      <View style={{ flex: 1, marginTop: 12 }}>
         <View style={{ flexDirection: 'column' }}>
           {selected === 0 ? (
             <FlatList

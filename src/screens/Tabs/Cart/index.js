@@ -17,7 +17,7 @@ export const Cart = ({ navigation }) => {
         <FlatList
           data={product_Cards}
           renderItem={({ item }) => {
-            return <CartCard item={item} />
+            return <CartCard item={item} countButton={true}/>
           }}
         />
       </View>

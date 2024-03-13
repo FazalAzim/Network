@@ -5,6 +5,7 @@ import {
   Cart,
   Chat,
   ForgotPassword,
+  LiveProfile,
   Login,
   Onboarding,
   ProductCheckout,
@@ -43,6 +44,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.CHAT} component={Chat} />
       <Screen name={ROUTES.CART} component={Cart} />
       <Screen name={ROUTES.PRODUCT_CHECKOUT} component={ProductCheckout} />
+      <Screen name={ROUTES.LIVE_PROFILE} component={LiveProfile} />
     </Navigator>
   );
 }

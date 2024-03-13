@@ -18,5 +18,8 @@ export const COLORS = {
     _A3A3: "#A3A3A3",
     GRAY: "#646464",
     _F1F1: "#F1F1F1",
-    _F7F7: '#F7F7FC'
+    _F7F7: '#F7F7FC',
+    _8181: '#818181',
+    _D9D9:'#D9D9D9',
+    _7B7B: '#7B7B7B',
 }

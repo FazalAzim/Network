@@ -24,7 +24,6 @@ const goToNextSlide = () => {
    const onIndexChanged = (newIndex) => {
     setIndex(newIndex);
   };
-  console.log("Index ==>", index)
 
   return (
    <MainWrapper style={{alignItems: 'center', justifyContent: 'center'}}>

@@ -1,24 +1,24 @@
-import { View, StyleSheet, TouchableOpacity, ImageBackground, Pressable } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ImageBackground, Pressable, Image } from 'react-native';
 import React from 'react';
 import { COLORS, FONTS } from '@constants';
 import { RowWrapper, Text, TextButton, H3, RowWrapperBasic } from '@commons';
 import { Back_Caret_Arrow, Toggle } from '@assets';
 import { height, width } from '@helpers';
 
-export const HeaderPrimary = ({ title, backArrow, both, menuIcon, navigation,titleColor, backArrowPress,style }) => {
+export const HeaderPrimary = ({ title, backArrow, both, menuIcon, navigation, titleColor, backArrowPress, style }) => {
   return (
     <View style={[styles.container, style]}>
       {menuIcon && !both ? (
-        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', flex: 1, }}>
-          {backArrow && <TouchableOpacity onPress = {backArrowPress}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', flex: 1, }}>
+          {backArrow && <TouchableOpacity onPress={backArrowPress}>
             {backArrow}
-            </TouchableOpacity>}
+          </TouchableOpacity>}
           {/* <View style={styles.centeredTitle}> */}
-            {title && <Text style={[styles.title, titleColor]}>{title}</Text>}
+          {title && <Text style={[styles.title, titleColor]}>{title}</Text>}
           {/* </View> */}
-         <TouchableOpacity>
-         {menuIcon}
-         </TouchableOpacity>
+          <TouchableOpacity>
+            {menuIcon}
+          </TouchableOpacity>
         </View>
       ) : both ? (
         <>
@@ -41,30 +41,48 @@ export const HeaderPrimary = ({ title, backArrow, both, menuIcon, navigation,tit
   );
 };
 
-export const MessageHeader = ({}) => {
-  return(
+export const MessageHeader = ({ }) => {
+  return (
     <RowWrapper>
       <H3>Messages</H3>
       <TextButton
-      text={"New Message"}
-      textBtnStyle={{color: COLORS.PRIMARY_COLOR, fontFamily: FONTS.URBAN_MEDIUM}}
+        text={"New Message"}
+        textBtnStyle={{ color: COLORS.PRIMARY_COLOR, fontFamily: FONTS.URBAN_MEDIUM }}
       />
     </RowWrapper>
   )
 }
 
-export const ChatHeader = ({title, backArrow, rightIcon, onBackPress, onRightPress}) =>{
-  return(
-    <RowWrapper style={{height: height(5)}}>
-      <RowWrapperBasic style={{alignItems: 'center'}}>
+export const ChatHeader = ({ title, backArrow, rightIcon, onBackPress, onRightPress }) => {
+  return (
+    <RowWrapper style={{ height: height(5) }}>
+      <RowWrapperBasic style={{ alignItems: 'center' }}>
         <Pressable onPress={onBackPress}>
           {backArrow}
         </Pressable>
-        <H3 style={{fontFamily: FONTS.URBAN_SEMIBOLD, marginLeft: width(2)}}>{title}</H3>
+        <H3 style={{ fontFamily: FONTS.URBAN_SEMIBOLD, marginLeft: width(2) }}>{title}</H3>
       </RowWrapperBasic>
       <Pressable onPress={onRightPress}>
         {rightIcon}
       </Pressable>
+    </RowWrapper>
+  )
+}
+
+export const HomeHeader = ({ logo, icon, profile }) => {
+  return (
+    <RowWrapper style={{ marginVertical: width(3) }}>
+      <RowWrapperBasic style={{ gap: 4 }}>
+        <Image source={logo} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
+        <RowWrapperBasic>
+          <Text style={{ color: '#1E1F3D', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>SKYY</Text>
+          <Text style={{ color: '#989898', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>LYTES</Text>
+        </RowWrapperBasic>
+      </RowWrapperBasic>
+      <RowWrapperBasic style={{ gap: 14 }}>
+        {icon}
+        <Image source={profile} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
+      </RowWrapperBasic>
     </RowWrapper>
   )
 }

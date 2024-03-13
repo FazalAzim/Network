@@ -58,7 +58,7 @@ export const ProductCheckout = ({ navigation }) => {
             <Text style={styles.priceTitle}>TOTAL</Text>
             <Text style={{ color: '#989898', fontSize: 10, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>(incl. of all taxes)</Text>
           </View>
-          <Text style={{ color: '#989898', fontSize: 14, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>$508.00</Text>
+          <Text style={{ color: '#1E1F3D', fontSize: 14, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>$508.00</Text>
         </View>
         <PrimaryButton text={'Checkout'} style={{ width: '100%', height: 44 }} />
       </View >

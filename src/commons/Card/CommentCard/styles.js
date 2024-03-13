@@ -1,9 +1,9 @@
-import { COLORS } from '@constants';
+import { COLORS, FONTS } from '@constants';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
-        marginHorizontal:14,
+        marginHorizontal: 14,
         height: 55,
         marginVertical: 6,
         flexDirection: 'row',
@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
         color: COLORS.BLACK,
         fontSize: 14,
         fontWeight: '600',
+        fontFamily: FONTS.URBAN_MEDIUM,
         lineHeight: 18,
     },
     time: {
@@ -40,6 +41,7 @@ export const styles = StyleSheet.create({
     description: {
         color: COLORS.BLACK,
         fontSize: 13,
+        fontFamily: FONTS.URBAN_REGULAR,
         fontWeight: '400',
     },
 });

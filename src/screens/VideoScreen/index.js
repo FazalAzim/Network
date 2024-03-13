@@ -61,7 +61,7 @@ export const VideoScreen = ({ route, navigation }) => {
           }
         </View>
       </View>
-      {
+      {/* {
         selected === 1 && (
           <KeyboardAvoidingView style={{ marginHorizontal: 18, }} behavior="padding" keyboardVerticalOffset={100}>
             <ScrollView>
@@ -69,7 +69,7 @@ export const VideoScreen = ({ route, navigation }) => {
             </ScrollView>
           </KeyboardAvoidingView>
         )
-      }
+      } */}
     </MainWrapper>
   )
 }

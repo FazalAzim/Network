@@ -71,7 +71,7 @@ export const ChatHeader = ({ title, backArrow, rightIcon, onBackPress, onRightPr
 
 export const HomeHeader = ({ logo, icon, profile }) => {
   return (
-    <RowWrapper style={{ marginVertical: width(3) }}>
+    <RowWrapper style={{ marginVertical: width(5) }}>
       <RowWrapperBasic style={{ gap: 4 }}>
         <Image source={logo} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
         <RowWrapperBasic>

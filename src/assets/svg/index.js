@@ -37,16 +37,24 @@ import StarUnactive from './star_unactive.svg';
 import StarActive from './star_active.svg';
 import PlusIcon from './plus.svg';
 import SendIcon from './send.svg';
+import Delete from './delete.svg';
+import LocationIcon from './location_icon.svg';
+
 import X from './x_pink.svg';
 import FbPink from './fb_pink.svg';
 import IG from './Ig.svg';
 
+
 export {
-    Apple, Google, Facebook, Chat, LogoText, 
+    Apple, Google, Facebook, Chat, LogoText,
     Logo, AddressBook, Favorites, Product, Schedules,
     Settings, Star, VideoLarge, VideoIcon, Cart, Comment,
-    LargeLogo, Eye, Back_Caret_Arrow, Bag, BagActive, 
-    TickIcon,Heart, Toggle, ChatIcon,
-    BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon, 
-    Plane, Favorite, Share,StarActive,StarUnactive, CheckMarkIcon, 
-    PlusIcon, SendIcon, X, FbPink, IG }
+
+    LargeLogo, Eye, Back_Caret_Arrow, Bag, BagActive,
+    TickIcon, Heart, Toggle, ChatIcon,
+    BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon,
+    Plane, Favorite, Share, StarActive, StarUnactive, CheckMarkIcon,
+    PlusIcon, SendIcon, Delete,LocationIcon,X, FbPink, IG
+}
+
+

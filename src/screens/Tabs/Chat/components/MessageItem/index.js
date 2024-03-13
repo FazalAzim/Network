@@ -1,3 +1,4 @@
+
 import { Chat } from 'assets';
 import { COLORS } from '@constants';
 import { height, width } from '@helpers';
@@ -47,8 +48,14 @@ export const MessageItem = ({ item, onReply }) => {
         item?.replies && item.replies[0].sender === 'currentUser' && item.replies[0].repliedTo === item.id && 
           <ComponentWrapper style={[styles.messageContainer, styles.currentUserMessageContainer]}>
             <ComponentWrapper style={styles.replyContainer}>
-              <Text multiLines={true} numOfLines={4} style={styles.replyTextContent}>{item.content}</Text>
+              <Text
+                multiLines={true}
+                numOfLines={4}
+                style={styles.replyTextContent}>
+                {item.content}
+              </Text>
             </ComponentWrapper>
+
             <Text style={[styles.messageText, styles.currentUserMessageText]}>{item?.replies[0].content}</Text>
           </ComponentWrapper>}
         {item.sender !== 'currentUser' && 

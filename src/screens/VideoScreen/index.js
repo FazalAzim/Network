@@ -70,6 +70,6 @@ export const VideoScreen = ({ route, navigation }) => {
           </KeyboardAvoidingView>
         )
       }
-    </MainWrapper >
+    </MainWrapper>
   )
 }

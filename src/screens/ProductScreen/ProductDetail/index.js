@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
-import { MainWrapper, ProductSlider, RatingCard, SocialButton } from '@commons'
-import { Image, Text, View } from 'react-native'
-import { COLORS, FONTS, IMG } from '@constants'
+import { MainWrapper, PrimaryButton, ProductSlider, RatingCard, SocialButton } from '@commons'
+import { FlatList, Image, Text, View } from 'react-native'
+import { COLORS, FONTS, IMG, ROUTES, reviews_Cards } from '@constants'
 import { height, width } from '@helpers'
-import { StarActive, StarUnactive, CheckMarkIcon } from '@assets'
+import { Rating } from 'react-native-ratings'
+import {CheckMarkIcon } from '@assets'
 
 export const ProductDetail = ({ navigation }) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [reviewVisibility, setReviewVisibility] = useState(false)
 
   const images = [IMG.PRODUCT_MOBILE, IMG.SLIDE1, IMG.SLIDE2, IMG.PRODUCT_MOBILE, IMG.SLIDE1];
 
   return (
-    <MainWrapper style={{ backgroundColor: 'white' }}>
+    <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
       <View>
         <ProductSlider images={images} onClick={() => navigation.goBack()} />
       </View>
@@ -22,7 +24,12 @@ export const ProductDetail = ({ navigation }) => {
               ELV DIRECT SLICK Multi Angle Mobile Stand.
             </Text>
           </View>
-          <View style={{ flexDirection: 'row', gap: 3 }}><StarActive /><StarActive /><StarActive /><StarActive /><StarUnactive /></View>
+          <View style={{ alignItems: 'flex-start' }}>
+            <Rating ratingCount={5}
+              imageSize={20}
+              defaultRating={4}
+            />
+          </View>
           <View style={{ paddingVertical: 6, flexDirection: 'row', gap: 8 }}>
             <Text style={{ color: 'black', fontSize: 20, fontWeight: '600', fontFamily: FONTS.URBAN_MEDIUM }}>$179.00</Text>
             <Text style={{ color: '#A3A3A3', fontSize: 20, fontWeight: '700', fontFamily: FONTS.URBAN_MEDIUM, textDecorationLine: 'line-through', }}>$299.00</Text>
@@ -77,16 +84,31 @@ export const ProductDetail = ({ navigation }) => {
               <Text style={{ color: '#161616', fontSize: 14, fontWeight: '700', fontFamily: FONTS.URBAN_SEMIBOLD }}>
                 Customer Reviews
               </Text>
-              <SocialButton style={{ borderColor: COLORS.WHITE, width: width(22), height: 22 }} text={"See More"} styleText={{ color: '#40BFFF', fontSize: 14, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR }} />
+              <SocialButton onPress={() => setReviewVisibility(true)} style={{ borderColor: COLORS.WHITE, width: width(22), height: 22 }} text={"See More"} styleText={{ color: '#40BFFF', fontSize: 14, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR }} />
             </View>
             <View style={{ flexDirection: 'row', gap: 4 }}>
               <Text style={{ color: '#9098B1', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_BOLD }}>4.5</Text>
               <Text style={{ color: '#9098B1', fontSize: 12, fontWeight: '700', fontFamily: FONTS.URBAN_REGULAR }}>(5 Reviews)</Text>
             </View>
           </View>
-          <View style={{flexDirection:'column'}}>
-            <RatingCard/>
-          </View>
+          {
+            reviewVisibility && (
+              <View style={{ height: 120, flexDirection: 'column' }}>
+                <FlatList
+                  data={reviews_Cards}
+                  renderItem={({ item }) => {
+                    return <RatingCard item={item} />
+                  }}
+                />
+              </View>
+            )
+          }
+        </View>
+      </View>
+      <View style={{ width: '100%', position: 'absolute', bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ width: width(90), flexDirection: 'row', justifyContent: 'space-around' }}>
+          <PrimaryButton text={'Buy Now'} style={{ width: 160, height: 44 }} />
+          <SocialButton style={{ borderColor: COLORS.PRIMARY_COLOR, backgroundColor: COLORS.WHITE, width: 160, height: 44 }} text={"Add to Cart"} styleText={{ color: '#9344FC', fontSize: 13 }} onPress={() => navigation.navigate(ROUTES.CART)} />
         </View>
       </View>
     </MainWrapper>

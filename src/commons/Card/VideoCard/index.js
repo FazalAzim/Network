@@ -27,17 +27,17 @@ export const VideoCard = ({ onClick, paramData, navigation }) => {
           resizeMode="cover"
           style={styles.backgroundImage}>
           <View style={styles.backgroundImage_top}>
-            <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={20} onPress={onClick}/>
-              <View style={styles.backgroundImage_top_right}>
-                <Text><Volume /></Text>
-                <Text
-                  style={[{
-                    color: paramData.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
-                    backgroundColor: paramData.stream === 'Ad' ? COLORS.WHITE : 'red',
-                  }, styles.backgroundImage_stream]}>
-                  {paramData.stream}
-                </Text>
-              </View>
+            <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={20} onPress={onClick} />
+            <View style={styles.backgroundImage_top_right}>
+              <Text><Volume /></Text>
+              <Text
+                style={[{
+                  color: paramData.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
+                  backgroundColor: paramData.stream === 'Ad' ? COLORS.WHITE : 'red',
+                }, styles.backgroundImage_stream]}>
+                {paramData.stream}
+              </Text>
+            </View>
           </View>
           <View style={styles.backgroundImage_bottom}>
             <Text style={{ color: 'white', fontSize: 11 }}>{paramData.watching} Watching</Text>
@@ -51,21 +51,21 @@ export const VideoCard = ({ onClick, paramData, navigation }) => {
       <View style={styles.middle_bar}>
         <View
           style={styles.middle_bar_content}>
-        <Pressable onPress={() => navigation.navigate(ROUTES.LIVE_PROFILE)}>
+          <Pressable onPress={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: false })}>
             <View style={{ flexDirection: 'row' }}>
-            <Image
-              source={paramData.imageIcon}
-              style={styles.middle_bar_image}
-            />
-            <View style={{ marginLeft: 8 }}>
-              <Text style={{ color: '#262626', fontSize: 17 }}>{paramData.title}</Text>
-              < View style={{ flexDirection: 'row' }}>
-                <Text style={styles.middle_bar_status}>{paramData.status}</Text>
-                <View style={styles.middle_bar_status_icon}><CheckMarkIcon /></View>
+              <Image
+                source={paramData.imageIcon}
+                style={styles.middle_bar_image}
+              />
+              <View style={{ marginLeft: 8 }}>
+                <Text style={{ color: '#262626', fontSize: 17 }}>{paramData.title}</Text>
+                < View style={{ flexDirection: 'row' }}>
+                  <Text style={styles.middle_bar_status}>{paramData.status}</Text>
+                  <View style={styles.middle_bar_status_icon}><CheckMarkIcon /></View>
+                </View>
               </View>
             </View>
-          </View>
-        </Pressable>
+          </Pressable>
           <View style={styles.middle_bar_button}>
             <PrimaryButton text={'Subscribe'} style={{ width: 90, height: 35 }} />
           </View>
@@ -75,7 +75,7 @@ export const VideoCard = ({ onClick, paramData, navigation }) => {
           <Text
             onTextLayout={onTextLayout}
             numberOfLines={textShown ? undefined : 4}
-            style={{ color: '#4A4A4A', fontSize: 12, fontWeight: '400',fontFamily:FONTS.URBAN_REGULAR, flex: 1, alignItems: 'center' }}>{text}
+            style={{ color: '#4A4A4A', fontSize: 12, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, flex: 1, alignItems: 'center' }}>{text}
           </Text>
           {
             lengthMore ? <Text

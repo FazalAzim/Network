@@ -10,7 +10,7 @@ export const styles = ({ } = {}) => StyleSheet.create({
     height: 134,
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: COLORS.RED_COLOR,
+    // borderColor: COLORS.RED_COLOR,
   },
   userAvatar: {
     width: 122,

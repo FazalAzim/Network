@@ -42,14 +42,16 @@ import FbPink from './fb_pink.svg';
 import IG from './Ig.svg';
 import Delete from './delete.svg';
 import LocationIcon from './location_icon.svg';
+import MenuIcon from './menu_icon.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText,
     Logo, AddressBook, Favorites, Product, Schedules,
     Settings, Star, VideoLarge, VideoIcon, Cart, Comment,
-    LargeLogo, Eye, Back_Caret_Arrow, Bag, BagActive, 
-    TickIcon,Heart, Toggle, ChatIcon,
-    BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon, 
-    Plane, Favorite, Share,StarActive,StarUnactive, CheckMarkIcon, 
-    PlusIcon, SendIcon, X, FbPink, IG,Delete,LocationIcon }
+    LargeLogo, Eye, Back_Caret_Arrow, Bag, BagActive,
+    TickIcon, Heart, Toggle, ChatIcon,
+    BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon,
+    Plane, Favorite, Share, StarActive, StarUnactive, CheckMarkIcon,
+    PlusIcon, SendIcon, X, FbPink, IG, Delete, LocationIcon,MenuIcon,
+}
 

@@ -8,7 +8,7 @@ export const stylez = () => {
             backgroundColor: COLORS.PRIMARY_COLOR,
             width: width(90),
             height: height(6),
-            borderRadius: 6,
+            borderRadius: 5,
             marginBottom: height(1.5),
             justifyContent: 'center',
             alignSelf: 'center',

@@ -22,7 +22,7 @@ export const Home = ({ navigation }) => {
   ];
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
-      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={<ICON.AntDesign name='bells' color={COLORS.BLACK} size={20} />} />
+      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={<ICON.AntDesign name='bells' color={COLORS.BLACK} size={20} />} profileClick={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, })} />
       <Wrapper style={{ marginTop: 12 }}>
         <FlatList
           horizontal

@@ -43,6 +43,9 @@ import IG from './Ig.svg';
 import Delete from './delete.svg';
 import LocationIcon from './location_icon.svg';
 import MenuIcon from './menu_icon.svg';
+import Bag_Icon from './shopping_bag_mini.svg';
+import Play_Icon from './play_icon.svg';
+import Box_Icon from './box_icon.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText,
@@ -52,6 +55,6 @@ export {
     TickIcon, Heart, Toggle, ChatIcon,
     BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon,
     Plane, Favorite, Share, StarActive, StarUnactive, CheckMarkIcon,
-    PlusIcon, SendIcon, X, FbPink, IG, Delete, LocationIcon,MenuIcon,
+    PlusIcon, SendIcon, X, FbPink, IG, Delete, LocationIcon,MenuIcon,Bag_Icon,Play_Icon,Box_Icon,
 }
 

@@ -1,13 +1,15 @@
 import { View, Image, TouchableOpacity, FlatList } from 'react-native'
-import React, { useState } from 'react'
-import { ChatHeader, Dot, H3, HomeCard, MainWrapper, PrimaryButton, ProductCard, RowWrapper, RowWrapperBasic, Text, Wrapper } from '@commons'
-import { Back_Caret_Arrow, CheckMarkIcon, FbPink, IG, MenuIcon, Toggle, X } from '@assets'
+import React, { useRef, useState } from 'react'
+import { ChatHeader, Dot, H3, HomeCard, MainWrapper, PrimaryButton, ProductCard, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons'
+import { AddressBook, Back_Caret_Arrow, Bag_Icon, Box_Icon, CheckMarkIcon, Favorite, FbPink, IG, MenuIcon, Play_Icon, Schedules, Settings, Star, Toggle, X } from '@assets'
 import { COLORS, FONTS, IMG, ROUTES, cards, product_Cards } from '@constants'
 import { styles } from './styles'
 import { height, width } from '@helpers'
+import RBSheet from "react-native-raw-bottom-sheet";
 
 export const LiveProfile = ({ route, navigation }) => {
   const { profile } = route?.params;
+  const refRBSheet = useRef();
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [selected, setSelected] = useState(0);
   const [activeTab, setActiveTab] = useState('Videos');
@@ -17,12 +19,23 @@ export const LiveProfile = ({ route, navigation }) => {
     { title: 'Products' },
   ];
 
+  const sheetButton = [
+    { title: 'My Videos', icon: <Play_Icon /> },
+    { title: 'My Products', icon: <Box_Icon /> },
+    { title: 'My Schedules ', icon: <Schedules /> },
+    { title: 'Subscriptions', icon: <Star /> },
+    { title: 'My Orders', icon: <Bag_Icon /> },
+    { title: 'Saved Videos', icon: <Favorite /> },
+    { title: 'Address Book', icon: <AddressBook /> },
+    { title: 'Settings', icon: <Settings /> },
+  ]
+
   return (
     <MainWrapper>
       <ChatHeader
         title={""} backArrow={<Back_Caret_Arrow />}
         onBackPress={() => navigation.goBack()}
-        rightIcon={profile ? <MenuIcon /> : <Toggle />} onRightPress={() => { }}
+        rightIcon={profile ? <MenuIcon onPress={() => refRBSheet.current.open()} /> : <Toggle />} onRightPress={() => { }}
       />
       <Wrapper style={{ alignItems: 'center' }}>
         <Wrapper style={[styles({}).avatarBorder, { borderColor: profile ? COLORS.LIGHT_GRAY : COLORS.RED_COLOR, }]}>
@@ -111,6 +124,30 @@ export const LiveProfile = ({ route, navigation }) => {
           />
         )
         }
+      </Wrapper>
+      <Wrapper>
+        <RBSheet
+          ref={refRBSheet}
+          closeOnDragDown={true}
+          closeOnPressMask={false}
+          height={height(50)}
+          customStyles={{
+            container: {
+              borderRadius: 10,
+            },
+            draggableIcon: {
+              backgroundColor: "#D9D9D9",
+              width: 42,
+              height: 3,
+            }
+          }}
+        >
+          <Wrapper style={{ marginTop: 6, marginHorizontal: width(4), flexDirection: 'column' }}>
+            {sheetButton.map((item, index) => {
+              return <SocialButton key={index} style={{ height: height(4), borderColor: COLORS.WHITE, alignSelf: 'flex-start', }} icon={item.icon} text={item.title} styleText={{ lineHeight: 19, fontSize: 16, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR, marginLeft: 8 }} />
+            })}
+          </Wrapper>
+        </RBSheet>
       </Wrapper>
     </MainWrapper>
   )

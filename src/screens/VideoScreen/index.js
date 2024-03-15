@@ -23,7 +23,7 @@ export const VideoScreen = ({ route, navigation }) => {
 
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
-      <VideoCard onClick={() => navigation.goBack()} paramData={item} navigation={navigation} />
+      <VideoCard onClick={() => navigation.goBack()} paramData={item} navigation={navigation} services={false} />
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
           {sections.map((data, index) => {

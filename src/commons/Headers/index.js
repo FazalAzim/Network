@@ -69,11 +69,13 @@ export const ChatHeader = ({ title, backArrow, rightIcon, onBackPress, onRightPr
   )
 }
 
-export const HomeHeader = ({ logo, icon, profile, profileClick }) => {
+export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick }) => {
   return (
     <RowWrapper style={{ marginVertical: width(5) }}>
       <RowWrapperBasic style={{ gap: 4 }}>
-        <Image source={logo} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
+        <Pressable onPress={providerClick}>
+          <Image source={logo} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
+        </Pressable>
         <RowWrapperBasic>
           <Text style={{ color: '#1E1F3D', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>SKYY</Text>
           <Text style={{ color: '#989898', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>LYTES</Text>

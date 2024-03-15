@@ -3,11 +3,12 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     backgroundImage: {
-        padding: 16,
         flex: 1,
         justifyContent: 'space-between'
     },
     backgroundImage_top: {
+        marginTop:16,
+        marginHorizontal:16,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
@@ -21,6 +22,8 @@ export const styles = StyleSheet.create({
         borderRadius: 4
     },
     backgroundImage_bottom: {
+        marginBottom:16,
+        marginHorizontal:16,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },

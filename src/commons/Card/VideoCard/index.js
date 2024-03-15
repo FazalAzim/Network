@@ -1,11 +1,11 @@
 import { COLORS, FONTS, ICON, ROUTES } from '@constants'
-import { PrimaryButton } from '@commons'
+import { PrimaryButton, Wrapper } from '@commons'
 import React, { useCallback, useState } from 'react'
 import { Image, ImageBackground, Pressable, Text, View } from 'react-native'
 import { Volume, Full_Screen, CheckMarkIcon, Chat, Heart, ChatIcon, Toggle } from '@assets'
 import { styles } from './styles'
 
-export const VideoCard = ({ onClick, paramData, navigation }) => {
+export const VideoCard = ({ onClick, paramData, navigation, services }) => {
   const [textShown, setTextShown] = useState(false);
   const [lengthMore, setLengthMore] = useState(false);
 
@@ -25,7 +25,8 @@ export const VideoCard = ({ onClick, paramData, navigation }) => {
         <ImageBackground
           source={paramData.image}
           resizeMode="cover"
-          style={styles.backgroundImage}>
+          blurRadius={services ? 10 : 0}
+          style={[styles.backgroundImage, { position: 'relative' }]}>
           <View style={styles.backgroundImage_top}>
             <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={20} onPress={onClick} />
             <View style={styles.backgroundImage_top_right}>
@@ -46,6 +47,14 @@ export const VideoCard = ({ onClick, paramData, navigation }) => {
               <Full_Screen />
             </View>
           </View>
+          {services &&
+            <Wrapper style={{ position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+              <Wrapper style={{ flexDirection: 'column', gap: 12 }}>
+                <Text style={{ color: COLORS.WHITE, fontSize: 14, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 16 }}>Subscribe to watch video</Text>
+                <PrimaryButton text={'Subscribe $10/Month '} style={{ width: 160, height: 30 }} styleText={{ fontSize: 12, fontWeight: '600', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 14 }} />
+              </Wrapper>
+            </Wrapper>
+          }
         </ImageBackground >
       </View >
       <View style={styles.middle_bar}>

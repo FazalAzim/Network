@@ -14,6 +14,7 @@ import {
   SplashScreen,
   VerifyCode,
   VideoScreen,
+  ProviderDetails,
 } from '@screens';
 import { useAuth } from '@contexts';
 import { useEffect, useState } from 'react';
@@ -45,6 +46,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.CART} component={Cart} />
       <Screen name={ROUTES.PRODUCT_CHECKOUT} component={ProductCheckout} />
       <Screen name={ROUTES.LIVE_PROFILE} component={LiveProfile} />
+      <Screen name={ROUTES.PROVIDER_DETAILS} component={ProviderDetails} />
     </Navigator>
   );
 }

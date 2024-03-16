@@ -11,3 +11,4 @@ export * from './Subscriptions';
 export * from './Chat';
 export * from './LiveProfile';
 export * from './ProviderDetails';
+export * from './CreatorProfile';

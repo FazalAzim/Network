@@ -23,4 +23,5 @@ export const COLORS = {
     _D9D9:'#D9D9D9',
     _7B7B: '#7B7B7B',
     _1E1F:'#1E1F3D',
+    _3838:'#383838',
 }

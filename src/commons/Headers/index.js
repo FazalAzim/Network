@@ -69,19 +69,17 @@ export const ChatHeader = ({ title, backArrow, rightIcon, onBackPress, onRightPr
   )
 }
 
-export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick, providerProfile, bottomPress }) => {
+export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick, providerProfile }) => {
   return (
     <RowWrapper style={{ marginVertical: width(5) }}>
       <RowWrapperBasic style={{ gap: 4 }}>
         <Pressable onPress={providerClick}>
           <Image source={logo} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
         </Pressable>
-        <Pressable onPress={bottomPress}>
-          <RowWrapperBasic>
-            <Text style={{ color: '#1E1F3D', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>SKYY</Text>
-            <Text style={{ color: '#989898', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>LYTES</Text>
-          </RowWrapperBasic>
-        </Pressable>
+        <RowWrapperBasic>
+          <Text style={{ color: '#1E1F3D', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>SKYY</Text>
+          <Text style={{ color: '#989898', letterSpacing: 3, fontSize: 14, fontFamily: FONTS.URBAN_REGULAR, fontWeight: '500' }}>LYTES</Text>
+        </RowWrapperBasic>
       </RowWrapperBasic>
       <RowWrapperBasic style={{ gap: 14 }}>
         <Pressable onPress={providerProfile}>

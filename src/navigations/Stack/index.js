@@ -15,6 +15,7 @@ import {
   VerifyCode,
   VideoScreen,
   ProviderDetails,
+  CreatorProfile,
 } from '@screens';
 import { useAuth } from '@contexts';
 import { useEffect, useState } from 'react';
@@ -47,6 +48,8 @@ export const TabStack = () => {
       <Screen name={ROUTES.PRODUCT_CHECKOUT} component={ProductCheckout} />
       <Screen name={ROUTES.LIVE_PROFILE} component={LiveProfile} />
       <Screen name={ROUTES.PROVIDER_DETAILS} component={ProviderDetails} />
+      <Screen name={ROUTES.CREATOR_PROFILE} component={CreatorProfile} />
+
     </Navigator>
   );
 }

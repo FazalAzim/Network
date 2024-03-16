@@ -19,9 +19,11 @@ export const styles = StyleSheet.create({
     fontFamily: FONTS.URBAN_REGULAR
   },
   subscriptionRow: {
-    height: 50,
-    backgroundColor: '#F8F8F8',
-    marginBottom: 10
+    paddingHorizontal:12,
+    height: 45,
+    backgroundColor: '#cef2ed',
+    marginBottom: 10,
+    borderRadius:6,
   },
   subscriptionText: {
     fontSize: 13,

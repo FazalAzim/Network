@@ -39,7 +39,7 @@ export const ProviderDetails = ({ navigation }) => {
           You must be subscribed in to chat.
         </H3>
         <Wrapper style={styles.subscribeButtonWrapper}>
-          <PrimaryButton text={'Subscribe'} style={{ width: 90, height: 35 }} />
+          <PrimaryButton text={'Subscribe'} style={{ width: 100, height: 35 }} />
         </Wrapper>
       </RowWrapper>
     </MainWrapper>

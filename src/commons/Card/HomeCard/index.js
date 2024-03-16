@@ -2,9 +2,10 @@ import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-nati
 import React from 'react';
 import { styles } from './styles';
 import { BarIcon, ChatIcon, Heart, Toggle, CheckMarkIcon } from '@assets';
-import { COLORS } from '@constants';
+import { COLORS, FONTS } from '@constants';
+import { PrimaryButton, Wrapper } from '@commons';
 
-export const HomeCard = ({ item, onClick }) => {
+export const HomeCard = ({ item, onClick, provider }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onClick}>
@@ -12,19 +13,26 @@ export const HomeCard = ({ item, onClick }) => {
           <ImageBackground
             source={item.image}
             resizeMode="cover"
+            blurRadius={provider ? 10 : 1}
             imageStyle={{ borderRadius: 8 }}
-            style={styles.backgroundImage}>
+            style={[styles.backgroundImage, { position: 'relative' }]}>
             <View style={{ alignItems: 'flex-end' }}>
-              <Text
-                style={[{
-                  color: item.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
-                  backgroundColor: item.stream === 'Ad' ? COLORS.WHITE : 'red',
-                }, styles.backgroundImage_stream]}>
-                {item.stream}
-              </Text>
+              {provider ?
+                <Text style={[styles.backgroundImage_stream, { color: COLORS.WHITE, fontFamily: FONTS.URBAN_REGULAR, fontSize: 11, fontWeight: '400', lineHeight: 13 }]}>
+                  2 days ago
+                </Text>
+                :
+                <Text
+                  style={[{
+                    color: item.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
+                    backgroundColor: item.stream === 'Ad' ? COLORS.WHITE : 'red',
+                  }, styles.backgroundImage_stream]}>
+                  {item.stream}
+                </Text>
+              }
             </View>
             <View
-              style={styles.backgroundImage_content}>
+              style={[styles.backgroundImage_content, { display: provider ? 'none' : 'flex' }]}>
               <View style={{ flexDirection: 'row' }}>
                 <Image
                   source={item.imageIcon}
@@ -42,6 +50,14 @@ export const HomeCard = ({ item, onClick }) => {
                 <Text><BarIcon /></Text>
               </View>
             </View>
+            {provider && (
+              <Wrapper style={{ position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                <Wrapper style={{ flexDirection: 'column', gap: 12 }}>
+                  <Text style={{ color: COLORS.WHITE, fontSize: 14, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 16 }}>Subscribe to watch video</Text>
+                  <PrimaryButton text={'Subscribe $10/Month '} style={{ width: 160, height: 30 }} styleText={{ fontSize: 12, fontWeight: '600', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 14 }} />
+                </Wrapper>
+              </Wrapper>
+            )}
           </ImageBackground>
         </View >
       </TouchableOpacity>

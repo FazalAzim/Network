@@ -60,7 +60,7 @@ export const VideoCard = ({ onClick, paramData, navigation, services }) => {
       <View style={styles.middle_bar}>
         <View
           style={styles.middle_bar_content}>
-          <Pressable onPress={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: false })}>
+          <Pressable onPress={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: false, provider: false })}>
             <View style={{ flexDirection: 'row' }}>
               <Image
                 source={paramData.imageIcon}

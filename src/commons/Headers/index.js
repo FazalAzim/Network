@@ -69,7 +69,7 @@ export const ChatHeader = ({ title, backArrow, rightIcon, onBackPress, onRightPr
   )
 }
 
-export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick }) => {
+export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick, providerProfile }) => {
   return (
     <RowWrapper style={{ marginVertical: width(5) }}>
       <RowWrapperBasic style={{ gap: 4 }}>
@@ -82,7 +82,9 @@ export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick })
         </RowWrapperBasic>
       </RowWrapperBasic>
       <RowWrapperBasic style={{ gap: 14 }}>
-        {icon}
+        <Pressable onPress={providerProfile}>
+          {icon}
+        </Pressable>
         <Pressable onPress={profileClick}>
           <Image source={profile} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
         </Pressable>

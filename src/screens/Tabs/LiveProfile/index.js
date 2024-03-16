@@ -8,7 +8,8 @@ import { height, width } from '@helpers'
 import RBSheet from "react-native-raw-bottom-sheet";
 
 export const LiveProfile = ({ route, navigation }) => {
-  const { profile } = route?.params;
+  const { profile, provider } = route?.params;
+  console.log(provider)
   const refRBSheet = useRef();
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [selected, setSelected] = useState(0);
@@ -35,7 +36,7 @@ export const LiveProfile = ({ route, navigation }) => {
       <ChatHeader
         title={""} backArrow={<Back_Caret_Arrow />}
         onBackPress={() => navigation.goBack()}
-        rightIcon={profile ? <MenuIcon onPress={() => refRBSheet.current.open()} /> : <Toggle />} onRightPress={() => { }}
+        rightIcon={provider ? <Toggle /> : profile ? <MenuIcon onPress={() => refRBSheet.current.open()} /> : <Toggle />} onRightPress={() => { }}
       />
       <Wrapper style={{ alignItems: 'center' }}>
         <Wrapper style={[styles({}).avatarBorder, { borderColor: profile ? COLORS.LIGHT_GRAY : COLORS.RED_COLOR, }]}>
@@ -90,41 +91,61 @@ export const LiveProfile = ({ route, navigation }) => {
           I'm a marketing lead at XYZ Digital Products. With over 6 years of experience in online marketing & eCommerce, I shares my knowledge here. I'm inspired by the success of many content creators and is passionate about finding new ways how I can help others to succeed.
         </Text>
       </Wrapper>
-      <Wrapper style={styles({}).buttonTabContainer}>
-        <Wrapper style={styles({}).buttonTab}>
-          {sections.map((data, index) => {
-            return (
-              <TouchableOpacity key={index}
-                style={[styles({}).button, activeTab === data.title ? styles({}).activeButton : null]}
-                onPress={() => {
-                  setSelected(index);
-                  setActiveTab(data.title)
-                }}>
-                <Text style={styles({}).buttonText}>{data.title}</Text>
-                {activeTab === data.title && <View style={styles({}).activeIndicator} />}
-              </TouchableOpacity>
+      {provider ? (
+        <>
+          <Wrapper style={{ marginHorizontal: width(3), marginVertical: height(2) }}>
+            <H3 >Videos</H3>
+          </Wrapper>
+
+          <Wrapper style={{ flex: 1, flexDirection: 'column' }}>
+            <FlatList
+              data={cards}
+              renderItem={({ item }) => {
+                return <HomeCard item={item} provider={provider} />;
+              }}
+            />
+          </Wrapper>
+        </>
+      ) : (
+        <>
+          <Wrapper style={styles({}).buttonTabContainer}>
+            <Wrapper style={styles({}).buttonTab}>
+              {sections.map((data, index) => {
+                return (
+                  <TouchableOpacity key={index}
+                    style={[styles({}).button, activeTab === data.title ? styles({}).activeButton : null]}
+                    onPress={() => {
+                      setSelected(index);
+                      setActiveTab(data.title)
+                    }}>
+                    <Text style={styles({}).buttonText}>{data.title}</Text>
+                    {activeTab === data.title && <View style={styles({}).activeIndicator} />}
+                  </TouchableOpacity>
+                )
+              })}
+            </Wrapper>
+          </Wrapper>
+
+          <Wrapper style={{ flex: 1, flexDirection: 'column' }}>
+            {selected === 0 ? (
+              <FlatList
+                data={cards}
+                renderItem={({ item }) => {
+                  return <HomeCard item={item} />;
+                }}
+              />
+            ) : (
+              <FlatList
+                data={product_Cards}
+                renderItem={({ item }) => {
+                  return <ProductCard item={item} />;
+                }}
+              />
             )
-          })}
-        </Wrapper>
-      </Wrapper>
-      <Wrapper style={{ flex: 1, flexDirection: 'column' }}>
-        {selected === 0 ? (
-          <FlatList
-            data={cards}
-            renderItem={({ item }) => {
-              return <HomeCard item={item} />;
-            }}
-          />
-        ) : (
-          <FlatList
-            data={product_Cards}
-            renderItem={({ item }) => {
-              return <ProductCard item={item} />;
-            }}
-          />
-        )
-        }
-      </Wrapper>
+            }
+          </Wrapper>
+        </>
+      )}
       <Wrapper>
         <RBSheet
           ref={refRBSheet}

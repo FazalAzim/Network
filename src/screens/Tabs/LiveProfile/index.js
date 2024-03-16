@@ -9,7 +9,6 @@ import RBSheet from "react-native-raw-bottom-sheet";
 
 export const LiveProfile = ({ route, navigation }) => {
   const { profile, provider } = route?.params;
-  console.log(provider)
   const refRBSheet = useRef();
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [selected, setSelected] = useState(0);

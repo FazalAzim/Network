@@ -4,12 +4,14 @@ import {
   FlatList
 
 } from 'react-native';
-import React, { useState } from 'react';
-import { HomeCard, HomeHeader, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, SocialButton, Wrapper } from '@commons';
-import { COLORS, ICON, IMG, ROUTES, cards } from '@constants';
+import React, { useRef, useState } from 'react';
+import { H1, H3, HomeCard, HomeHeader, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons';
+import { COLORS, FONTS, ICON, IMG, ROUTES, cards } from '@constants';
 import { height, width } from '@helpers';
+import RBSheet from 'react-native-raw-bottom-sheet';
 
 export const Home = ({ navigation }) => {
+  const refRBSheet = useRef();
   const [activeTab, setActiveTab] = useState('Live');
 
   const button = [
@@ -22,7 +24,7 @@ export const Home = ({ navigation }) => {
   ];
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
-      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={<ICON.AntDesign name='bells' color={COLORS.BLACK} size={20} />} profileClick={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: false, })} providerClick={() => navigation.navigate(ROUTES.PROVIDER_DETAILS)} providerProfile={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: true })} />
+      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={<ICON.AntDesign name='bells' color={COLORS.BLACK} size={20} />} profileClick={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: false, })} providerClick={() => navigation.navigate(ROUTES.PROVIDER_DETAILS)} providerProfile={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: true })} bottomPress={() => refRBSheet.current.open()} />
       <Wrapper style={{ marginTop: 12 }}>
         <FlatList
           horizontal
@@ -42,6 +44,32 @@ export const Home = ({ navigation }) => {
           }}
         />
       </View>
+      <Wrapper>
+        <RBSheet
+          ref={refRBSheet}
+          closeOnDragDown={true}
+          closeOnPressMask={false}
+          height={height(32)}
+          customStyles={{
+            container: {
+              borderRadius: 10,
+            },
+            draggableIcon: {
+              backgroundColor: "#D9D9D9",
+              width: 42,
+              height: 3,
+            }
+          }}
+        >
+          <Wrapper style={{ marginTop: 6, marginHorizontal: width(4), flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
+            <H3 style={{ color: COLORS._1E1F, fontSize: 17 }}>Verify your SkyyLytes account </H3>
+            <Text style={{ width: width(66), fontSize: 13, textAlign: 'center', fontFamily: FONTS.URBAN_MEDIUM }}>You must verify your account before you can
+              create any content.</Text>
+            <Text style={{ width: width(90), fontSize: 13, textAlign: "center", fontFamily: FONTS.URBAN_REGULAR }}>Verified accounts have a tick mark next to their names. This shows that SkyyLytes has confirmed that an account is the authentic presence of that content creator. This helps us to keep the application authentic and safe. </Text>
+            <PrimaryButton text={'Verify Account'} style={{marginTop:width(2)}}/>
+          </Wrapper>
+        </RBSheet>
+      </Wrapper>
     </MainWrapper>
   );
 };

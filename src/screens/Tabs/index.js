@@ -12,3 +12,4 @@ export * from './Chat';
 export * from './LiveProfile';
 export * from './ProviderDetails';
 export * from './CreatorProfile';
+export * from './VerificationSubmit';

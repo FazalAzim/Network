@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { height, width } from '@helpers'
-import { COLORS, FONTS, ICON } from '@constants'
+import { COLORS, FONTS, ICON, ROUTES } from '@constants'
 import { SelectList } from 'react-native-dropdown-select-list'
 import { Upload_Icon } from '@assets'
 import ImagePicker from 'react-native-image-crop-picker';
@@ -148,7 +148,7 @@ export const CreatorProfile = ({ navigation }) => {
           <InputWithTitle placeholder='Warmwell Leisure Resor Warmwell DT2 8JE' placeholderTextColor={COLORS.BLACK} numberOfLines={10} multiline={true} inputStyle={{ height: height(18), textAlignVertical: 'top', backgroundColor: COLORS._EBEB, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 2, }} containerStyle={{ marginBottom: height(0), height: height(18) }} />
         </Wrapper>
       </ScrollWrapper>
-      <PrimaryButton text={'Submit'} style={{ width: width(95), borderRadius: 6, marginTop: width(2) }} onPress={() => navigation.navigate(ROUTES.CREATOR_PROFILE)} />
+      <PrimaryButton text={'Submit'} style={{ width: width(95), borderRadius: 6, marginTop: width(2) }} onPress={() => navigation.navigate(ROUTES.VERIFICATION_SUBMIT)} />
     </MainWrapper>
   )
 }

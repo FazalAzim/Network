@@ -24,4 +24,6 @@ export const COLORS = {
     _7B7B: '#7B7B7B',
     _1E1F:'#1E1F3D',
     _3838:'#383838',
+    _3C3C:'#3C3C3C',
+    _EBEB:'#EBEBEB',
 }

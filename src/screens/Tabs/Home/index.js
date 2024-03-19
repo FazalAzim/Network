@@ -17,10 +17,10 @@ export const Home = ({ navigation }) => {
   const button = [
     { title: "Live" },
     { title: "Previously Live" },
-    { title: "Subscriptions" },
+    { title: "Subscriptions", click: () => navigation.navigate(ROUTES.SUBSCRIPTIONS) },
     { title: "For You" },
     { title: "About" },
-    { title: "Product" },
+    { title: "Product", click: () => navigation.navigate(ROUTES.PRODUCT_LIST) },
   ];
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
@@ -31,7 +31,12 @@ export const Home = ({ navigation }) => {
           data={button}
           renderItem={({ item }) => {
             return (<Wrapper style={{ marginRight: 5 }}>
-              <SocialButton onPress={() => setActiveTab(item.title)} style={{ borderColor: COLORS.WHITE, backgroundColor: activeTab === item.title ? COLORS.PRIMARY_COLOR : COLORS.BD_COLOR, width: width(25), height: height(4) }} text={item.title} styleText={{ color: activeTab === item.title ? COLORS.WHITE : '#242424', fontSize: 12 }} />
+              <SocialButton onPress={() => {
+                if ('click' in item) {
+                  item.click()
+                }
+                setActiveTab(item.title)
+              }} style={{ borderColor: COLORS.WHITE, backgroundColor: activeTab === item.title ? COLORS.PRIMARY_COLOR : COLORS.BD_COLOR, width: width(25), height: height(4) }} text={item.title} styleText={{ color: activeTab === item.title ? COLORS.WHITE : '#242424', fontSize: 12 }} />
             </Wrapper>)
           }}
         />

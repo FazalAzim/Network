@@ -13,3 +13,4 @@ export * from './LiveProfile';
 export * from './ProviderDetails';
 export * from './CreatorProfile';
 export * from './VerificationSubmit';
+export * from './ProductList';

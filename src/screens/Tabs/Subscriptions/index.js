@@ -9,7 +9,7 @@ import { CheckIcon } from '@assets'
 const SubscribeCard = ({ data, onClick, selected }) => {
   return (
     <Pressable onPress={onClick}>
-      <Wrapper style={{ marginBottom: 14, position: 'relative', width: width(80), height: height(16), borderWidth: 1, borderColor: selected=== data.title ? COLORS.PRIMARY_COLOR : COLORS._C4C4, borderRadius: 18 }}>
+      <Wrapper style={{ marginBottom: 14, position: 'relative', width: width(80), height: height(16), borderWidth: 1, borderColor: selected === data.title ? COLORS.PRIMARY_COLOR : COLORS._C4C4, borderRadius: 18 }}>
         {data.button &&
           <PrimaryButton style={{ position: 'absolute', width: width(16), height: height(3), alignSelf: 'flex-end', top: 8, right: 8 }} text={'Best Value'} styleText={{ fontSize: 9, fontFamily: FONTS.URBAN_SEMIBOLD }} />
         }
@@ -60,7 +60,7 @@ export const Subscriptions = ({ navigation }) => {
         <FlatList
           data={data}
           renderItem={({ item }) => {
-            return <SubscribeCard data={item} onClick={()=>setSelect(item.title)} selected={select} />;
+            return <SubscribeCard data={item} onClick={() => setSelect(item.title)} selected={select} />;
           }}
         />
         <RowWrapperBasic style={{ justifyContent: 'center', gap: 4, marginBottom: 14 }}>
@@ -68,7 +68,7 @@ export const Subscriptions = ({ navigation }) => {
           <Dot style={{ alignSelf: 'center', width: 4, height: 4, backgroundColor: COLORS._6262 }} />
           <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS._6262 }}>Terms of Service</Text>
         </RowWrapperBasic>
-        <PrimaryButton text={'Subscribe'} style={styles.primaryButton} />
+        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6 }} />
       </Wrapper>
     </MainWrapper >
   )

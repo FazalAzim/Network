@@ -76,7 +76,7 @@ export const VideoCard = ({ onClick, paramData, navigation, services }) => {
             </View>
           </Pressable>
           <View style={styles.middle_bar_button}>
-            <PrimaryButton text={'Subscribe'} style={{ width: 90, height: 35 }} />
+            <PrimaryButton text={'Subscribe'} style={{ width: 90, height: 35 }} onPress={() => navigation.navigate(ROUTES.SUBSCRIPTIONS)} />
           </View>
         </View>
         <Text style={styles.content_description}>{paramData.description}</Text>

@@ -17,6 +17,7 @@ import {
   ProviderDetails,
   CreatorProfile,
   VerificationSubmit,
+  Subscriptions,
 } from '@screens';
 import { useAuth } from '@contexts';
 import { useEffect, useState } from 'react';
@@ -50,7 +51,8 @@ export const TabStack = () => {
       <Screen name={ROUTES.LIVE_PROFILE} component={LiveProfile} />
       <Screen name={ROUTES.PROVIDER_DETAILS} component={ProviderDetails} />
       <Screen name={ROUTES.CREATOR_PROFILE} component={CreatorProfile} />
-      <Screen name={ROUTES.VERIFICATION_SUBMIT} component={VerificationSubmit}/>
+      <Screen name={ROUTES.VERIFICATION_SUBMIT} component={VerificationSubmit} />
+      <Screen name={ROUTES.SUBSCRIPTIONS} component={Subscriptions} />
     </Navigator>
   );
 }

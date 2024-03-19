@@ -5,7 +5,7 @@ import { COLORS } from '@constants';
 import { stylez } from './styles';
 
 
-export const PrimaryButton = ({ onPress, text, disabled, loading, style }) => {
+export const PrimaryButton = ({ onPress, text, disabled, loading, style, styleText }) => {
     const { styles } = stylez()
     return (
         <TouchableOpacity
@@ -15,7 +15,7 @@ export const PrimaryButton = ({ onPress, text, disabled, loading, style }) => {
             <Wrapper>
                 {loading ?
                     <ActivityIndicator color={COLORS.WHITE} />
-                    : <Text style={styles.primaryBtnTxt}>{text}</Text>}
+                    : <Text style={[styles.primaryBtnTxt, styleText]}>{text}</Text>}
             </Wrapper>
         </TouchableOpacity>
     )

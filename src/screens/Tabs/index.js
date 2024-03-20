@@ -14,3 +14,4 @@ export * from './ProviderDetails';
 export * from './CreatorProfile';
 export * from './VerificationSubmit';
 export * from './ProductList';
+export * from './MyProduct';

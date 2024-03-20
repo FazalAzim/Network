@@ -19,6 +19,7 @@ import {
   VerificationSubmit,
   Subscriptions,
   ProductList,
+  MyProduct,
 } from '@screens';
 import { useAuth } from '@contexts';
 import { useEffect, useState } from 'react';
@@ -55,6 +56,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.VERIFICATION_SUBMIT} component={VerificationSubmit} />
       <Screen name={ROUTES.SUBSCRIPTIONS} component={Subscriptions} />
       <Screen name={ROUTES.PRODUCT_LIST} component={ProductList} />
+      <Screen name={ROUTES.MY_PRODUCT} component={MyProduct} />
     </Navigator>
   );
 }

@@ -1,6 +1,6 @@
 import { CartCard, MainWrapper, PrimaryButton, RowWrapperBasic, Text, Wrapper } from '@commons'
 import { width } from '@helpers'
-import { COLORS, FONTS, ICON, product_Cards } from '@constants'
+import { COLORS, FONTS, ICON, ROUTES, product_Cards } from '@constants'
 import React from 'react'
 import { FlatList } from 'react-native'
 
@@ -17,7 +17,7 @@ export const ProductList = ({ navigation }) => {
           renderItem={({ item }) => <CartCard item={item} countButton={false} product='owner' />}
         />
       </Wrapper>
-      <PrimaryButton text={'Add Product'} style={{ borderRadius: 6 }} />
+      <PrimaryButton text={'Add Product'} style={{ borderRadius: 6 }} onPress={() => navigation.navigate(ROUTES.MY_PRODUCT)} />
     </MainWrapper>
   )
 

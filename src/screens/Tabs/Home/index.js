@@ -41,7 +41,7 @@ export const Home = ({ navigation }) => {
           }}
         />
       </Wrapper>
-      <View style={{ flexDirection: 'column' }}>
+      <View style={{ flexDirection: 'column', flex: 1 }}>
         <FlatList
           data={cards}
           renderItem={({ item }) => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { MainWrapper, PrimaryButton, ProductSlider, RatingCard, SocialButton } from '@commons'
+import { MainWrapper, PrimaryButton, ProductSlider, RatingCard, SocialButton, Wrapper } from '@commons'
 import { FlatList, Image, Text, View } from 'react-native'
 import { COLORS, FONTS, IMG, ROUTES, reviews_Cards } from '@constants'
 import { height, width } from '@helpers'
 import { Rating } from 'react-native-ratings'
-import {CheckMarkIcon } from '@assets'
+import { CheckMarkIcon, Minus_Icon, Plus_Icon } from '@assets'
 
 export const ProductDetail = ({ navigation }) => {
   const [count, setCount] = useState(0);
@@ -40,11 +40,13 @@ export const ProductDetail = ({ navigation }) => {
               Holder for your Office Desks. The antiskid silicon pads on the body
               prevent accidental slips and protection from scratches.</Text>
           </View>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-            <SocialButton onPress={() => setCount(count - 1)} style={{ borderColor: COLORS.BD_COLOR, width: width(10), height: height(4), alignSelf: 'flex-start', marginBottom: 2 }} text={"-"} styleText={{ color: '#1E1F3D', fontSize: 14 }} />
-            <Text style={{ color: '#1E1F3D', fontSize: 14, fontWeight: '500' }}>{count}</Text>
-            <SocialButton onPress={() => setCount(count + 1)} style={{ borderColor: COLORS.BD_COLOR, width: width(10), height: height(4), alignSelf: 'flex-start', marginBottom: 2 }} text={"+"} styleText={{ color: '#1E1F3D', fontSize: 14 }} />
-          </View>
+          <Wrapper style={{ marginTop: height(2), flexDirection: 'row', gap: 1 }}>
+            <SocialButton onPress={() => setCount(count - 1)} style={{ borderRadius: 8, borderColor: COLORS.BD_COLOR, width: width(10), height: height(5), alignSelf: 'flex-start', marginBottom: 2 }} icon={<Minus_Icon />} />
+            <Wrapper style={{ width: width(10), height: height(5), justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={{ fontFamily: FONTS.URBAN_MEDIUM, fontSize: 14, color: COLORS.PRIMARY_COLOR }}>{count}</Text>
+            </Wrapper>
+            <SocialButton onPress={() => setCount(count + 1)} style={{ borderRadius: 8, borderColor: COLORS.BD_COLOR, width: width(10), height: height(5), alignSelf: 'flex-start', marginBottom: 2 }} icon={<Plus_Icon />} />
+          </Wrapper>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View style={{ flex: 1 }}>
               <Text style={{ paddingVertical: 12, color: 'black', fontSize: 12, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, }}>Deliver to: 3696 Crestview Terrace,

@@ -49,6 +49,9 @@ import Box_Icon from './box_icon.svg';
 import Upload_Icon from './upload_icon';
 import Check_Icon from './check_icon';
 import CheckIcon from './checkIcon.svg';
+import Plus_Blue from './plus_blue.svg';
+import Minus_Icon from './minus_icon.svg';
+import Plus_Icon from './plus_icon.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText,
@@ -59,6 +62,6 @@ export {
     BarIcon, Volume, Full_Screen, Blue_Star, ViewIcon,
     Plane, Favorite, Share, StarActive, StarUnactive, CheckMarkIcon,
     PlusIcon, SendIcon, X, FbPink, IG, Delete, LocationIcon, MenuIcon, Bag_Icon, Play_Icon,
-    Box_Icon, Upload_Icon, Check_Icon,CheckIcon,
+    Box_Icon, Upload_Icon, Check_Icon, CheckIcon, Plus_Blue,Minus_Icon,Plus_Icon,
 }
 

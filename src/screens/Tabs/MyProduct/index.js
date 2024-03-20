@@ -15,7 +15,7 @@ export const MyProduct = ({ navigation }) => {
     { title: 'External Vendors', component: <ExternalVendor /> },
   ]
   return (
-    <MainWrapper style={{ paddingHorizontal: width(3) }}>
+    <MainWrapper style={{ paddingHorizontal: width(3),backgroundColor:COLORS.WHITE }}>
       <RowWrapperBasic style={{ marginVertical: 20 }}>
         <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
         <Text style={{ flex: 1, textAlign: 'center', fontFamily: FONTS.URBAN_BOLD, fontSize: 20, color: COLORS._1E1F }}>Add Products</Text>
@@ -30,7 +30,7 @@ export const MyProduct = ({ navigation }) => {
                   setSelected(index);
                   setActiveTab(data.title)
                 }}>
-                <Text style={[styles.buttonText, activeTab === data.title ? { color: COLORS.PINK_COLOR, fontFamily: FONTS.URBAN_BOLD } : { color: COLORS._1E1F }]}>{data.title}</Text>
+                <Text style={[styles.buttonText, activeTab === data.title ? { color: COLORS.PRIMARY_COLOR, fontFamily: FONTS.URBAN_BOLD } : { color: COLORS._1E1F }]}>{data.title}</Text>
                 {activeTab === data.title && <Wrapper style={styles.activeIndicator} />}
               </TouchableOpacity>
             )

@@ -28,4 +28,7 @@ export const COLORS = {
     _EBEB:'#EBEBEB',
     _C4C4:'#C4C4C4',
     _6262:'#626262',
+    _B3E8:'#b3e8dc',
+    _FFEF:'#FFEFEF',
+    _E8EC:'#E8ECF4',
 }

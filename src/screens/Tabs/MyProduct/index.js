@@ -3,7 +3,7 @@ import { COLORS, FONTS, ICON } from '@constants'
 import { width } from '@helpers'
 import React from 'react'
 
-export const MyProduct = () => {
+export const MyProduct = ({ navigation }) => {
   return (
     <MainWrapper style={{ paddingHorizontal: width(3) }}>
       <RowWrapperBasic style={{ marginVertical: 20 }}>

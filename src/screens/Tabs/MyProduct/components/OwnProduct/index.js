@@ -3,7 +3,7 @@ import { InputWithTitle, MainWrapper, PrimaryButton, RowWrapperBasic, ScrollWrap
 import { height, width } from '@helpers'
 import { COLORS, FONTS, IMG } from '@constants'
 import { Minus_Icon, Plus_Blue, Plus_Icon } from '@assets'
-import { FlatList, Image } from 'react-native'
+import { Image } from 'react-native'
 // import ImagePicker from 'react-native-image-crop-picker';
 
 
@@ -16,12 +16,12 @@ export const OwnProduct = () => {
     setImages([...images, { image: IMG.PRODUCT_MOBILE }])
   }
 
-  const handleRemoveImage = (index) => {
-    images.filter((item, index) => {
-      return index == index
-    })
+  const handleRemoveImage = (id) => {
+    setImages(preState =>
+      preState.filter((item, index) => index !== id),
+    );
   }
-  // console.log(images)
+
   return (
     <MainWrapper>
       <ScrollWrapper>
@@ -42,24 +42,20 @@ export const OwnProduct = () => {
           <InputWithTitle placeholder='$190' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
         <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Upload product images</Text>
-        <Wrapper style={{ marginTop: height(3), flexDirection: 'row', gap: 6 }}>
-          <FlatList
-            horizontal
-            data={images}
-            renderItem={({ item }) => {
-              return (
-                <RowWrapperBasic style={{ marginRight: 4, gap: 6 }}>
-                  <Wrapper style={{ flexDirection: 'column', gap: 5 }}>
-                    <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 72, height: 72, borderWidth: 1, borderColor: COLORS._B3E8, borderRadius: 6, }}>
-                      <Image source={item.image} style={{ width: 66, height: 66, resizeMode: 'cover' }} />
-                    </Wrapper>
-                    <SocialButton onPress={() => handleRemoveImage(item.index)} style={{ borderColor: COLORS.BD_COLOR, backgroundColor: COLORS._E8EC, width: 72, height: 21, borderRadius: 3, }} text={"Remove"} styleText={{ color: COLORS.RED_COLOR, fontSize: 11 }} />
+        <Wrapper style={{ marginTop: height(3), flexDirection: 'row', flexWrap: 'wrap' }}>
+          {images.map((item, index) => {
+            return (
+              <RowWrapperBasic key={index} style={{ marginRight: 4, gap: 6, }}>
+                <Wrapper style={{ flexDirection: 'column', gap: 5 }}>
+                  <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 72, height: 72, borderWidth: 1, borderColor: COLORS._B3E8, borderRadius: 6, marginRight: 2, }}>
+                    <Image source={item.image} style={{ width: 66, height: 66, resizeMode: 'cover' }} />
                   </Wrapper>
-                </RowWrapperBasic>
-              )
-            }}
-          />
-          <SocialButton onPress={pickImage} style={{ width: 72, height: 72, marginBottom: height(5), borderColor: COLORS._B3E8 }} icon={<Plus_Blue />} />
+                  <SocialButton onPress={() => handleRemoveImage(index)} style={{ borderColor: COLORS.BD_COLOR, backgroundColor: COLORS._E8EC, width: 72, height: 21, borderRadius: 3, }} text={"Remove"} styleText={{ color: COLORS.RED_COLOR, fontSize: 11 }} />
+                </Wrapper>
+              </RowWrapperBasic>
+            )
+          })}
+          <SocialButton onPress={pickImage} style={{ width: 72, height: 72, marginBottom: height(5), borderColor: COLORS._B3E8, alignSelf: 'flex-start' }} icon={<Plus_Blue />} />
         </Wrapper>
         <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Quantity</Text>
         <Wrapper style={{ marginBottom: height(6), marginTop: height(2), flexDirection: 'row', gap: 1 }}>

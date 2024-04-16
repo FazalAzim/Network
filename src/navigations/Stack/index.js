@@ -20,6 +20,7 @@ import {
   Subscriptions,
   ProductList,
   MyProduct,
+  LiveProduct,
 } from '@screens';
 import { useAuth } from '@contexts';
 import { useEffect, useState } from 'react';
@@ -57,6 +58,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.SUBSCRIPTIONS} component={Subscriptions} />
       <Screen name={ROUTES.PRODUCT_LIST} component={ProductList} />
       <Screen name={ROUTES.MY_PRODUCT} component={MyProduct} />
+      <Screen name={ROUTES.LIVE_PRODUCT} component={LiveProduct} />
     </Navigator>
   );
 }

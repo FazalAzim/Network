@@ -19,7 +19,7 @@ export const Home = ({ navigation }) => {
     { title: "Previously Live" },
     { title: "Subscriptions", click: () => navigation.navigate(ROUTES.SUBSCRIPTIONS) },
     { title: "For You" },
-    { title: "About" },
+    { title: "Live Product",click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
     { title: "Product", click: () => navigation.navigate(ROUTES.PRODUCT_LIST) },
   ];
   return (

@@ -16,3 +16,4 @@ export * from './VerificationSubmit';
 export * from './ProductList';
 export * from './MyProduct';
 export * from './LiveProduct';
+export * from './SelectProduct';

@@ -11,14 +11,13 @@ export const LiveProduct = ({ navigation }) => {
   const [activeTab, setActiveTab] = useState('Go Live');
 
   const sections = [
-    { title: 'Go Live', component: <GoLive /> },
+    { title: 'Go Live', component: <GoLive navigation={navigation} /> },
     { title: 'Schedule', component: <Schedule /> },
   ]
   return (
     <MainWrapper style={{ paddingHorizontal: width(3),backgroundColor:COLORS.WHITE }}>
       <RowWrapperBasic style={{ marginVertical: 20 }}>
         <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
-        {/* <Text style={{ flex: 1, textAlign: 'center', fontFamily: FONTS.URBAN_BOLD, fontSize: 20, color: COLORS._1E1F }}>Add Products</Text> */}
       </RowWrapperBasic>
       <Wrapper style={styles.container}>
         <Wrapper style={styles.buttonContainer}>
@@ -41,16 +40,5 @@ export const LiveProduct = ({ navigation }) => {
     </MainWrapper >
   )
 }
-
-// import { Text, Wrapper } from '@commons'
-// import React from 'react'
-
-// export const LiveProduct = () => {
-//   return (
-//    <Wrapper>
-//     <Text>Live Product</Text>
-//    </Wrapper>
-//   )
-// }
 
 

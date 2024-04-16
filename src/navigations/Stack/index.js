@@ -21,6 +21,7 @@ import {
   ProductList,
   MyProduct,
   LiveProduct,
+  SelectProduct,
 } from '@screens';
 import { useAuth } from '@contexts';
 import { useEffect, useState } from 'react';
@@ -59,6 +60,7 @@ export const TabStack = () => {
       <Screen name={ROUTES.PRODUCT_LIST} component={ProductList} />
       <Screen name={ROUTES.MY_PRODUCT} component={MyProduct} />
       <Screen name={ROUTES.LIVE_PRODUCT} component={LiveProduct} />
+      <Screen name={ROUTES.SELECT_PRODUCT} component={SelectProduct} />
     </Navigator>
   );
 }

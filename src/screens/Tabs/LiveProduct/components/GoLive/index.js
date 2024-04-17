@@ -1,10 +1,37 @@
-import React from 'react'
-import { InputWithTitle, MainWrapper, ScrollWrapper, SocialButton, Text, Wrapper } from '@commons'
+import React, { useContext } from 'react'
+import { InputWithTitle, MainWrapper, RowWrapperBasic, ScrollWrapper, SocialButton, Text, Wrapper } from '@commons'
 import { height, width } from '@helpers'
-import { COLORS, FONTS, ICON, IMG, ROUTES } from '@constants'
-import { Pressable } from 'react-native'
+import { COLORS, FONTS, ICON, ROUTES } from '@constants'
+import { FlatList, Image, Pressable, TouchableOpacity } from 'react-native'
+import { ProductContext } from '@contexts'
+import { Cross_Icon } from '@assets'
 
-export const GoLive = ({navigation}) => {
+const ProductCard = ({ item }) => {
+  const { removeFromList } = useContext(ProductContext)
+
+  const toggleCheckbox = () => {
+    removeFromList(item)
+  }
+
+  return (
+    <RowWrapperBasic style={{ gap: 14, borderBottomWidth: 1, borderColor: COLORS._B3E8, paddingVertical: height(2), }}>
+      <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', }} onPress={toggleCheckbox}>
+        <Wrapper style={{ width: 25, height: 25, borderRadius: 6, borderWidth: 2, borderColor: COLORS.LIGHT_GRAY, backgroundColor: COLORS._FFE1, alignItems: 'center', justifyContent: 'center', }}>
+          <Cross_Icon />
+        </Wrapper>
+      </TouchableOpacity>
+      <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 76, height: 76, borderWidth: 1, backgroundColor: '#edf5f2', borderColor: '#b3e8dc', borderRadius: 6, }}>
+        <Image source={item.image} style={{ width: 63, height: 63, resizeMode: 'cover', borderRadius: 6 }} />
+      </Wrapper>
+      <Wrapper style={{ flex: 1 }}>
+        <Text style={{ fontSize: 14, fontFamily: FONTS.URBAN_MEDIUM, color: COLORS._3C3C }}>{item.title}</Text>
+      </Wrapper>
+    </RowWrapperBasic>
+  )
+}
+
+export const GoLive = ({ navigation }) => {
+  const { productItems } = useContext(ProductContext)
   return (
     <MainWrapper>
       <ScrollWrapper>
@@ -23,8 +50,18 @@ export const GoLive = ({navigation}) => {
             <ICON.Entypo name='chevron-thin-right' color={COLORS._3C3C} size={14} />
           </Wrapper>
         </Pressable>
+        {productItems.length !== 0 &&
+          <Wrapper style={{ paddingBottom: height(1), paddingHorizontal: width(2), flex: 1, }}>
+            <FlatList
+              data={productItems}
+              renderItem={({ item }) => {
+                return <ProductCard item={item} />;
+              }}
+            />
+          </Wrapper>
+        }
       </ScrollWrapper>
-      <SocialButton text={'Go Live'} style={{ width: width(95), borderRadius: 6, borderWidth: 0, backgroundColor: COLORS._EFEF }} styleText={{ color: COLORS._9595, fontSize: 16, fontFamily: FONTS.URBAN_MEDIUM, }} />
+      <SocialButton text={'Go Live'} style={{ width: width(95), borderRadius: 6, borderWidth: 0, backgroundColor: productItems.length > 0 ? COLORS.PRIMARY_COLOR : COLORS._EFEF }} styleText={{ color: productItems.length > 0 ? COLORS.WHITE : COLORS._9595, fontSize: 16, fontFamily: FONTS.URBAN_MEDIUM, }} />
     </MainWrapper>
   )
 }

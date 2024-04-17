@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   checkbox: {
     width: 25,
     height: 25,
-    borderRadius: 4,
+    borderRadius: 6,
     borderWidth: 2,
     borderColor: COLORS.LIGHT_GRAY,
     backgroundColor: 'transparent',

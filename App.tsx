@@ -2,12 +2,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Root } from '@navigations'
-import { AuthProvider } from '@contexts'
+import { AuthProvider, ProductProvider } from '@contexts'
 
 const App = () => {
   return (
     <AuthProvider>
-      <Root />
+      <ProductProvider>
+        <Root />
+      </ProductProvider>
     </AuthProvider>
   )
 }

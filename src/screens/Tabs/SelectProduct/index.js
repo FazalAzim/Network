@@ -1,16 +1,20 @@
 import { CheckBox, InputWithTitle, MainWrapper, PrimaryButton, RowWrapperBasic, Text, Wrapper } from '@commons'
 import { COLORS, FONTS, ICON, ROUTES, product_Cards } from '@constants'
 import { width, height } from '@helpers'
-import React, { useState } from 'react'
+import { ProductContext } from '@contexts'
+import React, { useState, useContext } from 'react'
 import { FlatList, Image } from 'react-native'
 
 const ProductCard = ({ item }) => {
   const [checked, setChecked] = useState(false);
+  const { addToList, removeFromList } = useContext(ProductContext)
 
   const toggleCheckbox = () => {
     setChecked(!checked);
     if (!checked) {
-      console.log(item)
+      addToList(item);
+    } else {
+      removeFromList(item);
     }
   };
 
@@ -28,8 +32,6 @@ const ProductCard = ({ item }) => {
 }
 
 export const SelectProduct = ({ navigation }) => {
-  const [selected, setSelected] = useState(0);
-
   return (
     <MainWrapper style={{ paddingHorizontal: width(3), backgroundColor: COLORS.WHITE }}>
       <RowWrapperBasic style={{ marginVertical: 20, gap: 4 }}>
@@ -38,7 +40,7 @@ export const SelectProduct = ({ navigation }) => {
           <InputWithTitle placeholder='Search Product' placeholderTextColor={COLORS._C4C4} inputStyle={{ backgroundColor: COLORS._F8F8, borderRadius: 7, height: height(6) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
       </RowWrapperBasic>
-      <Wrapper style={{ paddingHorizontal: width(2), flex: 1 }}>
+      <Wrapper style={{ paddingBottom: height(1), paddingHorizontal: width(2), flex: 1, }}>
         <FlatList
           data={product_Cards}
           renderItem={({ item }) => {

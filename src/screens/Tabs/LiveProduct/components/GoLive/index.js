@@ -61,7 +61,7 @@ export const GoLive = ({ navigation }) => {
           </Wrapper>
         }
       </ScrollWrapper>
-      <SocialButton text={'Go Live'} style={{ width: width(95), borderRadius: 6, borderWidth: 0, backgroundColor: productItems.length > 0 ? COLORS.PRIMARY_COLOR : COLORS._EFEF }} styleText={{ color: productItems.length > 0 ? COLORS.WHITE : COLORS._9595, fontSize: 16, fontFamily: FONTS.URBAN_MEDIUM, }} />
+      <SocialButton onPress={() => navigation.navigate(ROUTES.LIVESTREAM)} text={'Go Live'} style={{ width: width(95), borderRadius: 6, borderWidth: 0, backgroundColor: productItems.length > 0 ? COLORS.PRIMARY_COLOR : COLORS._EFEF }} styleText={{ color: productItems.length > 0 ? COLORS.WHITE : COLORS._9595, fontSize: 16, fontFamily: FONTS.URBAN_MEDIUM, }} />
     </MainWrapper>
   )
 }

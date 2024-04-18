@@ -37,4 +37,5 @@ export const COLORS = {
     _F8F8: '#F8F8F8',
     _B3E8: '#B3E8DC',
     _FFE1:'#FFE1E1',
+    _6262:'#626262',
 }

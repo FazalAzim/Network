@@ -1,18 +1,62 @@
-import React from 'react'
-import { MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, Text, Wrapper } from '@commons'
-import { Image, ImageBackground } from 'react-native'
+import React, { useContext, useState } from 'react'
+import { MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons'
+import { Animated, FlatList, Image, ImageBackground, TouchableOpacity } from 'react-native'
 import { COLORS, FONTS, ICON, IMG } from '@constants'
 import { height, width } from '@helpers'
-import { Setting_Icon } from '@assets'
+import { Setting_Icon, ViewIcon } from '@assets'
+import { ProductContext } from '@contexts'
 import { styles } from './styles'
 
+const ProductCard = ({ item }) => {
+  const [viewPrice, setViewPrice] = useState(item.priceView);
+
+  return (
+    <Wrapper style={{ gap: 8, paddingVertical: height(2), }}>
+      <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: width(50), height: width(50), borderWidth: 1, backgroundColor: '#edf5f2', borderColor: '#b3e8dc', borderRadius: 0, }}>
+        <Image source={item.image} style={{ width: width(49), height: width(49), resizeMode: 'cover', borderRadius: 0 }} />
+      </Wrapper>
+      <Wrapper>
+        <Text style={{ fontSize: 14, fontFamily: FONTS.URBAN_MEDIUM, color: COLORS._3C3C }}>{item.title}</Text>
+      </Wrapper>
+      <Wrapper>
+        {viewPrice ? (
+          <Wrapper style={{ flexDirection: 'row', gap: 10 }}>
+            <Text style={{ fontSize: 14, fontFamily: FONTS.URBAN_SEMIBOLD }}>${item.price}</Text>
+            <Text style={{ color: COLORS.GRAY, fontSize: 14, fontFamily: FONTS.URBAN_SEMIBOLD, textDecorationLine: 'line-through', }}>${item.actual_price}</Text>
+          </Wrapper>
+        ) : (
+          <Wrapper style={{ flexDirection: 'column', gap: 4 }}>
+            <SocialButton style={{ borderColor: COLORS.BD_COLOR, width: width(22), height: 22, alignSelf: 'flex-start', marginBottom: 2 }} icon={<ViewIcon />} text={"View Price"} styleText={{ fontSize: 10 }} onPress={() => setViewPrice(!viewPrice)} />
+            <Text style={{ color: COLORS._6262, fontSize: 10, fontFamily: FONTS.URBAN_REGULAR, }}>You’ll be taken to vendor's website.</Text>
+          </Wrapper>
+        )}
+      </Wrapper>
+    </Wrapper>
+  )
+}
+
 export const LiveStream = ({ navigation }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { productItems } = useContext(ProductContext)
+  const slideAnim = useState(new Animated.Value(-300))[0];
+
+  const toggleSideView = () => {
+    setIsOpen(!isOpen);
+    Animated.timing(
+      slideAnim,
+      {
+        toValue: isOpen ? -300 : 0,
+        duration: 300,
+        useNativeDriver: false,
+      }
+    ).start();
+  };
   return (
     <MainWrapper>
       <ImageBackground source={IMG.VIDEO} resizeMode="cover" style={{ flex: 1, position: 'relative' }}>
         <RowWrapper style={{ position: 'absolute', top: 30, width: width(90) }}>
           <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={22} onPress={() => navigation.goBack()} />
-          <Setting_Icon/>
+          <Setting_Icon />
         </RowWrapper>
         <Wrapper style={{ paddingHorizontal: width(5), position: 'absolute', bottom: 30, flexDirection: 'column', gap: 12, }}>
           <Text style={{ fontFamily: FONTS.URBAN_MEDIUM, fontSize: 19, color: COLORS.WHITE }}>Best Multi Angle mobile stand</Text>
@@ -33,7 +77,34 @@ export const LiveStream = ({ navigation }) => {
             </Wrapper>
           </RowWrapper>
         </Wrapper>
+        <Wrapper style={styles.container}>
+          <Wrapper style={[styles.mainContent, { left: -55 }]}>
+            <TouchableOpacity onPress={toggleSideView} style={styles.centerButton}>
+              <Text>See Product</Text>
+              <ICON.Entypo name='chevron-thin-up' color={COLORS.BLACK} size={16} />
+            </TouchableOpacity>
+          </Wrapper>
+          <Animated.View style={[styles.sideView, { left: slideAnim }]}>
+            <Wrapper style={[styles.mainContent, { right: -78 }]}>
+              <TouchableOpacity onPress={toggleSideView} style={styles.centerButton}>
+                <Text>See Product</Text>
+                <ICON.Entypo name='chevron-thin-down' color={COLORS.BLACK} size={16} />
+              </TouchableOpacity>
+            </Wrapper>
+            <Wrapper style={{ flex: 1, }}>
+              {isOpen &&
+                <FlatList
+                  data={productItems}
+                  renderItem={({ item }) => {
+                    return <ProductCard item={item} />;
+                  }}
+                />
+              }
+            </Wrapper>
+          </Animated.View>
+        </Wrapper>
       </ImageBackground>
     </MainWrapper>
   )
 }
+

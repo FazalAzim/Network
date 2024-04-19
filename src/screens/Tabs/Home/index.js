@@ -12,14 +12,14 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 
 export const Home = ({ navigation }) => {
   const refRBSheet = useRef();
-  const [activeTab, setActiveTab] = useState('Live');
+  const [activeTab, setActiveTab] = useState();
   useEffect(() => refRBSheet.current.open(), [])
   const button = [
-    { title: "Live" },
+    { title: "Live", click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
     { title: "Previously Live" },
     { title: "Subscriptions", click: () => navigation.navigate(ROUTES.SUBSCRIPTIONS) },
     { title: "For You" },
-    { title: "Live Product",click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
+    { title: "Live Product", click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
     { title: "Product", click: () => navigation.navigate(ROUTES.PRODUCT_LIST) },
   ];
   return (

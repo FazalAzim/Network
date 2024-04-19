@@ -22,12 +22,12 @@ export const LiveProfile = ({ route, navigation }) => {
   const sheetButton = [
     { title: 'My Videos', icon: <Play_Icon /> },
     { title: 'My Products', icon: <Box_Icon /> },
-    { title: 'My Schedules ', icon: <Schedules /> },
+    { title: 'My Schedules ', icon: <Schedules />, click: () => navigation.navigate(ROUTES.PRODUCT_DETAIL) },
     { title: 'Subscriptions', icon: <Star /> },
     { title: 'My Orders', icon: <Bag_Icon /> },
     { title: 'Saved Videos', icon: <Favorite /> },
     { title: 'Address Book', icon: <AddressBook /> },
-    { title: 'Settings', icon: <Setting/> },
+    { title: 'Settings', icon: <Setting /> },
   ]
 
   return (
@@ -164,7 +164,7 @@ export const LiveProfile = ({ route, navigation }) => {
         >
           <Wrapper style={{ marginTop: 6, marginHorizontal: width(4), flexDirection: 'column' }}>
             {sheetButton.map((item, index) => {
-              return <SocialButton key={index} style={{ height: height(4), borderColor: COLORS.WHITE, alignSelf: 'flex-start', }} icon={item.icon} text={item.title} styleText={{ lineHeight: 19, fontSize: 16, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR, marginLeft: 8 }} />
+              return <SocialButton onPress={item.click} key={index} style={{ height: height(4), borderColor: COLORS.WHITE, alignSelf: 'flex-start', }} icon={item.icon} text={item.title} styleText={{ lineHeight: 19, fontSize: 16, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR, marginLeft: 8 }} />
             })}
           </Wrapper>
         </RBSheet>

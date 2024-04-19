@@ -495,4 +495,14 @@ const reviews_Cards = [
   },
 ];
 
-export { slides, users, cards, product_Cards, comment_Cards, reviews_Cards }
+const chat_Data = [
+  { title: "Augusta Wind", message: "Hello!" },
+  { title: "Ray O'Sun", message: "Hello!" },
+  { title: "Allie Grater", message: "Started follow you" },
+  { title: "Peg Legge", message: "Hhhh hhh" },
+  { title: "Maureen Biologist", message: "Started follow you" },
+  { title: "Olive Yew", message: "How are uu?" },
+  { title: "Patty O'Furniture", message: "Hello!" },
+];
+
+export { slides, users, cards, product_Cards, comment_Cards, reviews_Cards, chat_Data, }

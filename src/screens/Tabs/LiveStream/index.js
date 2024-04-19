@@ -1,43 +1,24 @@
 import React, { useContext, useState } from 'react'
-import { MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons'
-import { Animated, FlatList, Image, ImageBackground, TouchableOpacity } from 'react-native'
-import { COLORS, FONTS, ICON, IMG } from '@constants'
+import { MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, Text, Wrapper } from '@commons'
+import { Animated, FlatList, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
+import { COLORS, FONTS, ICON, IMG, chat_Data } from '@constants'
 import { height, width } from '@helpers'
-import { Setting_Icon, ViewIcon } from '@assets'
+import { Send_Icon, Setting_Icon, } from '@assets'
 import { ProductContext } from '@contexts'
 import { styles } from './styles'
-
-const ProductCard = ({ item }) => {
-  const [viewPrice, setViewPrice] = useState(item.priceView);
-
-  return (
-    <Wrapper style={{ gap: 8, paddingVertical: height(2), }}>
-      <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: width(50), height: width(50), borderWidth: 1, backgroundColor: '#edf5f2', borderColor: '#b3e8dc', borderRadius: 0, }}>
-        <Image source={item.image} style={{ width: width(49), height: width(49), resizeMode: 'cover', borderRadius: 0 }} />
-      </Wrapper>
-      <Wrapper>
-        <Text style={{ fontSize: 14, fontFamily: FONTS.URBAN_MEDIUM, color: COLORS._3C3C }}>{item.title}</Text>
-      </Wrapper>
-      <Wrapper>
-        {viewPrice ? (
-          <Wrapper style={{ flexDirection: 'row', gap: 10 }}>
-            <Text style={{ fontSize: 14, fontFamily: FONTS.URBAN_SEMIBOLD }}>${item.price}</Text>
-            <Text style={{ color: COLORS.GRAY, fontSize: 14, fontFamily: FONTS.URBAN_SEMIBOLD, textDecorationLine: 'line-through', }}>${item.actual_price}</Text>
-          </Wrapper>
-        ) : (
-          <Wrapper style={{ flexDirection: 'column', gap: 4 }}>
-            <SocialButton style={{ borderColor: COLORS.BD_COLOR, width: width(22), height: 22, alignSelf: 'flex-start', marginBottom: 2 }} icon={<ViewIcon />} text={"View Price"} styleText={{ fontSize: 10 }} onPress={() => setViewPrice(!viewPrice)} />
-            <Text style={{ color: COLORS._6262, fontSize: 10, fontFamily: FONTS.URBAN_REGULAR, }}>You’ll be taken to vendor's website.</Text>
-          </Wrapper>
-        )}
-      </Wrapper>
-    </Wrapper>
-  )
-}
+import { TextInput } from '@core-ui';
+import { ProductCard } from './components'
 
 export const LiveStream = ({ navigation }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [waiting, setWaiting] = useState(true);
+  const [chat, setChat] = useState(chat_Data);
+  const [message, setMessage] = useState('');
+
   const { productItems } = useContext(ProductContext)
+
+  const subscriber = [{ sub: IMG.AVATAR1 }, { sub: IMG.AVATAR2 }, { sub: IMG.AVATAR3 }, { sub: IMG.AVATAR4 }, { sub: IMG.AVATAR4 }, { sub: IMG.AVATAR4 },]
+
   const slideAnim = useState(new Animated.Value(-300))[0];
 
   const toggleSideView = () => {
@@ -51,6 +32,12 @@ export const LiveStream = ({ navigation }) => {
       }
     ).start();
   };
+
+  const handleMessage = () => {
+    setChat((preMessage) => [{ title: 'John Deo', message: message }, ...preMessage]);
+    setMessage('');
+  }
+
   return (
     <MainWrapper>
       <ImageBackground source={IMG.VIDEO} resizeMode="cover" style={{ flex: 1, position: 'relative' }}>
@@ -58,24 +45,70 @@ export const LiveStream = ({ navigation }) => {
           <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={22} onPress={() => navigation.goBack()} />
           <Setting_Icon />
         </RowWrapper>
-        <Wrapper style={{ paddingHorizontal: width(5), position: 'absolute', bottom: 30, flexDirection: 'column', gap: 12, }}>
-          <Text style={{ fontFamily: FONTS.URBAN_MEDIUM, fontSize: 19, color: COLORS.WHITE }}>Best Multi Angle mobile stand</Text>
-          <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontWeight: '400', fontSize: 12, color: COLORS.WHITE }}>XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder</Text>
-          <RowWrapperBasic style={{ gap: 8 }}>
-            <RowWrapperBasic>
-              <Image source={IMG.AVATAR1} style={{ width: 40, height: 40, resizeMode: 'cover', borderRadius: 100, }} />
-              <Image source={IMG.AVATAR2} style={{ width: 40, height: 40, resizeMode: 'cover', borderRadius: 100, position: 'relative', right: 20 }} />
-              <Image source={IMG.AVATAR3} style={{ width: 40, height: 40, resizeMode: 'cover', borderRadius: 100, position: 'relative', right: 40 }} />
-              <Image source={IMG.AVATAR4} style={{ width: 40, height: 40, resizeMode: 'cover', borderRadius: 100, position: 'relative', right: 60 }} />
-            </RowWrapperBasic>
-            <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontWeight: '400', fontSize: 12, color: COLORS.WHITE, position: 'relative', right: 60 }}>100+ Subscribers Active Now</Text>
-          </RowWrapperBasic>
-          <RowWrapper style={{ marginHorizontal: width(0), width: width(90), }}>
-            <PrimaryButton text={'Go Live'} style={{ width: width(60), borderRadius: 6 }} />
-            <Wrapper style={{ width: height(6), height: height(6), borderRadius: 100, backgroundColor: COLORS.BLACK, justifyContent: 'center', alignItems: 'center', opacity: 0.6 }}>
-              <ICON.AntDesign name='sync' color={COLORS.WHITE} size={20} />
+        <Wrapper style={{ paddingHorizontal: width(5), position: 'absolute', bottom: waiting ? 30 : 10, }}>
+          {waiting ? (
+            <Wrapper style={{ flexDirection: 'column', gap: 12, }}>
+              <Text style={{ fontFamily: FONTS.URBAN_MEDIUM, fontSize: 19, color: COLORS.WHITE }}>Best Multi Angle mobile stand</Text>
+              <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontWeight: '400', fontSize: 12, color: COLORS.WHITE }}>XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder</Text>
+              <RowWrapperBasic style={{ gap: 8 }}>
+                <RowWrapperBasic>
+                  {subscriber.map((item, index) => {
+                    return (
+                      index < 4 && (
+                        <Image key={index} source={item.sub} style={{ width: 40, height: 40, resizeMode: 'cover', borderRadius: 100, position: 'relative', right: index * 20 }} />
+                      )
+                    )
+                  })}
+                </RowWrapperBasic>
+                <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontWeight: '400', fontSize: 12, color: COLORS.WHITE, position: 'relative', right: 60 }}>100+ Subscribers Active Now</Text>
+              </RowWrapperBasic>
+              <RowWrapper style={{ marginHorizontal: width(0), width: width(90), alignItems: 'cetner' }}>
+                <PrimaryButton onPress={() => setWaiting(!waiting)} text={'Go Live'} style={{ width: width(60), borderRadius: 6 }} />
+                <Wrapper style={{ width: height(6), height: height(6), borderRadius: 100, backgroundColor: COLORS.BLACK, justifyContent: 'center', alignItems: 'center', opacity: 0.6 }}>
+                  <ICON.AntDesign name='sync' color={COLORS.WHITE} size={20} />
+                </Wrapper>
+              </RowWrapper>
             </Wrapper>
-          </RowWrapper>
+          ) : (
+            <Wrapper style={{ width: width(90) }}>
+              <RowWrapper style={{ marginHorizontal: width(1) }}>
+                <Wrapper style={{ alignSelf: 'flex-end', gap: 16 }}>
+                  <Wrapper style={{ flexDirection: 'column-reverse', gap: 2 }}>
+                    {chat.map((item, index) => {
+                      return (
+                        index < 7 && (
+                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, alignItems: 'center' }}>
+                            <Text style={{ fontFamily: FONTS.URBAN_SEMIBOLD, fontSize: 14, color: COLORS.WHITE }}>{item.title}:</Text>
+                            <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 14, color: COLORS.WHITE }}>{item.message}</Text>
+                          </Wrapper>
+                        )
+                      )
+                    })}
+                  </Wrapper>
+                  <PrimaryButton onPress={() => setWaiting(!waiting)} text={'End Live'} style={{ width: width(60), borderRadius: 6, backgroundColor: COLORS.RED_COLOR }} />
+                </Wrapper>
+                <Wrapper style={{ flexDirection: 'column', gap: 20, alignSelf: 'flex-end' }} >
+                  <Wrapper>
+                    <ICON.AntDesign name='hearto' color={COLORS.WHITE} size={22} />
+                    <Text style={{ textAlign: 'center', fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS.WHITE }}>2.1K</Text>
+                  </Wrapper>
+                  <Wrapper>
+                    <ICON.AntDesign name='message1' color={COLORS.WHITE} size={22} />
+                    <Text style={{ textAlign: 'center', fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS.WHITE }}>1K</Text>
+                  </Wrapper>
+                  <Wrapper>
+                    <ICON.FontAwesome name='share' color={COLORS.WHITE} size={22} />
+                  </Wrapper>
+                </Wrapper>
+              </RowWrapper>
+              <RowWrapperBasic style={{ alignSelf: 'center', marginTop: height(2) }}>
+                <TextInput value={message} onChangeText={setMessage} placeholder='Hi Alex, y|' style={{ height: 38, color: COLORS.WHITE, width: width(80), marginHorizontal: width(2), borderRadius: 4, backgroundColor: 'rgba(0,0,0,0.4)', }} />
+                <Pressable onPress={handleMessage} >
+                  <Send_Icon />
+                </Pressable>
+              </RowWrapperBasic>
+            </Wrapper>
+          )}
         </Wrapper>
         <Wrapper style={styles.container}>
           <Wrapper style={[styles.mainContent, { left: -55 }]}>

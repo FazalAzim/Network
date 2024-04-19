@@ -1,7 +1,7 @@
 import { View, Image, TouchableOpacity, FlatList } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { ChatHeader, Dot, H3, HomeCard, MainWrapper, PrimaryButton, ProductCard, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons'
-import { AddressBook, Back_Caret_Arrow, Bag_Icon, Box_Icon, CheckMarkIcon, Favorite, FbPink, IG, MenuIcon, Play_Icon, Schedules, Settings, Star, Toggle, X } from '@assets'
+import { AddressBook, Back_Caret_Arrow, Bag_Icon, Box_Icon, CheckMarkIcon, Favorite, FbPink, IG, MenuIcon, Play_Icon, Schedules, Setting, Star, Toggle, X } from '@assets'
 import { COLORS, FONTS, IMG, ROUTES, cards, product_Cards } from '@constants'
 import { styles } from './styles'
 import { height, width } from '@helpers'
@@ -27,7 +27,7 @@ export const LiveProfile = ({ route, navigation }) => {
     { title: 'My Orders', icon: <Bag_Icon /> },
     { title: 'Saved Videos', icon: <Favorite /> },
     { title: 'Address Book', icon: <AddressBook /> },
-    { title: 'Settings', icon: <Settings /> },
+    { title: 'Settings', icon: <Setting/> },
   ]
 
   return (

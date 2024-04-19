@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { InputWithTitle, MainWrapper, RowWrapperBasic, ScrollWrapper, SocialButton, Text, Wrapper } from '@commons'
 import { height, width } from '@helpers'
 import { COLORS, FONTS, ICON, ROUTES } from '@constants'
 import { FlatList, Image, Pressable, TouchableOpacity } from 'react-native'
 import { ProductContext } from '@contexts'
 import { Cross_Icon } from '@assets'
+import { LogBox } from 'react-native';
 
 const ProductCard = ({ item }) => {
   const { removeFromList } = useContext(ProductContext)
@@ -31,7 +32,12 @@ const ProductCard = ({ item }) => {
 }
 
 export const GoLive = ({ navigation }) => {
-  const { productItems } = useContext(ProductContext)
+  const { productItems } = useContext(ProductContext);
+
+  useEffect(() => {
+    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+  }, [])
+
   return (
     <MainWrapper>
       <ScrollWrapper>

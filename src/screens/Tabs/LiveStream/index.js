@@ -34,8 +34,11 @@ export const LiveStream = ({ navigation }) => {
   };
 
   const handleMessage = () => {
-    setChat((preMessage) => [{ title: 'John Deo', message: message }, ...preMessage]);
-    setMessage('');
+    if (message !== '') {
+      setChat((preMessage) => [{ title: 'John Deo', message: message }, ...preMessage]);
+      setMessage('');
+    }
+
   }
 
   return (

@@ -38,7 +38,6 @@ export const LiveStream = ({ navigation }) => {
       setChat((preMessage) => [{ title: 'John Deo', message: message }, ...preMessage]);
       setMessage('');
     }
-
   }
 
   return (
@@ -80,7 +79,7 @@ export const LiveStream = ({ navigation }) => {
                     {chat.map((item, index) => {
                       return (
                         index < 7 && (
-                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, alignItems: 'center' }}>
+                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, alignItems: 'center', opacity: 1 - `0.${index}` }}>
                             <Text style={{ fontFamily: FONTS.URBAN_SEMIBOLD, fontSize: 14, color: COLORS.WHITE }}>{item.title}:</Text>
                             <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 14, color: COLORS.WHITE }}>{item.message}</Text>
                           </Wrapper>

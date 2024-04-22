@@ -1,23 +1,32 @@
-import { View, Image, TouchableOpacity, FlatList } from 'react-native'
+import { Image, FlatList } from 'react-native'
 import React, { useRef, useState } from 'react'
-import { ChatHeader, Dot, H3, HomeCard, MainWrapper, PrimaryButton, ProductCard, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons'
+import { ChatHeader, Dot, H3, HomeCard, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, SocialButton, TabNavbar, Text, Wrapper } from '@commons'
 import { AddressBook, Back_Caret_Arrow, Bag_Icon, Box_Icon, CheckMarkIcon, Favorite, FbPink, IG, MenuIcon, Play_Icon, Schedules, Setting, Star, Toggle, X } from '@assets'
-import { COLORS, FONTS, IMG, ROUTES, cards, product_Cards } from '@constants'
+import { COLORS, FONTS, IMG, ROUTES, cards, } from '@constants'
 import { styles } from './styles'
 import { height, width } from '@helpers'
 import RBSheet from "react-native-raw-bottom-sheet";
+import { Products, Videos } from './components'
 
 export const LiveProfile = ({ route, navigation }) => {
   const { profile, provider } = route?.params;
   const refRBSheet = useRef();
   const [isSubscribed, setIsSubscribed] = useState(false)
-  const [selected, setSelected] = useState(0);
-  const [activeTab, setActiveTab] = useState('Videos');
 
-  const sections = [
-    { title: 'Videos' },
-    { title: 'Products' },
+  const tabStyles = {
+    focusText: COLORS.BLACK,
+    indicatorStyle: COLORS._3030
+  }
+
+  const routes = [
+    { key: 'first', title: 'Videos' },
+    { key: 'second', title: 'Products' },
   ];
+
+  const tabs = {
+    first: () => <Videos />,
+    second: () => <Products />,
+  };
 
   const sheetButton = [
     { title: 'My Videos', icon: <Play_Icon /> },
@@ -31,7 +40,7 @@ export const LiveProfile = ({ route, navigation }) => {
   ]
 
   return (
-    <MainWrapper>
+    <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
       <ChatHeader
         title={""} backArrow={<Back_Caret_Arrow />}
         onBackPress={() => navigation.goBack()}
@@ -106,44 +115,7 @@ export const LiveProfile = ({ route, navigation }) => {
           </Wrapper>
         </>
       ) : (
-        <>
-          <Wrapper style={styles({}).buttonTabContainer}>
-            <Wrapper style={styles({}).buttonTab}>
-              {sections.map((data, index) => {
-                return (
-                  <TouchableOpacity key={index}
-                    style={[styles({}).button, activeTab === data.title ? styles({}).activeButton : null]}
-                    onPress={() => {
-                      setSelected(index);
-                      setActiveTab(data.title)
-                    }}>
-                    <Text style={styles({}).buttonText}>{data.title}</Text>
-                    {activeTab === data.title && <View style={styles({}).activeIndicator} />}
-                  </TouchableOpacity>
-                )
-              })}
-            </Wrapper>
-          </Wrapper>
-
-          <Wrapper style={{ flex: 1, flexDirection: 'column' }}>
-            {selected === 0 ? (
-              <FlatList
-                data={cards}
-                renderItem={({ item }) => {
-                  return <HomeCard item={item} />;
-                }}
-              />
-            ) : (
-              <FlatList
-                data={product_Cards}
-                renderItem={({ item }) => {
-                  return <ProductCard item={item} />;
-                }}
-              />
-            )
-            }
-          </Wrapper>
-        </>
+        <TabNavbar routes={routes} tabs={tabs} tabStyles={tabStyles} />
       )}
       <Wrapper>
         <RBSheet

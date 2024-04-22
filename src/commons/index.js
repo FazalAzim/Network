@@ -15,4 +15,5 @@ export * from './Card/RatingCard';
 export * from './ProductSlider';
 export * from './Card/CartCard';
 export * from './Dot';
-export * from './CheckBox'
+export * from './CheckBox';
+export * from './TabNavbar';

@@ -13,7 +13,7 @@ export const LiveComments = () => {
           return <CommentCard item={item} />;
         }}
       />
-      <InputWithTitle placeholder={'Type your comment'} placeholderTextColor={COLORS.DARK_GRAY} right={<Plane />} />
+      {/* <InputWithTitle placeholder={'Type your comment'} placeholderTextColor={COLORS.DARK_GRAY} right={<Plane />} /> */}
     </Wrapper>
   )
 }

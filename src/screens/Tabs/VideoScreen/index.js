@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainWrapper, VideoCard, TabNavbar } from '@commons'
+import { MainWrapper, VideoCard, TabNavbar, ScrollWrapper } from '@commons'
 import { COLORS } from '@constants'
 import { LiveComments, Products } from './components'
 
@@ -21,10 +21,10 @@ export const VideoScreen = ({ route, navigation }) => {
   };
 
   return (
-    <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
+    <MainWrapper style={{flex:1, backgroundColor: COLORS.WHITE }}>
       {/* <ScrollWrapper> */}
-      <VideoCard onClick={() => navigation.goBack()} paramData={item} navigation={navigation} services={false} />
-      <TabNavbar routes={routes} tabs={tabs} tabStyles={tabStyles} />
+        <VideoCard onClick={() => navigation.goBack()} paramData={item} navigation={navigation} services={false} />
+        <TabNavbar routes={routes} tabs={tabs} tabStyles={tabStyles} />
       {/* </ScrollWrapper> */}
     </MainWrapper>
   )

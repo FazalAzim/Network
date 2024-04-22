@@ -1,4 +1,4 @@
-import { COLORS } from "@constants"
+import { COLORS, FONTS } from "@constants"
 import { StyleSheet } from "react-native"
 export const styles = StyleSheet.create({
       slide: {
@@ -13,13 +13,16 @@ export const styles = StyleSheet.create({
     resizeMode:'contain'
   },
   title: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginTop: 20,
+    fontSize: 28,
+    fontFamily:FONTS.URBAN_BOLD,
+    marginTop: 30,
+    textAlign: 'center',
+
   },
   description: {
-    marginTop: 10,
+    marginTop: 15,
     fontSize: 14,
+    fontFamily:FONTS.URBAN_REGULAR,
     color: COLORS.GRAY,
     textAlign: 'center',
     paddingHorizontal: 19,

@@ -8,5 +8,6 @@ export const IMG ={
     AVATAR4: require('../assets/images/4.png'),
     PRODUCT:require('../assets/images/product.png'),
     PRODUCT_MOBILE:require('../assets/images/product_mobile.png'),
-    VIDEO:require('../assets/images/video.png')
+    VIDEO:require('../assets/images/video.png'),
+    SPLASH_LOGO:require('../assets/images/splash_logo.png'),
 }

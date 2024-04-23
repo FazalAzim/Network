@@ -291,7 +291,7 @@ const cards = [
     image: IMG.SLIDE2,
     imageIcon: IMG.SLIDE1,
     status: 'Verfied',
-    stream: 'Live',
+    stream: 'LIVE',
     watching: '3.6k',
     likes: '1.1k',
     comments: '2k',

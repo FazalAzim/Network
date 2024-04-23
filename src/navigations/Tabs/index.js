@@ -18,10 +18,11 @@ const CustomTabBarButton = ({ children, onPress }) => (
     onPress={onPress}
   >
     <View style={{
-      width: 50,
-      height: 50,
+      width: 48,
+      height: 48,
       borderRadius: 35,
-      backgroundColor: COLORS.PRIMARY_COLOR
+      backgroundColor: COLORS.PRIMARY_COLOR,
+      elevation:8,
     }}>
       {children}
     </View>
@@ -61,7 +62,7 @@ export const Tabs = () => {
     >
       <Screen name={ROUTES.HOME} component={Home} options={{
         tabBarIcon: ({ focused }) => (
-          <ICON.MaterialCommunity name="home" size={32} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
+          <ICON.MaterialCommunity name="home" size={28} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
         ),
         tabBarLabel: 'Home'
       }} />
@@ -73,7 +74,7 @@ export const Tabs = () => {
       }} />
       <Screen name={ROUTES.ADD} component={Add} options={{
         tabBarIcon: ({ focused }) => (
-          <ICON.AntDesign name="plus" size={32} color="#FFF" />
+          <ICON.AntDesign name="plus" size={28} color="#FFF" />
         ),
         tabBarLabel: () => null,
         tabBarButton: (props) => (
@@ -82,13 +83,13 @@ export const Tabs = () => {
       }} />
       <Screen name={ROUTES.CART} component={Cart} options={{
         tabBarIcon: ({ focused }) => (
-          <ICON.MaterialCommunity name="shopping-outline" size={32} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
+          <ICON.MaterialCommunity name="shopping-outline" size={28} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
         ),
         tabBarLabel: 'Cart'
       }} />
       <Screen name={ROUTES.INBOX} component={Inbox} options={{
         tabBarIcon: ({ focused }) => (
-          <ICON.Ionicons name="chatbubble-ellipses-outline" size={32} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
+          <ICON.Ionicons name="chatbubble-ellipses-outline" size={28} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
         ),
         tabBarLabel: 'Messages'
       }} />

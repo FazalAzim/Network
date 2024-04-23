@@ -1,4 +1,4 @@
-import { FONTS } from "@constants"
+import { COLORS, FONTS } from "@constants"
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
@@ -18,8 +18,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     backgroundImage_stream: {
-        paddingHorizontal: 8,
-        borderRadius: 4
+        paddingHorizontal: 10,
+        paddingVertical:2,
+        borderRadius: 2,
+        fontFamily:FONTS.URBAN_BOLD,
+        fontSize:11,
     },
     backgroundImage_bottom: {
         marginBottom:16,
@@ -29,7 +32,7 @@ export const styles = StyleSheet.create({
     },
     backgroundImage_bottom_icon: {
         flexDirection: 'row',
-        gap: 12,
+        gap: 16,
         alignItems: 'center'
     },
     middle_bar: {
@@ -45,8 +48,9 @@ export const styles = StyleSheet.create({
         borderRadius: 100,
     },
     middle_bar_status: {
+        fontFamily:FONTS.URBAN_REGULAR,
         color: '#8F8F8F',
-        fontSize: 11
+        fontSize: 11,
     },
     middle_bar_status_icon: {
         marginLeft: 6,
@@ -61,18 +65,20 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     content_description: {
-        color: '#3C3C3C',
+        marginTop:6,
+        color: COLORS._3C3C,
         fontSize: 15,
-        fontWeight: '700',
-        fontFamily: FONTS.URBAN_MEDIUM,
+        fontFamily: FONTS.URBAN_BOLD,
     },
     card_bottom_bar_content: {
         marginRight: 10,
         flexDirection: 'row',
+        alignItems:'center',
         gap: 16
     },
     card_bottom_bar_button_common: {
         flexDirection: 'row',
         gap: 3,
+        alignItems:'center'
     },
 })

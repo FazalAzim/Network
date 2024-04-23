@@ -1,9 +1,10 @@
 import { COLORS, FONTS, ICON, ROUTES } from '@constants'
 import { PrimaryButton, Wrapper } from '@commons'
 import React, { useCallback, useState } from 'react'
-import { Image, ImageBackground, Pressable, Text, View } from 'react-native'
-import { Volume, Full_Screen, CheckMarkIcon, Chat, Heart, ChatIcon, Toggle } from '@assets'
+import { Image, ImageBackground, Pressable, Text } from 'react-native'
+import { Volume, Full_Screen, CheckMarkIcon, Chat, Heart, ChatIcon, Toggle, Setting_White } from '@assets'
 import { styles } from './styles'
+import { height } from '@helpers'
 
 export const VideoCard = ({ onClick, paramData, navigation, services }) => {
   const [textShown, setTextShown] = useState(false);
@@ -20,33 +21,33 @@ export const VideoCard = ({ onClick, paramData, navigation, services }) => {
   const text = 'Buy PC & Gaming Gear at Deep Discounts. Direct from Manufacturer Pricing. Satisfaction Guaranteed. We have Gaming Chairs, PC Gaming Controllers, PC Gaming Peripherals like joystick, gamepad and In literary theory, a text is any object that can be  whether this object is a work of literature,'
 
   return (
-    <View>
-      <View style={{ height: 227.25 }}>
+    <Wrapper>
+      <Wrapper style={{ height: 227.25 }}>
         <ImageBackground
           source={paramData.image}
           resizeMode="cover"
           blurRadius={services ? 10 : 0}
           style={[styles.backgroundImage, { position: 'relative' }]}>
-          <View style={styles.backgroundImage_top}>
+          <Wrapper style={styles.backgroundImage_top}>
             <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={20} onPress={onClick} />
-            <View style={styles.backgroundImage_top_right}>
-              <Text><Volume /></Text>
+            <Wrapper style={styles.backgroundImage_top_right}>
+              <Volume />
               <Text
-                style={[{
+                style={[styles.backgroundImage_stream, {
                   color: paramData.stream === 'Ad' ? '#1D1D1D' : COLORS.WHITE,
                   backgroundColor: paramData.stream === 'Ad' ? COLORS.WHITE : 'red',
-                }, styles.backgroundImage_stream]}>
+                }]}>
                 {paramData.stream}
               </Text>
-            </View>
-          </View>
-          <View style={styles.backgroundImage_bottom}>
-            <Text style={{ color: 'white', fontSize: 11 }}>{paramData.watching} Watching</Text>
-            <View style={styles.backgroundImage_bottom_icon}>
-              <ICON.AntDesign name='setting' color={COLORS.WHITE} size={20} />
+            </Wrapper>
+          </Wrapper>
+          <Wrapper style={styles.backgroundImage_bottom}>
+            <Text style={{ color: COLORS.WHITE, fontSize: 11, fontFamily: FONTS.URBAN_BOLD }}>{paramData.watching} Watching</Text>
+            <Wrapper style={styles.backgroundImage_bottom_icon}>
+              <Setting_White />
               <Full_Screen />
-            </View>
-          </View>
+            </Wrapper>
+          </Wrapper>
           {services &&
             <Wrapper style={{ position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
               <Wrapper style={{ flexDirection: 'column', gap: 12 }}>
@@ -56,72 +57,65 @@ export const VideoCard = ({ onClick, paramData, navigation, services }) => {
             </Wrapper>
           }
         </ImageBackground >
-      </View >
-      <View style={styles.middle_bar}>
-        <View
+      </Wrapper >
+      <Wrapper style={styles.middle_bar}>
+        <Wrapper
           style={styles.middle_bar_content}>
           <Pressable onPress={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: false, provider: false })}>
-            <View style={{ flexDirection: 'row' }}>
+            <Wrapper style={{ flexDirection: 'row' }}>
               <Image
                 source={paramData.imageIcon}
                 style={styles.middle_bar_image}
               />
-              <View style={{ marginLeft: 8 }}>
-                <Text style={{ color: '#262626', fontSize: 17 }}>{paramData.title}</Text>
-                < View style={{ flexDirection: 'row' }}>
+              <Wrapper style={{ marginLeft: 8 }}>
+                <Text style={{ color: COLORS._2626, fontSize: 17, fontFamily: FONTS.URBAN_BOLD }}>{paramData.title}</Text>
+                < Wrapper style={{ flexDirection: 'row' }}>
                   <Text style={styles.middle_bar_status}>{paramData.status}</Text>
-                  <View style={styles.middle_bar_status_icon}><CheckMarkIcon /></View>
-                </View>
-              </View>
-            </View>
+                  <Wrapper style={styles.middle_bar_status_icon}><CheckMarkIcon /></Wrapper>
+                </Wrapper>
+              </Wrapper>
+            </Wrapper>
           </Pressable>
-          <View style={styles.middle_bar_button}>
-            <PrimaryButton text={'Subscribe'} style={{ width: 90, height: 35 }} onPress={() => navigation.navigate(ROUTES.SUBSCRIPTIONS)} />
-          </View>
-        </View>
+          <Wrapper style={styles.middle_bar_button}>
+            <PrimaryButton text={'Subscribe'} style={{ width: 90, height: height(4), borderRadius: 3, }} onPress={() => navigation.navigate(ROUTES.SUBSCRIPTIONS)} />
+          </Wrapper>
+        </Wrapper>
         <Text style={styles.content_description}>{paramData.description}</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Wrapper style={{ flexDirection: 'row' }}>
           <Text
             onTextLayout={onTextLayout}
             numberOfLines={textShown ? undefined : 4}
-            style={{ color: '#4A4A4A', fontSize: 12, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, flex: 1, alignItems: 'center' }}>{text}
+            style={{ color: COLORS._4A4A, fontSize: 12, fontFamily: FONTS.URBAN_REGULAR, flex: 1, alignItems: 'center' }}>{text}
           </Text>
           {
             lengthMore ? <Text
               onPress={toggleNumberOfLines}
-              style={{ color: '#26a1c7', fontSize: 12, fontWeight: '400', alignSelf: 'flex-end' }}>{textShown ? 'Read less' : 'Read more'}</Text>
+              style={{ color: COLORS.PRIMARY_COLOR, fontSize: 12, fontFamily: FONTS.URBAN_REGULAR, alignSelf: 'flex-end' }}>{textShown ? 'Read less' : 'Read more'}</Text>
               : null
           }
-        </View>
-        <View style={{ marginTop: 14, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <View style={{ flexDirection: 'row', gap: 2, alignItems: 'center' }}>
+        </Wrapper>
+        <Wrapper style={{ marginTop: 14, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Wrapper style={{ flexDirection: 'row', gap: 2, alignItems: 'center' }}>
             <Chat />
-            <Text style={{ color: '#9344FC', fontSize: 12, fontWeight: '600' }}>Message</Text>
-          </View>
-          <View style={styles.card_bottom_bar_content}>
-            <View style={styles.card_bottom_bar_button_common}>
-              <View style={{ paddingTop: 2 }}><Heart /></View>
-              <View>
-                <Text style={{ color: '#626262' }}>
-                  {paramData.likes}
-                </Text>
-              </View>
-            </View>
-            <View style={styles.card_bottom_bar_button_common}>
-              <View style={{ paddingTop: 2 }}><ChatIcon /></View>
-              <View>
-                <Text style={{ color: '#626262' }}>
-                  {paramData.comments}
-                </Text>
-              </View>
-            </View>
-            <View>
-              <View style={{ paddingTop: 2 }}><Toggle /></View>
-            </View>
-          </View>
-        </View>
-      </View>
-    </View >
+            <Text style={{ color: COLORS.PRIMARY_COLOR, fontSize: 12, fontFamily: FONTS.URBAN_SEMIBOLD }}>Message</Text>
+          </Wrapper>
+          <Wrapper style={styles.card_bottom_bar_content}>
+            <Wrapper style={styles.card_bottom_bar_button_common}>
+              <Heart />
+              <Text style={{ color: COLORS._6262, fontFamily: FONTS.URBAN_REGULAR, fontSize: 15 }}>
+                {paramData.likes}
+              </Text>
+            </Wrapper>
+            <Wrapper style={styles.card_bottom_bar_button_common}>
+              <ChatIcon />
+              <Text style={{ color: COLORS._6262, fontFamily: FONTS.URBAN_REGULAR, fontSize: 15 }}>
+                {paramData.comments}
+              </Text>
+            </Wrapper>
+            <Toggle />
+          </Wrapper>
+        </Wrapper>
+      </Wrapper>
+    </Wrapper >
   )
 }
-

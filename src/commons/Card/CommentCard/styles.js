@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     },
     textContainer: {
         flexDirection: 'column',
-        gap: 6,
+        gap: 3,
         flex: 1,
     },
     titleContainer: {
@@ -29,19 +29,16 @@ export const styles = StyleSheet.create({
     title: {
         color: COLORS.BLACK,
         fontSize: 14,
-        fontWeight: '600',
-        fontFamily: FONTS.URBAN_MEDIUM,
-        lineHeight: 18,
+        fontFamily: FONTS.URBAN_BOLD,
     },
     time: {
-        color: '#9E9E9E',
+        color: COLORS._9E9E,
         fontSize: 11,
-        fontWeight: '400',
+        fontFamily:FONTS.URBAN_REGULAR
     },
     description: {
         color: COLORS.BLACK,
         fontSize: 13,
         fontFamily: FONTS.URBAN_REGULAR,
-        fontWeight: '400',
     },
 });

@@ -251,7 +251,7 @@ const cards = [
   {
     key: '1',
     title: 'Melia Elix',
-    description: 'PC $ Gaming Gears',
+    description: 'PC & Gaming Gears',
     image: IMG.SLIDE1,
     imageIcon: IMG.SLIDE2,
     status: 'Verfied',
@@ -263,7 +263,7 @@ const cards = [
   {
     key: '2',
     title: 'Alix Williams',
-    description: 'PC $ Gaming Gears',
+    description: 'PC & Gaming Gears',
     image: IMG.SLIDE2,
     imageIcon: IMG.SLIDE1,
     status: 'Verfied',
@@ -275,7 +275,7 @@ const cards = [
   {
     key: '3',
     title: 'Alix Williams',
-    description: 'PC $ Gaming Gears',
+    description: 'PC & Gaming Gears',
     image: IMG.SLIDE1,
     imageIcon: IMG.LOGO,
     status: 'Verfied',
@@ -287,7 +287,7 @@ const cards = [
   {
     key: '4',
     title: 'Alix Williams',
-    description: 'PC $ Gaming Gears',
+    description: 'PC & Gaming Gears',
     image: IMG.SLIDE2,
     imageIcon: IMG.SLIDE1,
     status: 'Verfied',

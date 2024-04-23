@@ -1,4 +1,4 @@
-import { COLORS } from "@constants"
+import { COLORS, FONTS } from "@constants"
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         gap: 20,
         padding: 4,
         borderBottomWidth: 1,
-        borderColor: '#b3e8dc',
+        borderColor: COLORS._B3E8,
     },
     imageContainer: {
         justifyContent: 'center',
@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
         width: 76,
         height: 76,
         borderWidth: 1,
-        backgroundColor: '#edf5f2',
-        borderColor: '#b3e8dc',
+        backgroundColor: COLORS.WHITE,
+        borderColor: COLORS._B3E8,
         borderRadius: 6,
     },
     titleContainer: {
@@ -34,12 +34,12 @@ export const styles = StyleSheet.create({
     priceText: {
         color: COLORS.BLACK,
         fontSize: 14,
-        fontWeight: '600',
+        fontFamily:FONTS.URBAN_SEMIBOLD
     },
     discountedPriceText: {
-        color: 'gray',
+        color: COLORS.DARK_GRAY,
         fontSize: 14,
-        fontWeight: '600',
+        fontFamily:FONTS.URBAN_SEMIBOLD,
         textDecorationLine: 'line-through',
     },
     starsContainer: {
@@ -52,8 +52,8 @@ export const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     vendorText: {
-        color: '#626262',
+        color: COLORS._6262,
         fontSize: 10,
-        fontWeight: '400',
+        fontFamily:FONTS.URBAN_REGULAR,
     },
 })

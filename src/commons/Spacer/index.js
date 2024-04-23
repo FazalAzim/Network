@@ -10,13 +10,13 @@ const TempSpacer = ({ style, width, height, }) => {
 }
 
 
-export const Spacer = ({ horizontal, height, width, style, isBasic, isSmall, isTiny, isXTiny, isDoubleBase, isStatusBarHeigt, isHeaderHeight, isBottomTabBarHeight }) => {
+export const Spacer = ({ horizontal, height, width, style, isBasic, isSmall, isTiny, isXTiny, isDoubleBase, isStatusBarHeight, isHeaderHeight, isBottomTabBarHeight }) => {
     const tempSize = isXTiny ? sizes.TinyMargin / 2 :
         isTiny ? sizes.TinyMargin :
             isSmall ? sizes.smallMargin :
                 isBasic ? sizes.baseMargin :
                     isDoubleBase ? sizes.doubleBaseMargin :
-                        isStatusBarHeigt ? sizes.statusBarHeight :
+                        isStatusBarHeight ? sizes.statusBarHeight :
                             isHeaderHeight ? sizes.headerHeight :
                                 isBottomTabBarHeight ? sizes.tabBarHeight : sizes.baseMargin
     const defaultHeight = !horizontal ? height || tempSize : 0

@@ -49,13 +49,13 @@ export const VerifyCode = ({navigation}) => {
           both={true}
           backArrow={<Back_Caret_Arrow />}
           backArrowPress ={() => navigation.goBack()}
-          style={{marginTop: 20}}
+          style={{marginTop: 20,marginLeft:10}}
         />
-    <ComponentWrapper style={{paddingTop: height(10)}}>
+    <ComponentWrapper style={{paddingTop: height(5)}}>
       {/* <Image source={IMG.LOGO} style={{width: 167, height: 116, resizeMode:'contain', marginLeft: -35}} /> */}
       <Spacer />
       <H1>Verification Code</H1>
-      <Spacer  />
+      <Spacer isSmall={true}  />
       <Text style={styles.description}>Enter the verification code we just sent to your email address.</Text>
       <Spacer />
         <OTPTextView
@@ -70,11 +70,11 @@ export const VerifyCode = ({navigation}) => {
           
         />
       {/* <InputWithTitle placeholder={'Enter your email'} placeholderTextColor={COLORS.DARK_GRAY}  /> */}
-      <Spacer />
+      <Spacer isSmall={true}/>
       <Text style={styles.description}>Time remaining {seconds < 10 ? '0:0' + seconds +'s' : '0:'+seconds+'s'}</Text>
       <Spacer />
      <PrimaryButton text={'Verify'} onPress={() => {}} style={{width: width(83)}} />
-     <Spacer />
+     <Spacer isSmall={true} />
      <TextButton text={'Resend Code'} onPress={() => {}} textBtnStyle={{color: COLORS.DARK_GRAY, fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM, textAlign: 'center'}}  />
     </ComponentWrapper>
   </MainWrapper>

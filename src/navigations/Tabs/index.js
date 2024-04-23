@@ -5,7 +5,7 @@ import { ROUTES, ICON, COLORS, FONTS } from '@constants';
 import { Add, Cart, Home, Inbox, Search, VideoScreen, ProductDetail } from '@screens';
 
 const Tab = createBottomTabNavigator();
-const {Navigator, Screen} = Tab;
+const { Navigator, Screen } = Tab;
 
 const CustomTabBarButton = ({ children, onPress }) => (
   <TouchableOpacity
@@ -67,7 +67,7 @@ export const Tabs = () => {
       }} />
       <Screen name={ROUTES.SEARCH} component={Search} options={{
         tabBarIcon: ({ focused }) => (
-          <ICON.AntDesign name="search1" size={32} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
+          <ICON.AntDesign name="search1" size={28} color={focused ? COLORS.PRIMARY_COLOR : COLORS.BLACK} />
         ),
         tabBarLabel: 'Search'
       }} />

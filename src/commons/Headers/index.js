@@ -1,6 +1,6 @@
 import { View, StyleSheet, TouchableOpacity, ImageBackground, Pressable, Image } from 'react-native';
 import React from 'react';
-import { COLORS, FONTS } from '@constants';
+import { COLORS, FONTS} from '@constants';
 import { RowWrapper, Text, TextButton, H3, RowWrapperBasic } from '@commons';
 import { Back_Caret_Arrow, Toggle } from '@assets';
 import { height, width } from '@helpers';
@@ -71,7 +71,7 @@ export const ChatHeader = ({ title, backArrow, rightIcon, onBackPress, onRightPr
 
 export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick, providerProfile }) => {
   return (
-    <RowWrapper style={{ marginVertical: width(5) }}>
+    <RowWrapper style={{ marginVertical: width(4) }}>
       <RowWrapperBasic style={{ gap: 4 }}>
         <Pressable onPress={providerClick}>
           <Image source={logo} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />
@@ -83,7 +83,7 @@ export const HomeHeader = ({ logo, icon, profile, profileClick, providerClick, p
       </RowWrapperBasic>
       <RowWrapperBasic style={{ gap: 14 }}>
         <Pressable onPress={providerProfile}>
-          {icon}
+          <Image source={icon} style={{}} />
         </Pressable>
         <Pressable onPress={profileClick}>
           <Image source={profile} style={{ width: 34, height: 34, resizeMode: 'cover', borderRadius: 100 }} />

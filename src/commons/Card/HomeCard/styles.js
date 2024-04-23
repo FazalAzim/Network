@@ -1,4 +1,4 @@
-import { COLORS } from "@constants"
+import { COLORS, FONTS } from "@constants"
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
@@ -19,17 +19,23 @@ export const styles = StyleSheet.create({
         width: 40,
         height: 40,
         resizeMode: 'cover',
+        borderWidth:1,
+        borderColor:COLORS._11FA,
         borderRadius: 100,
     },
     backgroundImage_stream: {
-        paddingHorizontal: 8,
+        paddingHorizontal: 10,
+        paddingVertical:2,
         marginRight: 24,
         marginTop: 12,
-        borderRadius: 2
+        borderRadius: 2,
+        fontFamily:FONTS.URBAN_BOLD,
+        fontSize:11,
     },
     backgroundImage_status: {
+        fontFamily:FONTS.URBAN_MEDIUM,
         color: COLORS.WHITE,
-        fontSize: 12
+        fontSize: 11
     },
     backgroundImage_status_icon: {
         marginLeft: 6,

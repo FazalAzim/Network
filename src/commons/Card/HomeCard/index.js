@@ -7,16 +7,16 @@ import { PrimaryButton, Wrapper } from '@commons';
 
 export const HomeCard = ({ item, onClick, provider }) => {
   return (
-    <View style={styles.container}>
+    <Wrapper style={styles.container}>
       <TouchableOpacity onPress={onClick}>
-        <View style={{ height: 160 }}>
+        <Wrapper style={{ height: 160 }}>
           <ImageBackground
             source={item.image}
             resizeMode="cover"
             blurRadius={provider ? 10 : 1}
             imageStyle={{ borderRadius: 8 }}
             style={[styles.backgroundImage, { position: 'relative' }]}>
-            <View style={{ alignItems: 'flex-end' }}>
+            <Wrapper style={{ alignItems: 'flex-end' }}>
               {provider ?
                 <Text style={[styles.backgroundImage_stream, { color: COLORS.WHITE, fontFamily: FONTS.URBAN_REGULAR, fontSize: 11, fontWeight: '400', lineHeight: 13 }]}>
                   2 days ago
@@ -30,26 +30,26 @@ export const HomeCard = ({ item, onClick, provider }) => {
                   {item.stream}
                 </Text>
               }
-            </View>
-            <View
+            </Wrapper>
+            <Wrapper
               style={[styles.backgroundImage_content, { display: provider ? 'none' : 'flex' }]}>
-              <View style={{ flexDirection: 'row' }}>
+              <Wrapper style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                 <Image
                   source={item.imageIcon}
                   style={styles.backgroundImage_content_image}
                 />
-                <View style={{ marginLeft: 8 }}>
-                  <Text style={{ color: COLORS.WHITE }}>{item.title}</Text>
-                  < View style={{ flexDirection: 'row' }}>
+                <Wrapper>
+                  <Text style={{ color: COLORS.WHITE, fontFamily: FONTS.URBAN_BOLD, fontSize: 12 }}>{item.title}</Text>
+                  <Wrapper style={{ flexDirection: 'row' }}>
                     <Text style={styles.backgroundImage_status}>{item.status}</Text>
-                    <View style={styles.backgroundImage_status_icon}><CheckMarkIcon /></View>
-                  </View>
-                </View>
-              </View>
-              <View style={styles.backgroundImage_barIcon}>
-                <Text><BarIcon /></Text>
-              </View>
-            </View>
+                    <Wrapper style={styles.backgroundImage_status_icon}><CheckMarkIcon /></Wrapper>
+                  </Wrapper>
+                </Wrapper>
+              </Wrapper>
+              <Wrapper style={styles.backgroundImage_barIcon}>
+                <BarIcon />
+              </Wrapper>
+            </Wrapper>
             {provider && (
               <Wrapper style={{ position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                 <Wrapper style={{ flexDirection: 'column', gap: 12 }}>
@@ -59,36 +59,36 @@ export const HomeCard = ({ item, onClick, provider }) => {
               </Wrapper>
             )}
           </ImageBackground>
-        </View >
+        </Wrapper >
       </TouchableOpacity>
-      <View
+      <Wrapper
         style={styles.card_bar}>
-        <View>
-          <Text style={{ color: COLORS.BLACK }}>{item.description}</Text>
-          <Text style={{ color: '#7A7A7A' }}>{item.watching} watching</Text>
-        </View>
-        <View style={styles.card_bar_content}>
-          <View style={styles.card_bar_button_common}>
-            <View style={{ paddingTop: 2 }}><Heart /></View>
-            <View>
-              <Text style={{ color: '#626262' }}>
+        <Wrapper>
+          <Text style={{ color: COLORS.BLACK, fontFamily: FONTS.URBAN_MEDIUM, fontSize: 14, }}>{item.description}</Text>
+          <Text style={{ color: COLORS._7A7A, fontFamily: FONTS.URBAN_REGULAR, }}>{item.watching} watching</Text>
+        </Wrapper>
+        <Wrapper style={styles.card_bar_content}>
+          <Wrapper style={styles.card_bar_button_common}>
+            <Wrapper style={{ paddingTop: 2 }}><Heart /></Wrapper>
+            <Wrapper>
+              <Text style={{ color: COLORS._6262, fontFamily: FONTS.URBAN_REGULAR, fontSize: 15 }}>
                 {item.likes}
               </Text>
-            </View>
-          </View>
-          <View style={styles.card_bar_button_common}>
-            <View style={{ paddingTop: 2 }}><ChatIcon /></View>
-            <View>
-              <Text style={{ color: '#626262' }}>
+            </Wrapper>
+          </Wrapper>
+          <Wrapper style={styles.card_bar_button_common}>
+            <Wrapper style={{ paddingTop: 2 }}><ChatIcon /></Wrapper>
+            <Wrapper>
+              <Text style={{ color: COLORS._6262, fontFamily: FONTS.URBAN_REGULAR, fontSize: 15 }}>
                 {item.comments}
               </Text>
-            </View>
-          </View>
-          <View>
+            </Wrapper>
+          </Wrapper>
+          <Wrapper>
             <View style={{ paddingTop: 2 }}><Toggle /></View>
-          </View>
-        </View>
-      </View>
-    </View >
+          </Wrapper>
+        </Wrapper>
+      </Wrapper>
+    </Wrapper >
   );
 };

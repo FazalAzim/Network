@@ -24,31 +24,31 @@ export const Home = ({ navigation }) => {
   ];
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
-      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={<ICON.AntDesign name='bells' color={COLORS.BLACK} size={20} />} profileClick={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: false, })} providerClick={() => navigation.navigate(ROUTES.PROVIDER_DETAILS)} providerProfile={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: true })} />
-      <Wrapper style={{ marginTop: 12 }}>
+      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={IMG.BELL} profileClick={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: false, })} providerClick={() => navigation.navigate(ROUTES.PROVIDER_DETAILS)} providerProfile={() => navigation.navigate(ROUTES.LIVE_PROFILE, { profile: true, provider: true })} />
+      <Wrapper style={{ marginTop: 6,marginHorizontal: 14, }}>
         <FlatList
           horizontal
           data={button}
           renderItem={({ item }) => {
-            return (<Wrapper style={{ marginRight: 5 }}>
+            return (<Wrapper style={{ marginRight: 8 }}>
               <SocialButton onPress={() => {
                 if ('click' in item) {
                   item.click()
                 }
                 setActiveTab(item.title)
-              }} style={{ borderColor: COLORS.WHITE, backgroundColor: activeTab === item.title ? COLORS.PRIMARY_COLOR : COLORS.BD_COLOR, width: width(25), height: height(4) }} text={item.title} styleText={{ color: activeTab === item.title ? COLORS.WHITE : '#242424', fontSize: 12 }} />
+              }} style={{ borderColor: COLORS.WHITE, backgroundColor: activeTab === item.title ? COLORS.PRIMARY_COLOR : COLORS.BD_COLOR, width: width(25), height: height(4),borderRadius:4 }} text={item.title} styleText={{ color: activeTab === item.title ? COLORS.WHITE : COLORS._2424, fontSize: 12,fontFamily:FONTS.URBAN_MEDIUM }} />
             </Wrapper>)
           }}
         />
       </Wrapper>
-      <View style={{ flexDirection: 'column', flex: 1 }}>
+      <Wrapper style={{ flexDirection: 'column', flex: 1 }}>
         <FlatList
           data={cards}
           renderItem={({ item }) => {
             return <HomeCard item={item} onClick={() => navigation.navigate(ROUTES.VIDEO_SCREEN, { item })} navigation={navigation} />;
           }}
         />
-      </View>
+      </Wrapper>
       <Wrapper>
         <RBSheet
           ref={refRBSheet}

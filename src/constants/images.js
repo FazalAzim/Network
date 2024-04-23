@@ -10,4 +10,5 @@ export const IMG ={
     PRODUCT_MOBILE:require('../assets/images/product_mobile.png'),
     VIDEO:require('../assets/images/video.png'),
     SPLASH_LOGO:require('../assets/images/splash_logo.png'),
+    BELL:require('../assets/images/bell_icon.png'),
 }

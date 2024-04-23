@@ -29,18 +29,17 @@ export const ForgotPassword = ({navigation}) => {
           both={true}
           backArrow={<Back_Caret_Arrow />}
           backArrowPress ={() => navigation.goBack()}
-          style={{marginTop: 20}}
+          style={{marginTop: 20,marginLeft:10}}
         />
-    <ComponentWrapper style={{paddingTop: height(10)}}>
+    <ComponentWrapper style={{paddingTop: height(5)}}>
       {/* <Image source={IMG.LOGO} style={{width: 167, height: 116, resizeMode:'contain', marginLeft: -35}} /> */}
       <Spacer />
       <H1>Forgot Password?</H1>
-      <Spacer  />
+      <Spacer isSmall={true} />
       <Text style={styles.description}>Don't worry! It happens. Please enter the email address linked with your account.</Text>
       <Spacer />
-    
       <InputWithTitle placeholder={'Enter your email'} placeholderTextColor={COLORS.DARK_GRAY}  />
-      <Spacer />
+      <Spacer isSmall={true} />
      <PrimaryButton text={'Submit'} onPress={() => navigation.navigate(ROUTES.RESET_PASSWORD)} style={{width: width(83)}} />
     </ComponentWrapper>
   </MainWrapper>

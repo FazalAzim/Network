@@ -1,10 +1,10 @@
 import { View, Text, Image } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from './styles'
-import { ComponentWrapper, H1, InputWithTitle, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, Seperator, SocialButton, Spacer, TextButton, Wrapper } from '@commons'
+import { ComponentWrapper, H1, HeaderPrimary, InputWithTitle, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, Seperator, SocialButton, Spacer, TextButton, Wrapper } from '@commons'
 import { Logo } from '@react-native/typescript-config'
 import { COLORS, FONTS, ICON, IMG, ROUTES } from '@constants'
-import { Apple, Eye, Facebook, Google } from '@assets'
+import { Apple, Back_Caret_Arrow, Eye, Facebook, Google } from '@assets'
 import { height, width } from '@helpers'
 
 export const Signup = ({navigation}) => {
@@ -14,9 +14,13 @@ export const Signup = ({navigation}) => {
   }
   return (
      <MainWrapper style={{ backgroundColor: COLORS.WHITE}}>
-      <Wrapper style={{marginTop:height(3),marginLeft:width(5)}}>
-        <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={20} onPress={() => navigation.goBack()} />
-      </Wrapper>
+      <HeaderPrimary
+          // title={'Support'}
+          both={true}
+          backArrow={<Back_Caret_Arrow />}
+          backArrowPress ={() => navigation.goBack()}
+          style={{marginTop: 20,marginLeft:10}}
+        />
       <Spacer isHeaderHeight={true}/>
     <ComponentWrapper>
       {/* <Image source={IMG.LOGO} style={{width: 167, height: 116, resizeMode:'contain', marginLeft: -35}} /> */}
@@ -40,7 +44,7 @@ export const Signup = ({navigation}) => {
        <Spacer />
        <RowWrapperBasic style={{alignSelf: 'center', position:'absolute', bottom: -60, gap:2}}>
           <Text style={{color: COLORS.BLACK, fontFamily: FONTS.URBAN_REGULAR}}>Don't have an account?</Text>
-          <TextButton text="Sign In" />
+          <TextButton text="Sign In"  onPress={() => navigation.navigate(ROUTES.LOGIN)} />
         </RowWrapperBasic>
     </ComponentWrapper>
   </MainWrapper>

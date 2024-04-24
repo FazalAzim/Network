@@ -104,10 +104,10 @@ export const ProductDetail = ({ navigation }) => {
           </Wrapper>
         </Wrapper>
       </ScrollWrapper>
-      <Wrapper style={{ width: '100%', position: 'absolute', bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
+      <Wrapper style={{ width: width(100), position: 'absolute', bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
         <Wrapper style={{ width: width(90), flexDirection: 'row', justifyContent: 'space-around' }}>
-          <PrimaryButton text={'Buy Now'} style={{ width: 160, height: 44 }} />
-          <SocialButton style={{ borderColor: COLORS.PRIMARY_COLOR, backgroundColor: COLORS.WHITE, width: 160, height: 44 }} text={"Add to Cart"} styleText={{ color: '#9344FC', fontSize: 13 }} onPress={() => navigation.navigate(ROUTES.CART)} />
+          <PrimaryButton text={'Buy Now'} style={{ width: 160, height: 44,borderRadius:4, }} />
+          <SocialButton style={{ borderColor: COLORS.PRIMARY_COLOR, backgroundColor: COLORS.WHITE, width: 160, height: 44,borderRadius:4 }} text={"Add to Cart"} styleText={{ color: '#9344FC', fontSize: 13,fontFamily:FONTS.URBAN_SEMIBOLD }} onPress={() => navigation.navigate(ROUTES.CART)} />
         </Wrapper>
       </Wrapper>
     </MainWrapper >

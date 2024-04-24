@@ -17,8 +17,7 @@ export const styles = StyleSheet.create({
   title: {
     color: '#1E1F3D',
     fontSize: 20,
-    fontWeight: '700',
-    fontFamily: FONTS.URBAN_REGULAR,
+    fontFamily: FONTS.URBAN_BOLD,
   },
   productList: {
     width: width(95),
@@ -41,19 +40,16 @@ export const styles = StyleSheet.create({
   totalText: {
     color: '#989898',
     fontSize: 13,
-    fontWeight: '400',
     fontFamily: FONTS.URBAN_REGULAR,
   },
   totalTaxes: {
     color: '#989898',
     fontSize: 10,
-    fontWeight: '700',
     fontFamily: FONTS.URBAN_REGULAR,
   },
   totalPrice: {
     color: '#1E1F3D',
     fontSize: 20,
-    fontWeight: '700',
-    fontFamily: FONTS.URBAN_REGULAR,
+    fontFamily: FONTS.URBAN_BOLD,
   },
 });

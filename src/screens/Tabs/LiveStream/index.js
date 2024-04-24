@@ -3,11 +3,12 @@ import { MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, Text, Wrapper 
 import { Animated, FlatList, Image, ImageBackground, Pressable, TouchableOpacity } from 'react-native'
 import { COLORS, FONTS, ICON, IMG, chat_Data } from '@constants'
 import { height, width } from '@helpers'
-import { Send_Icon, Setting_Icon, } from '@assets'
+import { Heart_Gray, Message_Gray, Send_Icon, Setting_Icon, Share, } from '@assets'
 import { ProductContext } from '@contexts'
 import { styles } from './styles'
 import { TextInput } from '@core-ui';
 import { ProductCard } from './components'
+import LinearGradient from 'react-native-linear-gradient';
 
 export const LiveStream = ({ navigation }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,11 +44,11 @@ export const LiveStream = ({ navigation }) => {
   return (
     <MainWrapper>
       <ImageBackground source={IMG.VIDEO} resizeMode="cover" style={{ flex: 1, position: 'relative' }}>
-        <RowWrapper style={{ position: 'absolute', top: 30, width: width(90) }}>
+        <RowWrapper style={{ position: 'absolute', top: 30, zIndex: 5, width: width(90) }}>
           <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={22} onPress={() => navigation.goBack()} />
           <Setting_Icon />
         </RowWrapper>
-        <Wrapper style={{ paddingHorizontal: width(5), position: 'absolute', bottom: waiting ? 30 : 10, }}>
+        <Wrapper style={{ paddingHorizontal: width(5), position: 'absolute', zIndex: 3, bottom: waiting ? 30 : 10, }}>
           {waiting ? (
             <Wrapper style={{ flexDirection: 'column', gap: 12, }}>
               <Text style={{ fontFamily: FONTS.URBAN_MEDIUM, fontSize: 19, color: COLORS.WHITE }}>Best Multi Angle mobile stand</Text>
@@ -62,7 +63,7 @@ export const LiveStream = ({ navigation }) => {
                     )
                   })}
                 </RowWrapperBasic>
-                <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontWeight: '400', fontSize: 12, color: COLORS.WHITE, position: 'relative', right: 60 }}>100+ Subscribers Active Now</Text>
+                <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 12, color: COLORS.WHITE, position: 'relative', right: 60 }}>100+ Subscribers Active Now</Text>
               </RowWrapperBasic>
               <RowWrapper style={{ marginHorizontal: width(0), width: width(90), alignItems: 'cetner' }}>
                 <PrimaryButton onPress={() => setWaiting(!waiting)} text={'Go Live'} style={{ width: width(60), borderRadius: 6 }} />
@@ -79,7 +80,7 @@ export const LiveStream = ({ navigation }) => {
                     {chat.map((item, index) => {
                       return (
                         index < 7 && (
-                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, alignItems: 'center', opacity: 1 - `0.${index}` }}>
+                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, alignItems: 'center', opacity: 0.9 - `0.${index}` }}>
                             <Text style={{ fontFamily: FONTS.URBAN_SEMIBOLD, fontSize: 14, color: COLORS.WHITE }}>{item.title}:</Text>
                             <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 14, color: COLORS.WHITE }}>{item.message}</Text>
                           </Wrapper>
@@ -91,15 +92,18 @@ export const LiveStream = ({ navigation }) => {
                 </Wrapper>
                 <Wrapper style={{ flexDirection: 'column', gap: 20, alignSelf: 'flex-end' }} >
                   <Wrapper>
-                    <ICON.AntDesign name='hearto' color={COLORS.WHITE} size={22} />
+                    <Heart_Gray/>
+                    {/* <ICON.AntDesign name='hearto' color={COLORS.WHITE} size={22} /> */}
                     <Text style={{ textAlign: 'center', fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS.WHITE }}>2.1K</Text>
                   </Wrapper>
                   <Wrapper>
-                    <ICON.AntDesign name='message1' color={COLORS.WHITE} size={22} />
+                    <Message_Gray />
+                    {/* <ICON.AntDesign name='message1' color={COLORS.WHITE} size={22} /> */}
                     <Text style={{ textAlign: 'center', fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS.WHITE }}>1K</Text>
                   </Wrapper>
                   <Wrapper>
-                    <ICON.FontAwesome name='share' color={COLORS.WHITE} size={22} />
+                    <Share />
+                    {/* <ICON.FontAwesome name='share' color={COLORS.WHITE} size={22} /> */}
                   </Wrapper>
                 </Wrapper>
               </RowWrapper>
@@ -112,7 +116,7 @@ export const LiveStream = ({ navigation }) => {
             </Wrapper>
           )}
         </Wrapper>
-        <Wrapper style={styles.container}>
+        <Wrapper style={[styles.container, { zIndex: isOpen ? 10 : 2 }]}>
           <Wrapper style={[styles.mainContent, { left: -55 }]}>
             <TouchableOpacity onPress={toggleSideView} style={styles.centerButton}>
               <Text>See Product</Text>
@@ -138,8 +142,18 @@ export const LiveStream = ({ navigation }) => {
             </Wrapper>
           </Animated.View>
         </Wrapper>
+        <LinearGradient
+          colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.9)']}
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+          }}
+        />
       </ImageBackground>
-    </MainWrapper>
+    </MainWrapper >
   )
 }
 

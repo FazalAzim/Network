@@ -34,9 +34,9 @@ const ProductCard = ({ item }) => {
 export const GoLive = ({ navigation }) => {
   const { productItems } = useContext(ProductContext);
 
-  useEffect(() => {
-    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
-  }, [])
+  // useEffect(() => {
+  //   LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+  // }, [])
 
   return (
     <MainWrapper>
@@ -58,12 +58,15 @@ export const GoLive = ({ navigation }) => {
         </Pressable>
         {productItems.length !== 0 &&
           <Wrapper style={{ paddingBottom: height(1), paddingHorizontal: width(2), flex: 1, }}>
-            <FlatList
+            {productItems.map((item, index) => {
+              return <ProductCard key={index} item={item} />
+            })}
+            {/* <FlatList
               data={productItems}
               renderItem={({ item }) => {
                 return <ProductCard item={item} />;
               }}
-            />
+            /> */}
           </Wrapper>
         }
       </ScrollWrapper>

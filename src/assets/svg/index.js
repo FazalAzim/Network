@@ -56,7 +56,9 @@ import Cross_Icon from './cross_icon.svg';
 import Setting_Icon from './settings.svg';
 import Send_Icon from './send_icon';
 import Setting from './setting_icon.svg';
-import Setting_White from './setting_white'
+import Setting_White from './setting_white';
+import Heart_Gray from './heart_gray.svg';
+import Message_Gray from './message_gray.svg';
 
 export {
     Apple, Google, Facebook, Chat, LogoText,
@@ -68,6 +70,6 @@ export {
     Plane, Favorite, Share, StarActive, StarUnactive, CheckMarkIcon,
     PlusIcon, SendIcon, X, FbPink, IG, Delete, LocationIcon, MenuIcon, Bag_Icon, Play_Icon,
     Box_Icon, Upload_Icon, Check_Icon, CheckIcon, Plus_Blue, Minus_Icon, Plus_Icon,
-    Cross_Icon, Setting_Icon, Send_Icon, Setting, Setting_White,
+    Cross_Icon, Setting_Icon, Send_Icon, Setting, Setting_White,Heart_Gray,Message_Gray,
 }
 

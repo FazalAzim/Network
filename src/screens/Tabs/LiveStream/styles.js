@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: 'relative',
+    // zIndex: 2,
   },
   mainContent: {
     position: 'absolute',
@@ -28,5 +29,6 @@ export const styles = StyleSheet.create({
     width: width(60),
     backgroundColor: COLORS.WHITE,
     padding: 20,
+    zIndex:0,
   },
 });

@@ -17,13 +17,14 @@ export const styles = StyleSheet.create({
     headerText: {
         color: '#1E1F3D',
         fontSize: 20,
-        fontWeight: '700',
-        fontFamily: FONTS.URBAN_REGULAR,
+        fontFamily: FONTS.URBAN_BOLD,
     },
     deliveryContainer: {
-        width: width(95),
+        width: width(90),
         flexDirection: 'column',
         gap: 3,
+        paddingTop:10,
+        paddingBottom:15,
     },
     deliveryRow: {
         flexDirection: 'row',
@@ -31,21 +32,21 @@ export const styles = StyleSheet.create({
         gap: 8,
     },
     deliveryText: {
-        color: COLORS.BLACK,
+        color: '#989898',
         fontSize: 12,
-        fontWeight: '400',
+        // fontWeight: '400',
         fontFamily: FONTS.URBAN_REGULAR,
     },
     addressContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        // paddingBottom:15,
     },
     addressText: {
         paddingLeft: 18,
         color: '#1E1F3D',
         fontSize: 14,
-        fontWeight: '500',
-        fontFamily: FONTS.URBAN_REGULAR,
+        fontFamily: FONTS.URBAN_MEDIUM,
     },
     subtotalContainer: {
         width: width(90),
@@ -55,19 +56,17 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderColor: '#b3e8dc',
+        borderColor: '#EAEAEA',
     },
     subtotalText: {
         color: '#989898',
         fontSize: 13,
-        fontWeight: '400',
         fontFamily: FONTS.URBAN_REGULAR,
     },
     totalAmountText: {
         color: '#1E1F3D',
         fontSize: 14,
-        fontWeight: '700',
-        fontFamily: FONTS.URBAN_REGULAR,
+        fontFamily: FONTS.URBAN_BOLD,
     },
     checkoutButtonContainer: {
         width: width(90),
@@ -78,13 +77,11 @@ export const styles = StyleSheet.create({
     priceTitle: {
         color: '#989898',
         fontSize: 13,
-        fontWeight: '400',
         fontFamily: FONTS.URBAN_REGULAR
     },
     PriceTotal: {
         color: '#1E1F3D',
         fontSize: 14,
-        fontWeight: '700',
-        fontFamily: FONTS.URBAN_REGULAR
+        fontFamily: FONTS.URBAN_BOLD
     }
 });

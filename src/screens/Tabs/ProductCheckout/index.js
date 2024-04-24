@@ -56,7 +56,7 @@ export const ProductCheckout = ({ navigation }) => {
         <Wrapper style={{ width: width(90), paddingVertical: 10, paddingHorizontal: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <Wrapper style={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
             <Text style={styles.priceTitle}>TOTAL</Text>
-            <Text style={{ color: '#989898', fontSize: 10, fontFamily: FONTS.URBAN_BOLD }}>(incl. of all taxes)</Text>
+            <Text style={{ color: '#989898', fontSize: 10, fontFamily: FONTS.URBAN_REGULAR }}>(incl. of all taxes)</Text>
           </Wrapper>
           <Text style={{ color: '#1E1F3D', fontSize: 14, fontFamily: FONTS.URBAN_BOLD }}>$508.00</Text>
         </Wrapper>

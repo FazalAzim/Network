@@ -34,7 +34,7 @@ function formatLastMessageTime(timestamp) {
                 </RowWrapperBasic>
                 <Text style={{color: COLORS._A3A3}}>{formatLastMessageTime(chat.lastMessageTime)}</Text>
             </RowWrapper>
-            <RowWrapper style={{marginTop: 8}}>
+            <RowWrapper style={{marginTop: 2}}>
                 <Text numOfLines={1} multiline={false} style={{color: COLORS._A3A3}}>{chat.lastMessage}</Text>
                {chat.unreadMessages !== 0 &&  
                <Wrapper style={{backgroundColor: COLORS.LIGHT_PINK, width: 18, height: 18, borderRadius: 50, justifyContent: 'center', alignItems: 'center'}}>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { styles } from './styles'
 import { Dot, MainWrapper, PrimaryButton, RowWrapperBasic, Text, Wrapper } from '@commons'
-import { COLORS, FONTS, ICON, IMG } from '@constants'
+import { COLORS, FONTS, ICON, IMG, ROUTES } from '@constants'
 import { height, width } from '@helpers'
 import { FlatList, Image, Pressable, TouchableOpacity } from 'react-native'
 import { CheckIcon } from '@assets'
@@ -68,7 +68,7 @@ export const Subscriptions = ({ navigation }) => {
           <Dot style={{ alignSelf: 'center', width: 4, height: 4, backgroundColor: COLORS._6262 }} />
           <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS._6262 }}>Terms of Service</Text>
         </RowWrapperBasic>
-        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6 }} />
+        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6 }} onPress={()=>navigation.navigate(ROUTES.VERIFICATION_SUBMIT)} />
       </Wrapper>
     </MainWrapper >
   )

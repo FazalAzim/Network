@@ -1,42 +1,43 @@
-import { width } from '@helpers';
+import { height, width } from '@helpers';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     height: 227.25,
     position: 'relative',
-    backgroundColor:"#fff"
+    backgroundColor: "#fff"
   },
   slide: {
-    flex: 1,
-    paddingTop:8,
-    paddingBottom:38,
-    justifyContent: 'center',
+    // flex: 1,
+    marginTop: 5,
+    // paddingBottom: 38,
+    // justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
-    width:width(40),
-    flex: 1,
+    width: 121,
+    height: 166,
     resizeMode: 'cover',
-    borderRadius:8,
+    borderRadius: 5,
   },
   dotStyle: {
     width: 8,
     height: 8,
-    borderRadius: 5,
+    // borderRadius: 5,
     backgroundColor: '#EBF0FF',
     margin: 3,
   },
   activeDotStyle: {
     width: 8,
     height: 8,
-    borderRadius: 5,
+    // borderRadius: 5,
     backgroundColor: '#9344FC',
-    margin: 3,
+    // margin: 3,
   },
   button: {
     position: 'absolute',
-    bottom: 15, right: 15,
+    bottom: 15,
+    right: 15,
     flexDirection: 'column',
     gap: 8
   },

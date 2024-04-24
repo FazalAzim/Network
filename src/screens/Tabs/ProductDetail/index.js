@@ -10,7 +10,7 @@ export const ProductDetail = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const [reviewVisibility, setReviewVisibility] = useState(false)
 
-  const images = [IMG.PRODUCT_MOBILE, IMG.SLIDE1, IMG.SLIDE2, IMG.PRODUCT_MOBILE, IMG.SLIDE1];
+  const images = [IMG.AVATAR4, IMG.AVATAR1, IMG.AVATAR2, IMG.AVATAR3];
 
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>

@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Swiper from 'react-native-swiper';
 import { View, Image } from 'react-native';
 import { ICON } from '@constants';
 import { Favorite, Share } from '@assets';
-import {styles} from './styles';
+import { styles } from './styles';
 
 export const ProductSlider = ({ images, onClick }) => {
+  const [index, setIndex] = useState(0);
+  const onIndexChanged = (newIndex) => {
+    setIndex(newIndex);
+  };
   return (
     <View style={styles.container}>
       <Swiper
         autoplay
         autoplayTimeout={3}
+        showsPagination={true}
+        onIndexChanged={(i) => onIndexChanged(i)}
         dotStyle={styles.dotStyle}
         activeDotStyle={styles.activeDotStyle}
       >

@@ -20,3 +20,5 @@ export * from './SelectProduct';
 export * from './VideoScreen';
 export * from './ProductCheckout';
 export * from './ProductDetail';
+export * from './MyProfile';
+export * from './ProviderProfile';

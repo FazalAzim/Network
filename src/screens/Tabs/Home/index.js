@@ -17,7 +17,7 @@ export const Home = ({ navigation }) => {
   const button = [
     { title: "Live", click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
     { title: "Previously Live" },
-    { title: "Subscriptions", click: () => navigation.navigate(ROUTES.SUBSCRIPTIONS) },
+    { title: "Subscriptions", click: () => navigation.navigate(ROUTES.PROVIDER_DETAILS) },
     { title: "For You" },
     { title: "Live Product", click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
     { title: "Product", click: () => navigation.navigate(ROUTES.PRODUCT_LIST) },
@@ -53,7 +53,7 @@ export const Home = ({ navigation }) => {
         <RBSheet
           ref={refRBSheet}
           closeOnDragDown={true}
-          closeOnPressMask={false}
+          closeOnPressMask={true}
           height={height(32)}
           customStyles={{
             container: {

@@ -27,7 +27,7 @@ export const ProductCard = ({ item, onClick }) => {
                 <Text style={styles.discountedPriceText}>${item.actual_price}</Text>
               </Wrapper>
               <Wrapper style={styles.starsContainer}>
-                <Text style={{ color: COLORS.BLACK, fontSize: 12, fontWeight: '500' }}>{item.stars}</Text>
+                <Text style={{ color: COLORS.BLACK, fontSize: 12,fontFamily:FONTS.URBAN_MEDIUM }}>{item.stars}</Text>
                 <Blue_Star />
               </Wrapper>
             </Wrapper>

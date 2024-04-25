@@ -44,7 +44,7 @@ export const MyProfile = ({ navigation }) => {
         <RBSheet
           ref={refRBSheet}
           closeOnDragDown={true}
-          closeOnPressMask={false}
+          closeOnPressMask={true}
           height={height(50)}
           customStyles={{
             container: {

@@ -32,9 +32,9 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     priceText: {
-        color: COLORS.BLACK,
+        // color: COLORS.BLACK,
         fontSize: 14,
-        fontFamily:FONTS.URBAN_SEMIBOLD
+        fontFamily:FONTS.URBAN_BOLD
     },
     discountedPriceText: {
         color: COLORS.DARK_GRAY,

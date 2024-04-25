@@ -20,7 +20,7 @@ export const ProfileCard = ({ type, navigation ,onPress }) => {
         <Wrapper style={[styles({}).avatarBorder, { borderColor: type === 'profile' ? COLORS.LIGHT_GRAY : COLORS.RED_COLOR, }]}>
           <Image source={IMG.AVATAR1} style={styles({}).userAvatar} />
         </Wrapper>
-        {type === 'profile' && (
+        {type === 'provider' && (
           <PrimaryButton text={'Live'} style={styles({}).userStatusButton} />
         )}
         <RowWrapperBasic style={{ alignItems: 'center', marginTop: type === 'profile' ? 2 : -3 }}>

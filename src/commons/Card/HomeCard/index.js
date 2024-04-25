@@ -2,10 +2,10 @@ import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-nati
 import React from 'react';
 import { styles } from './styles';
 import { BarIcon, ChatIcon, Heart, Toggle, CheckMarkIcon } from '@assets';
-import { COLORS, FONTS } from '@constants';
+import { COLORS, FONTS, ROUTES } from '@constants';
 import { PrimaryButton, Wrapper } from '@commons';
 
-export const HomeCard = ({ item, onClick, provider }) => {
+export const HomeCard = ({ item, onClick, provider, navigation }) => {
   return (
     <Wrapper style={styles.container}>
       <TouchableOpacity onPress={onClick}>
@@ -54,7 +54,7 @@ export const HomeCard = ({ item, onClick, provider }) => {
               <Wrapper style={{ position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                 <Wrapper style={{ flexDirection: 'column', gap: 12 }}>
                   <Text style={{ color: COLORS.WHITE, fontSize: 14, fontWeight: '400', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 16 }}>Subscribe to watch video</Text>
-                  <PrimaryButton text={'Subscribe $10/Month '} style={{ width: 160, height: 30 }} styleText={{ fontSize: 12, fontWeight: '600', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 14 }} />
+                  <PrimaryButton onPress={() => navigation.navigate(ROUTES.SUBSCRIPTIONS)} text={'Subscribe $10/Month '} style={{ width: 160, height: 30 }} styleText={{ fontSize: 12, fontWeight: '600', fontFamily: FONTS.URBAN_REGULAR, lineHeight: 14 }} />
                 </Wrapper>
               </Wrapper>
             )}

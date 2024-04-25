@@ -68,7 +68,7 @@ export const Subscriptions = ({ navigation }) => {
           <Dot style={{ alignSelf: 'center', width: 4, height: 4, backgroundColor: COLORS._6262 }} />
           <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS._6262 }}>Terms of Service</Text>
         </RowWrapperBasic>
-        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6 }} onPress={()=>navigation.navigate(ROUTES.VERIFICATION_SUBMIT)} />
+        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6 }} />
       </Wrapper>
     </MainWrapper >
   )

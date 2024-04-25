@@ -9,7 +9,7 @@ export const ProviderProfile = ({ navigation }) => {
 
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
-      <ProfileCard navigation={navigation} type={'provider'} />
+      <ProfileCard navigation={navigation} />
       <Wrapper style={{ marginHorizontal: width(3), marginVertical: height(2) }}>
         <H3 >Videos</H3>
       </Wrapper>
@@ -18,7 +18,7 @@ export const ProviderProfile = ({ navigation }) => {
         <FlatList
           data={cards}
           renderItem={({ item }) => {
-            return <HomeCard item={item} provider={true} />;
+            return <HomeCard item={item} provider={true} navigation={navigation} />;
           }}
         />
       </Wrapper>

@@ -58,7 +58,7 @@ export const LiveStream = ({ navigation }) => {
                   {subscriber.map((item, index) => {
                     return (
                       index < 4 && (
-                        <Image key={index} source={item.sub} style={{ width: 40, height: 40, resizeMode: 'cover', borderRadius: 100, position: 'relative', right: index * 20 }} />
+                        <Image key={index} source={item.sub} style={{ width: 38, height: 38, resizeMode: 'cover', borderRadius: 100, position: 'relative', right: index * 20 }} />
                       )
                     )
                   })}
@@ -91,12 +91,12 @@ export const LiveStream = ({ navigation }) => {
                   <PrimaryButton onPress={() => setWaiting(!waiting)} text={'End Live'} style={{ width: width(60), borderRadius: 6, backgroundColor: COLORS.RED_COLOR }} />
                 </Wrapper>
                 <Wrapper style={{ flexDirection: 'column', gap: 20, alignSelf: 'flex-end' }} >
-                  <Wrapper>
+                  <Wrapper style={{flexDirection:'column',alignItems:'center',gap:2,}}>
                     <Heart_Gray/>
                     {/* <ICON.AntDesign name='hearto' color={COLORS.WHITE} size={22} /> */}
                     <Text style={{ textAlign: 'center', fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS.WHITE }}>2.1K</Text>
                   </Wrapper>
-                  <Wrapper>
+                  <Wrapper style={{flexDirection:'column',alignItems:'center',gap:2,}}>
                     <Message_Gray />
                     {/* <ICON.AntDesign name='message1' color={COLORS.WHITE} size={22} /> */}
                     <Text style={{ textAlign: 'center', fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS.WHITE }}>1K</Text>
@@ -108,7 +108,7 @@ export const LiveStream = ({ navigation }) => {
                 </Wrapper>
               </RowWrapper>
               <RowWrapperBasic style={{ alignSelf: 'center', marginTop: height(2) }}>
-                <TextInput value={message} onChangeText={setMessage} placeholder='Hi Alex, y|' style={{ height: 38, color: COLORS.WHITE, width: width(80), marginHorizontal: width(2), borderRadius: 4, backgroundColor: 'rgba(0,0,0,0.4)', }} />
+                <TextInput value={message} onChangeText={setMessage} placeholder='Hi Alex, y|' style={{ height: 38, color: COLORS.WHITE, width: width(80), marginHorizontal: width(2), borderRadius: 4, backgroundColor: 'rgba(255,255,255, 0.1)', }} />
                 <Pressable onPress={handleMessage} >
                   <Send_Icon />
                 </Pressable>
@@ -117,14 +117,14 @@ export const LiveStream = ({ navigation }) => {
           )}
         </Wrapper>
         <Wrapper style={[styles.container, { zIndex: isOpen ? 10 : 2 }]}>
-          <Wrapper style={[styles.mainContent, { left: -55 }]}>
+          <Wrapper style={[styles.mainContent, { left: -57 }]}>
             <TouchableOpacity onPress={toggleSideView} style={styles.centerButton}>
               <Text>See Product</Text>
               <ICON.Entypo name='chevron-thin-up' color={COLORS.BLACK} size={16} />
             </TouchableOpacity>
           </Wrapper>
           <Animated.View style={[styles.sideView, { left: slideAnim }]}>
-            <Wrapper style={[styles.mainContent, { right: -78 }]}>
+            <Wrapper style={[styles.mainContent, { right: -76 }]}>
               <TouchableOpacity onPress={toggleSideView} style={styles.centerButton}>
                 <Text>See Product</Text>
                 <ICON.Entypo name='chevron-thin-down' color={COLORS.BLACK} size={16} />

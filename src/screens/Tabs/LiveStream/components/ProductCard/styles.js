@@ -13,8 +13,8 @@ export const styles = StyleSheet.create({
     width: width(50),
     height: width(50),
     borderWidth: 1,
-    backgroundColor: '#edf5f2',
-    borderColor: '#b3e8dc',
+    backgroundColor: COLORS.WHITE,
+    borderColor: COLORS._EBEB,
     borderRadius: 0,
   },
   image: {
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   },
   price: {
     fontSize: 14,
-    fontFamily: FONTS.URBAN_SEMIBOLD,
+    fontFamily: FONTS.URBAN_BOLD,
   },
   actualPrice: {
     color: COLORS.GRAY,

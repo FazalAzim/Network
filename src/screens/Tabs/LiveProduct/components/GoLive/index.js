@@ -15,13 +15,13 @@ const ProductCard = ({ item }) => {
   }
 
   return (
-    <RowWrapperBasic style={{ gap: 14, borderBottomWidth: 1, borderColor: COLORS._B3E8, paddingVertical: height(2), }}>
+    <RowWrapperBasic style={{ gap: 14, paddingVertical: height(2), }}>
       <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', }} onPress={toggleCheckbox}>
-        <Wrapper style={{ width: 25, height: 25, borderRadius: 6, borderWidth: 2, borderColor: COLORS.LIGHT_GRAY, backgroundColor: COLORS._FFE1, alignItems: 'center', justifyContent: 'center', }}>
+        <Wrapper style={{ width: 25, height: 25, borderRadius: 6, backgroundColor: COLORS.INPUT_COLOR, alignItems: 'center', justifyContent: 'center', }}>
           <Cross_Icon />
         </Wrapper>
       </TouchableOpacity>
-      <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 76, height: 76, borderWidth: 1, backgroundColor: '#edf5f2', borderColor: '#b3e8dc', borderRadius: 6, }}>
+      <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 76, height: 76, borderWidth: 1, backgroundColor: COLORS.WHITE, borderColor: COLORS._B3E8, borderRadius: 6, }}>
         <Image source={item.image} style={{ width: 63, height: 63, resizeMode: 'cover', borderRadius: 6 }} />
       </Wrapper>
       <Wrapper style={{ flex: 1 }}>
@@ -39,19 +39,19 @@ export const GoLive = ({ navigation }) => {
   // }, [])
 
   return (
-    <MainWrapper>
+    <MainWrapper style={{backgroundColor:COLORS.WHITE}}>
       <ScrollWrapper>
         <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Content Title</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='Best Multi Angle mobile stand' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='Best Multi Angle mobile stand' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderColor: COLORS._E8EC, borderRadius: 7, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
         <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Content description</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder' placeholderTextColor={COLORS._3C3C} numberOfLines={8} multiline={true} inputStyle={{ height: height(16), textAlignVertical: 'top', backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, }} containerStyle={{ marginBottom: height(0), height: height(16) }} />
+          <InputWithTitle placeholder='XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder' placeholderTextColor={COLORS._3C3C} numberOfLines={8} multiline={true} inputStyle={{ height: height(16), textAlignVertical: 'top', borderColor: COLORS._E8EC, borderRadius: 7, borderWidth: 1, }} containerStyle={{ marginBottom: height(0), height: height(16) }} />
         </Wrapper>
         <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Choose product</Text>
         <Pressable onPress={() => navigation.navigate(ROUTES.SELECT_PRODUCT)}>
-          <Wrapper style={{ paddingHorizontal: width(3), flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginVertical: height(2), backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }}>
+          <Wrapper style={{ paddingHorizontal: width(3), flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginVertical: height(2), backgroundColor: COLORS.INPUT_COLOR, borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }}>
             <Text style={{ fontSize: 14, fontFamily: FONTS.URBAN_MEDIUM, color: COLORS._3C3C }}>Browse Product</Text>
             <ICON.Entypo name='chevron-thin-right' color={COLORS._3C3C} size={14} />
           </Wrapper>

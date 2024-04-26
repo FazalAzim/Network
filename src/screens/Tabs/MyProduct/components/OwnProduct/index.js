@@ -23,23 +23,23 @@ export const OwnProduct = () => {
   }
 
   return (
-    <MainWrapper>
+    <MainWrapper style={{backgroundColor:COLORS.WHITE}}>
       <ScrollWrapper>
         <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product name</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='XYZ Digital  SLICK Multi Angle ' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='XYZ Digital  SLICK Multi Angle ' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
-        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product name</Text>
+        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product description</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder' placeholderTextColor={COLORS._3C3C} numberOfLines={8} multiline={true} inputStyle={{ height: height(16), textAlignVertical: 'top', backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, }} containerStyle={{ marginBottom: height(0), height: height(16) }} />
+          <InputWithTitle placeholder='XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder' placeholderTextColor={COLORS._3C3C} numberOfLines={8} multiline={true} inputStyle={{ height: height(16), textAlignVertical: 'top', borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, }} containerStyle={{ marginBottom: height(0), height: height(16) }} />
         </Wrapper>
         <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Price</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='$200' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='$200' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
         <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Sell price</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='$190' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='$190' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
         <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Upload product images</Text>
         <Wrapper style={{ marginTop: height(3), flexDirection: 'row', flexWrap: 'wrap' }}>
@@ -50,7 +50,7 @@ export const OwnProduct = () => {
                   <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 72, height: 72, borderWidth: 1, borderColor: COLORS._B3E8, borderRadius: 6, marginRight: 2, }}>
                     <Image source={item.image} style={{ width: 66, height: 66, resizeMode: 'cover' }} />
                   </Wrapper>
-                  <SocialButton onPress={() => handleRemoveImage(index)} style={{ borderColor: COLORS.BD_COLOR, backgroundColor: COLORS._E8EC, width: 72, height: 21, borderRadius: 3, }} text={"Remove"} styleText={{ color: COLORS.RED_COLOR, fontSize: 11 }} />
+                  <SocialButton onPress={() => handleRemoveImage(index)} style={{ borderColor: COLORS._EEEE, backgroundColor: COLORS._EEEE, width: 72, height: 21, borderRadius: 3, }} text={"Remove"} styleText={{ color: COLORS.RED_COLOR, fontSize: 11 }} />
                 </Wrapper>
               </RowWrapperBasic>
             )

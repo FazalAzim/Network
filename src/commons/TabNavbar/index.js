@@ -18,7 +18,7 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
         <Text style={{ color: focused ? tabStyles.focusText : COLORS.BLACK, fontSize: 15, fontFamily:  FONTS.URBAN_REGULAR }}>
           {route.title}
         </Text>
-      )} indicatorStyle={{ backgroundColor: tabStyles.indicatorStyle, borderRadius: 16, marginBottom: -2, padding: 1.5, }} style={{
+      )} indicatorStyle={{ backgroundColor: tabStyles.indicatorStyle, borderRadius: 16, marginBottom: -1.5, padding: 1, }} style={{
         backgroundColor: COLORS.WHITE, borderBottomWidth: 1,
         borderColor: COLORS._D7D7, elevation: 0
       }} />}

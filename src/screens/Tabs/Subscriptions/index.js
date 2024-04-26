@@ -36,13 +36,13 @@ export const Subscriptions = ({ navigation }) => {
   ];
 
   return (
-    <MainWrapper style={{ paddingHorizontal: width(3),backgroundColor:COLORS.WHITE }}>
-      <Wrapper style={{ width: width(95), marginTop: 20 }}>
+    <MainWrapper style={{paddingVertical:height(1), paddingHorizontal: width(3),backgroundColor:COLORS.WHITE }}>
+      <Wrapper style={{ width: width(95) }}>
         <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
       </Wrapper>
       <Wrapper style={{ width: width(80), alignSelf: 'center' }} >
         <Image source={IMG.LOGO} style={{ width: 100, height: 100, alignSelf: 'center' }} />
-        <Text style={{ marginVertical: height(2), fontSize: 35, fontFamily: FONTS.URBAN_BOLD, lineHeight: 35 }}>Go Live with SkyyLytes</Text>
+        <Text style={{ paddingVertical: height(1), fontSize: 35, fontFamily: FONTS.URBAN_BOLD, }}>Go Live with SkyyLytes</Text>
         <Wrapper style={{ marginVertical: 12, flexDirection: 'column', gap: 14 }}>
           <RowWrapperBasic style={{ gap: 8 }}>
             <CheckIcon />
@@ -63,12 +63,12 @@ export const Subscriptions = ({ navigation }) => {
             return <SubscribeCard data={item} onClick={() => setSelect(item.title)} selected={select} />;
           }}
         />
-        <RowWrapperBasic style={{ justifyContent: 'center', gap: 4, marginBottom: 14 }}>
+        <RowWrapperBasic style={{ justifyContent: 'center', gap: 4, }}>
           <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS._6262 }}>Restore Purchase</Text>
           <Dot style={{ alignSelf: 'center', width: 4, height: 4, backgroundColor: COLORS._6262 }} />
           <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 13, color: COLORS._6262 }}>Terms of Service</Text>
         </RowWrapperBasic>
-        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6 }} />
+        <PrimaryButton text={'Subscribe'} style={{ borderRadius: 6,marginTop:height(1.5) }} />
       </Wrapper>
     </MainWrapper >
   )

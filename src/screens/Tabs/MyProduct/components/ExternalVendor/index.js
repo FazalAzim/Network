@@ -20,15 +20,15 @@ export const ExternalVendor = () => {
   }
 
   return (
-    <MainWrapper>
+    <MainWrapper style={{backgroundColor:COLORS.WHITE}}>
       <ScrollWrapper>
         <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product name</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='XYZ Digital  SLICK Multi Angle ' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='XYZ Digital  SLICK Multi Angle ' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
         <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product Link</Text>
         <Wrapper style={{ marginVertical: height(1) }}>
-          <InputWithTitle placeholder='https://www.amazon.in/STRIFF-Mobile-Android.....' placeholderTextColor={COLORS._3C3C} inputStyle={{ backgroundColor: COLORS._E8EC, borderRadius: 7, borderColor: COLORS.LIGHT_GRAY, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='https://www.amazon.in/STRIFF-Mobile-Android.....' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderColor: COLORS._E8EC, borderRadius: 7, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
         </Wrapper>
         <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Upload product images</Text>
         <Wrapper style={{ marginTop: height(3), flexDirection: 'row', flexWrap: 'wrap' }}>

@@ -11,7 +11,7 @@ const SubscribeCard = ({ data, onClick, selected }) => {
     <Pressable onPress={onClick}>
       <Wrapper style={{ marginBottom: 14, position: 'relative', width: width(80), height: height(16), borderWidth: 1, borderColor: selected === data.title ? COLORS.PRIMARY_COLOR : COLORS._C4C4, borderRadius: 18 }}>
         {data.button &&
-          <PrimaryButton style={{ position: 'absolute', width: width(16), height: height(3), alignSelf: 'flex-end', top: 8, right: 8 }} text={'Best Value'} styleText={{ fontSize: 9, fontFamily: FONTS.URBAN_SEMIBOLD }} />
+          <PrimaryButton style={{ position: 'absolute', width: width(15), height: height(2.5), alignSelf: 'flex-end', top: 8, right: 8 }} text={'Best Value'} styleText={{ fontSize: 9, fontFamily: FONTS.URBAN_SEMIBOLD }} />
         }
         <Wrapper style={{ width: '100%', height: '100%', flexDirection: 'column', gap: 3, justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{ textAlign: 'center', color: COLORS.PINK_COLOR, fontSize: 22, fontFamily: FONTS.URBAN_MEDIUM }}>{data.title}</Text>
@@ -36,13 +36,13 @@ export const Subscriptions = ({ navigation }) => {
   ];
 
   return (
-    <MainWrapper style={{ paddingHorizontal: width(3) }}>
+    <MainWrapper style={{ paddingHorizontal: width(3),backgroundColor:COLORS.WHITE }}>
       <Wrapper style={{ width: width(95), marginTop: 20 }}>
         <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
       </Wrapper>
       <Wrapper style={{ width: width(80), alignSelf: 'center' }} >
         <Image source={IMG.LOGO} style={{ width: 100, height: 100, alignSelf: 'center' }} />
-        <Text style={{ marginVertical: height(1), fontSize: 35, fontFamily: FONTS.URBAN_BOLD, lineHeight: 35 }}>Go Live with SkyyLytes</Text>
+        <Text style={{ marginVertical: height(2), fontSize: 35, fontFamily: FONTS.URBAN_BOLD, lineHeight: 35 }}>Go Live with SkyyLytes</Text>
         <Wrapper style={{ marginVertical: 12, flexDirection: 'column', gap: 14 }}>
           <RowWrapperBasic style={{ gap: 8 }}>
             <CheckIcon />

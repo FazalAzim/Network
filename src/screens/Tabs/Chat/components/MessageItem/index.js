@@ -1,8 +1,8 @@
-import {Chat} from '@assets';
-import {COLORS} from '@constants';
-import {height, width} from '@helpers';
-import {ComponentWrapper, Text} from '@commons';
-import React, {useState} from 'react';
+import { Chat } from '@assets';
+import { COLORS, FONTS } from '@constants';
+import { height, width } from '@helpers';
+import { ComponentWrapper, Seperator, Text, Wrapper } from '@commons';
+import React, { useState } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -11,9 +11,10 @@ import {
   Pressable,
 } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {ImageGallery} from '@georstat/react-native-image-gallery';
+import { ImageGallery } from '@georstat/react-native-image-gallery';
+import moment from 'moment';
 
-export const MessageItem = ({item, onReply}) => {
+export const MessageItem = ({ item, onReply, lastMessageTime }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openGallery = () => setIsOpen(true);
   const closeGallery = () => setIsOpen(false);
@@ -42,12 +43,19 @@ export const MessageItem = ({item, onReply}) => {
   return (
     <>
       {item.sender === 'currentUser' && !item.media ? (
-        <ComponentWrapper
-          style={[styles.messageContainer, styles.currentUserMessageContainer]}>
-          <Text style={[styles.messageText, styles.currentUserMessageText]}>
-            {item.content}
-          </Text>
-        </ComponentWrapper>
+        <Wrapper>
+          <ComponentWrapper>
+            <Seperator text={(moment(lastMessageTime).format('dddd'))} />
+            {/* <Text style={[styles.messageText, styles.currentUserMessageText, { paddingTop: 4, fontSize: 12, textAlign: 'right',color:'black' }]}>{moment(item.timestamp).format("hh:mm A")}</Text> */}
+          </ComponentWrapper>
+          <ComponentWrapper
+            style={[styles.messageContainer, styles.currentUserMessageContainer]}>
+            <Text style={[styles.messageText, styles.currentUserMessageText]}>
+              {item.content}
+            </Text>
+            <Text style={[styles.messageText, styles.currentUserMessageText, { paddingTop: 4, fontSize: 12, textAlign: 'right' }]}>{moment(item.timestamp).format("hh:mm A")}</Text>
+          </ComponentWrapper>
+        </Wrapper>
       ) : item.sender === 'currentUser' &&
         item.media &&
         item.media !== undefined &&
@@ -55,7 +63,7 @@ export const MessageItem = ({item, onReply}) => {
         // <ComponentWrapper style={[styles.messageContainer, styles.currentUserMessageContainer]}>
         <Pressable onPress={() => imageClickHandler(item.media)}>
           <Image
-            source={{uri: item.media}}
+            source={{ uri: item.media }}
             style={{
               width: width(40),
               height: height(20),
@@ -76,6 +84,7 @@ export const MessageItem = ({item, onReply}) => {
               styles.currentUserMessageContainer,
             ]}>
             <ComponentWrapper style={styles.replyContainer}>
+              <Text style={[styles.messageText, styles.currentUserMessageText, { paddingTop: 4, fontSize: 12, textAlign: 'left', color: COLORS.PRIMARY_COLOR, paddingBottom: 4 }]}>{item.sender}</Text>
               <Text
                 multiLines={true}
                 numOfLines={4}
@@ -86,12 +95,14 @@ export const MessageItem = ({item, onReply}) => {
             <Text style={[styles.messageText, styles.currentUserMessageText]}>
               {item?.replies[0].content}
             </Text>
+            <Text style={[styles.messageText, styles.currentUserMessageText, { paddingTop: 4, fontSize: 12, textAlign: 'left' }]}>{moment(item.replies.timestamp).format("hh:mm A")}</Text>
           </ComponentWrapper>
         )
       )}
       {item.sender !== 'currentUser' && (
         <ComponentWrapper style={styles.messageContainer}>
           <Text style={styles.messageText}>{item.content}</Text>
+          <Text style={[styles.messageText, { paddingTop: 4, fontSize: 12, textAlign: 'left', color: '#ADB5BD' }]}>{moment(item.timestamp).format("hh:mm A")}</Text>
         </ComponentWrapper>
       )}
       <ImageGallery
@@ -137,7 +148,7 @@ const styles = StyleSheet.create({
   },
   replyTextContent: {
     color: COLORS.WHITE,
-    fontStyle: 'italic',
+    // fontStyle: 'italic',
     fontSize: 14,
   },
   replyButton: {

@@ -9,7 +9,7 @@ import { ContactCard } from './components'
 export const Inbox = ({ navigation }) => {
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE, flex: 1 }}>
-      <Wrapper style={{marginTop:6}}>
+      <Wrapper style={{ marginTop: 6 }}>
         <MessageHeader />
       </Wrapper>
       <Wrapper style={{ marginHorizontal: width(5), marginTop: height(2) }}>
@@ -21,7 +21,7 @@ export const Inbox = ({ navigation }) => {
           renderItem={({ item }) => (
             <>
               <ContactCard
-                onPress={() => navigation.navigate(ROUTES.CHAT, { chat: item.messages, user: item.username })}
+                onPress={() => navigation.navigate(ROUTES.CHAT, { chat: item.messages, user: item.username, timeStamp: item.lastMessageTime, })}
                 chat={item}
               />
               <SeparatorBasic />

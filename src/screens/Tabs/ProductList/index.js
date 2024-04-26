@@ -6,7 +6,7 @@ import { FlatList } from 'react-native'
 
 export const ProductList = ({ navigation }) => {
   return (
-    <MainWrapper style={{ paddingHorizontal: width(3) }}>
+    <MainWrapper style={{ paddingHorizontal: width(3), backgroundColor: COLORS.WHITE, }}>
       <RowWrapperBasic style={{ marginVertical: 20 }}>
         <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
         <Text style={{ flex: 1, textAlign: 'center', fontFamily: FONTS.URBAN_BOLD, fontSize: 20, color: COLORS._1E1F }}>My Products</Text>

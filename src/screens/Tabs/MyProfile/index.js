@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { MainWrapper, ProfileCard, SocialButton, TabNavbar, Wrapper } from '@commons'
-import { AddressBook, Bag_Icon, Box_Icon, Favorite, Play_Icon, Schedules, Setting, Star, } from '@assets'
+import { AddressBook, Bag_Icon, Box_Icon, Favorate_Sheet,  Play_Icon, Schedules, Setting, Star, } from '@assets'
 import { COLORS, FONTS, ROUTES, } from '@constants'
 import { styles } from './styles'
 import { height, width } from '@helpers'
@@ -31,7 +31,7 @@ export const MyProfile = ({ navigation }) => {
     { title: 'My Schedules ', icon: <Schedules />, click: () => navigation.navigate(ROUTES.PRODUCT_DETAIL) },
     { title: 'Subscriptions', icon: <Star /> },
     { title: 'My Orders', icon: <Bag_Icon /> },
-    { title: 'Saved Videos', icon: <Favorite /> },
+    { title: 'Saved Videos', icon: <Favorate_Sheet /> },
     { title: 'Address Book', icon: <AddressBook /> },
     { title: 'Settings', icon: <Setting /> },
   ]

@@ -8,7 +8,7 @@ export const CheckBox = ({ checked,toggleCheckbox }) => {
   return (
     <TouchableOpacity style={styles.checkboxContainer} onPress={toggleCheckbox}>
       <Wrapper style={[styles.checkbox, checked && styles.checked]}>
-        {checked && <ICON.FontAwesome name="check" size={18} color="#fff" />}
+        {checked && <ICON.FontAwesome name="check" size={12} color="#fff" />}
       </Wrapper>
     </TouchableOpacity>
   )

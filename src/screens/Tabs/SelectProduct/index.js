@@ -4,6 +4,7 @@ import { width, height } from '@helpers'
 import { ProductContext } from '@contexts'
 import React, { useState, useContext } from 'react'
 import { FlatList, Image } from 'react-native'
+import { ViewIcon } from '@assets'
 
 const ProductCard = ({ item }) => {
   const [checked, setChecked] = useState(false);
@@ -19,7 +20,10 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <RowWrapperBasic style={{ gap: 14, borderBottomWidth: 1, borderColor: COLORS._B3E8, paddingVertical: height(2), }}>
+    <RowWrapperBasic style={{ gap: 14, borderBottomWidth: 1, borderColor: COLORS._EAEA, paddingVertical: height(2), }}>
+      <Wrapper style={{ position: 'absolute', top: 8, right: 4, }}>
+          <ViewIcon />
+      </Wrapper>
       <CheckBox checked={checked} toggleCheckbox={toggleCheckbox} />
       <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 76, height: 76, borderWidth: 1, backgroundColor: '#edf5f2', borderColor: '#b3e8dc', borderRadius: 6, }}>
         <Image source={item.image} style={{ width: 63, height: 63, resizeMode: 'cover', borderRadius: 6 }} />
@@ -35,9 +39,9 @@ export const SelectProduct = ({ navigation }) => {
   return (
     <MainWrapper style={{ paddingHorizontal: width(3), backgroundColor: COLORS.WHITE }}>
       <RowWrapperBasic style={{ marginVertical: 20, gap: 4 }}>
-        <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
+        <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={18} onPress={() => navigation.goBack()} />
         <Wrapper style={{ flex: 1, }}>
-          <InputWithTitle placeholder='Search Product' placeholderTextColor={COLORS._C4C4} inputStyle={{ backgroundColor: COLORS._F8F8, borderRadius: 7, height: height(6) }} containerStyle={{ marginBottom: height(0) }} />
+          <InputWithTitle placeholder='Search Product' placeholderTextColor={COLORS._C4C4} inputStyle={{ backgroundColor: COLORS.INPUT_COLOR, borderRadius: 7, height: height(5.5) }} containerStyle={{ marginBottom: height(0), height: height(5.5), }} />
         </Wrapper>
       </RowWrapperBasic>
       <Wrapper style={{ paddingBottom: height(1), paddingHorizontal: width(2), flex: 1, }}>

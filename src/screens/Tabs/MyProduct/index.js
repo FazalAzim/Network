@@ -1,26 +1,135 @@
-import { MainWrapper, RowWrapperBasic, TabNavbar, Text } from '@commons'
-import { COLORS, FONTS, ICON } from '@constants'
-import { width } from '@helpers'
-import React from 'react'
-import { ExternalVendor, OwnProduct } from './components'
+import { InputWithTitle, MainWrapper, PrimaryButton, RowWrapperBasic, ScrollWrapper, SocialButton, TabNavbar, Text, Wrapper } from '@commons'
+import { COLORS, FONTS, ICON, IMG } from '@constants'
+import { height, width } from '@helpers'
+import React, { useState } from 'react'
+import { Minus_Icon, Plus_Blue, Plus_Icon } from '@assets'
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
 import { styles } from './styles'
+import { Image } from 'react-native'
 
-export const MyProduct = ({ navigation }) => {
+const OwnProduct = () => {
+  const [count, setCount] = useState(0);
+  // const [imageUri, setImageUri] = useState(null);
+  const [images, setImages] = useState([])
 
-  const tabStyles = {
-    focusText: COLORS.PRIMARY_COLOR,
-    indicatorStyle: COLORS.PRIMARY_COLOR,
+  const pickImage = () => {
+    setImages([...images, { image: IMG.PRODUCT_MOBILE }])
   }
 
+  const handleRemoveImage = (id) => {
+    setImages(preState =>
+      preState.filter((item, index) => index !== id),
+    );
+  }
+
+  return (
+    <MainWrapper style={{backgroundColor:COLORS.WHITE}}>
+      <ScrollWrapper>
+        <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product name</Text>
+        <Wrapper style={{ marginVertical: height(1) }}>
+          <InputWithTitle placeholder='XYZ Digital  SLICK Multi Angle ' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+        </Wrapper>
+        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product description</Text>
+        <Wrapper style={{ marginVertical: height(1) }}>
+          <InputWithTitle placeholder='XYZ Digital SLICK Multi Angle Mobile Stand. Phone Holder. Portable,Foldable Cell Phone Stand.Perfect for Bed,Office, Home,Gift and Desktop (White) Mobile Holder' placeholderTextColor={COLORS._3C3C} numberOfLines={8} multiline={true} inputStyle={{ height: height(16), textAlignVertical: 'top', borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, }} containerStyle={{ marginBottom: height(0), height: height(16) }} />
+        </Wrapper>
+        <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Price</Text>
+        <Wrapper style={{ marginVertical: height(1) }}>
+          <InputWithTitle placeholder='$200' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+        </Wrapper>
+        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Sell price</Text>
+        <Wrapper style={{ marginVertical: height(1) }}>
+          <InputWithTitle placeholder='$190' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+        </Wrapper>
+        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Upload product images</Text>
+        <Wrapper style={{ marginTop: height(3), flexDirection: 'row', flexWrap: 'wrap' }}>
+          {images.map((item, index) => {
+            return (
+              <RowWrapperBasic key={index} style={{ marginRight: 4, gap: 6, }}>
+                <Wrapper style={{ flexDirection: 'column', gap: 5 }}>
+                  <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 72, height: 72, borderWidth: 1, borderColor: COLORS._B3E8, borderRadius: 6, marginRight: 2, }}>
+                    <Image source={item.image} style={{ width: 66, height: 66, resizeMode: 'cover' }} />
+                  </Wrapper>
+                  <SocialButton onPress={() => handleRemoveImage(index)} style={{ borderColor: COLORS._EEEE, backgroundColor: COLORS._EEEE, width: 72, height: 21, borderRadius: 3, }} text={"Remove"} styleText={{ color: COLORS.RED_COLOR, fontSize: 11 }} />
+                </Wrapper>
+              </RowWrapperBasic>
+            )
+          })}
+          <SocialButton onPress={pickImage} style={{ width: 72, height: 72, marginBottom: height(5), borderColor: COLORS._B3E8, alignSelf: 'flex-start' }} icon={<Plus_Blue />} />
+        </Wrapper>
+        <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Quantity</Text>
+        <Wrapper style={{ marginBottom: height(6), marginTop: height(2), flexDirection: 'row', gap: 1 }}>
+          <SocialButton onPress={() => setCount(count - 1)} style={{ borderRadius: 8, borderColor: COLORS.BD_COLOR, width: width(10), height: height(5), alignSelf: 'flex-start', marginBottom: 2 }} icon={<Minus_Icon />} />
+          <Wrapper style={{ width: width(10), height: height(5), justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ fontFamily: FONTS.URBAN_MEDIUM, fontSize: 14, color: COLORS.PRIMARY_COLOR }}>{count}</Text>
+          </Wrapper>
+          <SocialButton onPress={() => setCount(count + 1)} style={{ borderRadius: 8, borderColor: COLORS.BD_COLOR, width: width(10), height: height(5), alignSelf: 'flex-start', marginBottom: 2 }} icon={<Plus_Icon />} />
+        </Wrapper>
+      </ScrollWrapper>
+      <PrimaryButton text={'Save'} style={{ width: width(95), borderRadius: 6 }} />
+    </MainWrapper>
+  )
+}
+
+const ExternalVendor = () => {
+  // const [imageUri, setImageUri] = useState(null);
+  const [images, setImages] = useState([])
+
+  const pickImage = () => {
+    setImages([...images, { image: IMG.PRODUCT }])
+  }
+
+  const handleRemoveImage = (id) => {
+    setImages(preState =>
+      preState.filter((item, index) => index !== id),
+    );
+  }
+
+  return (
+    <MainWrapper style={{backgroundColor:COLORS.WHITE}}>
+      <ScrollWrapper>
+        <Text style={{ marginTop: height(2), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product name</Text>
+        <Wrapper style={{ marginVertical: height(1) }}>
+          <InputWithTitle placeholder='XYZ Digital  SLICK Multi Angle ' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderRadius: 7, borderColor: COLORS._E8EC, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+        </Wrapper>
+        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Product Link</Text>
+        <Wrapper style={{ marginVertical: height(1) }}>
+          <InputWithTitle placeholder='https://www.amazon.in/STRIFF-Mobile-Android.....' placeholderTextColor={COLORS._3C3C} inputStyle={{ borderColor: COLORS._E8EC, borderRadius: 7, borderWidth: 1, height: height(8) }} containerStyle={{ marginBottom: height(0) }} />
+        </Wrapper>
+        <Text style={{ marginTop: height(4), fontSize: 15, fontFamily: FONTS.URBAN_MEDIUM }}>Upload product images</Text>
+        <Wrapper style={{ marginTop: height(3), flexDirection: 'row', flexWrap: 'wrap' }}>
+          {images.map((item, index) => {
+            return (
+              <RowWrapperBasic key={index} style={{ marginRight: 4, gap: 6, }}>
+                <Wrapper style={{ flexDirection: 'column', gap: 5 }}>
+                  <Wrapper style={{ justifyContent: 'center', alignItems: 'center', width: 72, height: 72, borderWidth: 1, borderColor: COLORS._B3E8, borderRadius: 6, marginRight: 2, }}>
+                    <Image source={item.image} style={{ width: 66, height: 66, resizeMode: 'cover' }} />
+                  </Wrapper>
+                  <SocialButton onPress={() => handleRemoveImage(index)} style={{ borderColor: COLORS.BD_COLOR, backgroundColor: COLORS._E8EC, width: 72, height: 21, borderRadius: 3, }} text={"Remove"} styleText={{ color: COLORS.RED_COLOR, fontSize: 11 }} />
+                </Wrapper>
+              </RowWrapperBasic>
+            )
+          })}
+          <SocialButton onPress={pickImage} style={{ width: 72, height: 72, marginBottom: height(5), borderColor: COLORS._B3E8, alignSelf: 'flex-start' }} icon={<Plus_Blue />} />
+        </Wrapper>
+      </ScrollWrapper>
+      <PrimaryButton text={'Save'} style={{ width: width(95), borderRadius: 6 }} />
+    </MainWrapper>
+  )
+}
+
+const renderScene = SceneMap({
+  first: OwnProduct,
+  second: ExternalVendor,
+});
+
+
+export const MyProduct = ({ navigation }) => {
+  const [index, setIndex] = useState(0);
   const routes = [
     { key: 'first', title: 'Own Product' },
     { key: 'second', title: 'External Vendor' },
   ];
-
-  const tabs = {
-    first: () => <OwnProduct />,
-    second: () => <ExternalVendor />,
-  };
   
   return (
     <MainWrapper style={{ paddingHorizontal: width(3), backgroundColor: COLORS.WHITE }}>
@@ -28,7 +137,20 @@ export const MyProduct = ({ navigation }) => {
         <ICON.Entypo name='chevron-thin-left' color={COLORS._3838} size={22} onPress={() => navigation.goBack()} />
         <Text style={{ flex: 1, textAlign: 'center', fontFamily: FONTS.URBAN_BOLD, fontSize: 20, color: COLORS._1E1F }}>Add Products</Text>
       </RowWrapperBasic>
-      <TabNavbar routes={routes} tabs={tabs} tabStyles={tabStyles}/>
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: width(100) }}
+        renderTabBar={props => <TabBar {...props} renderLabel={({ route, color, focused }) => (
+          <Text style={{ color: COLORS.PRIMARY_COLOR, fontSize: 15, fontFamily: FONTS.URBAN_REGULAR }}>
+            {route.title}
+          </Text>
+        )} indicatorStyle={{ backgroundColor: COLORS.PRIMARY_COLOR, borderRadius: 16, marginBottom: -1.5, padding: 1, }} style={{
+          backgroundColor: COLORS.WHITE, borderBottomWidth: 1,
+          borderColor: COLORS._D7D7, elevation: 0
+        }} />}
+      />
     </MainWrapper >
   )
 }

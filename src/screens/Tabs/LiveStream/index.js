@@ -43,7 +43,7 @@ export const LiveStream = ({ navigation }) => {
 
   return (
     <MainWrapper>
-      <ImageBackground source={IMG.VIDEO} resizeMode="stretch" style={{ flex: 1, position: 'relative' }}>
+      <ImageBackground source={IMG.VIDEO} resizeMode="contain" style={{ flex: 1, position: 'relative' }}>
         <RowWrapper style={{ position: 'absolute', top: 30, zIndex: 5, width: width(90) }}>
           <ICON.Entypo name='chevron-thin-left' color={COLORS.WHITE} size={22} onPress={() => navigation.goBack()} />
           <Setting_Icon />

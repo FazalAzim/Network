@@ -80,9 +80,9 @@ export const LiveStream = ({ navigation }) => {
                     {chat.map((item, index) => {
                       return (
                         index < 7 && (
-                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, alignItems: 'center', opacity: 0.9 - `0.${index}` }}>
+                          <Wrapper key={index} style={{ flexDirection: 'row', gap: 2, opacity: 0.9 - `0.${index}` }}>
                             <Text style={{ fontFamily: FONTS.URBAN_SEMIBOLD, fontSize: 14, color: COLORS.WHITE }}>{item.title}:</Text>
-                            <Text style={{ fontFamily: FONTS.URBAN_REGULAR, fontSize: 14, color: COLORS.WHITE }}>{item.message}</Text>
+                            <Text style={{maxWidth:200, fontFamily: FONTS.URBAN_REGULAR, fontSize: 14, color: COLORS.WHITE }}>{item.message}</Text>
                           </Wrapper>
                         )
                       )

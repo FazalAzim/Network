@@ -26,7 +26,7 @@ import {
   MyProfile,
   ProviderProfile,
 } from '@screens';
-import { useAuth } from '@contexts';
+import { useAuthContext } from '@contexts';
 import { useEffect, useState } from 'react';
 import { Tabs } from '../Tabs';
 
@@ -36,8 +36,8 @@ const { Navigator, Screen } = Stack;
 export const AuthStack = () => {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
-      <Screen name={ROUTES.SPLASH_SCREEN} component={SplashScreen} />
-      <Screen name={ROUTES.ONBOARDING} component={Onboarding} />
+      {/* <Screen name={ROUTES.SPLASH_SCREEN} component={SplashScreen} /> */}
+      {/* <Screen name={ROUTES.ONBOARDING} component={Onboarding} /> */}
       <Screen name={ROUTES.LOGIN} component={Login} />
       <Screen name={ROUTES.SIGNUP} component={Signup} />
       <Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
@@ -72,7 +72,7 @@ export const TabStack = () => {
 }
 
 export const Root = () => {
-  const { currentUser } = useAuth();
+  const { currentUser } = useAuthContext();
   const [isUser, setIsUser] = useState(false);
   useEffect(() => {
     setIsUser(currentUser);

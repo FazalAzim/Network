@@ -1,60 +1,51 @@
-import {
-  View,
-  StyleSheet,
-  FlatList
+import React, { useRef } from 'react'
+import { MainWrapper, ProfileCard, SocialButton, TabNavbar, Wrapper } from '@commons'
+import { AddressBook, Bag_Icon, Box_Icon, Favorate_Sheet,  Play_Icon, Schedules, Setting, Star, } from '@assets'
+import { COLORS, FONTS, ROUTES, } from '@constants'
+import { styles } from './styles'
+import { height, width } from '@helpers'
+import RBSheet from "react-native-raw-bottom-sheet";
+import { Products, Videos } from './components'
 
-} from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
-import { H1, H3, HomeCard, HomeHeader, MainWrapper, PrimaryButton, RowWrapper, RowWrapperBasic, SocialButton, Text, Wrapper } from '@commons';
-import { COLORS, FONTS, ICON, IMG, ROUTES, cards } from '@constants';
-import { height, width } from '@helpers';
-import RBSheet from 'react-native-raw-bottom-sheet';
-
-export const Home = ({ navigation }) => {
+export const MyProfile = ({ navigation }) => {
   const refRBSheet = useRef();
-  const [activeTab, setActiveTab] = useState();
-  useEffect(() => refRBSheet.current.open(), [])
-  const button = [
-    { title: "Live", click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
-    { title: "Previously Live" },
-    { title: "Subscriptions", click: () => navigation.navigate(ROUTES.PROVIDER_DETAILS) },
-    { title: "For You" },
-    { title: "Live Product", click: () => navigation.navigate(ROUTES.LIVE_PRODUCT) },
-    { title: "Product", click: () => navigation.navigate(ROUTES.PRODUCT_LIST) },
+
+  const tabStyles = {
+    focusText: COLORS.BLACK,
+    indicatorStyle: COLORS._3030
+  }
+
+  const routes = [
+    { key: 'first', title: 'Videos' },
+    { key: 'second', title: 'Products' },
   ];
+
+  const tabs = {
+    first: () => <Videos />,
+    second: () => <Products />,
+  };
+
+  const sheetButton = [
+    { title: 'My Videos', icon: <Play_Icon /> },
+    { title: 'My Products', icon: <Box_Icon /> },
+    { title: 'My Schedules ', icon: <Schedules />, click: () => navigation.navigate(ROUTES.PRODUCT_DETAIL) },
+    { title: 'Subscriptions', icon: <Star /> },
+    { title: 'My Orders', icon: <Bag_Icon /> },
+    { title: 'Saved Videos', icon: <Favorate_Sheet /> },
+    { title: 'Address Book', icon: <AddressBook /> },
+    { title: 'Settings', icon: <Setting /> },
+  ]
+
   return (
     <MainWrapper style={{ backgroundColor: COLORS.WHITE }}>
-      <HomeHeader logo={IMG.LOGO} profile={IMG.AVATAR1} icon={IMG.BELL} profileClick={() => navigation.navigate(ROUTES.MY_PROFILE)} providerClick={() => navigation.navigate(ROUTES.PROVIDER_DETAILS)} providerProfile={() => navigation.navigate(ROUTES.LIVE_PROFILE)} />
-      <Wrapper style={{ marginTop: 6, marginHorizontal: 14, }}>
-        <FlatList
-          horizontal
-          data={button}
-          renderItem={({ item }) => {
-            return (<Wrapper style={{ marginRight: 8 }}>
-              <SocialButton onPress={() => {
-                if ('click' in item) {
-                  item.click()
-                }
-                setActiveTab(item.title)
-              }} style={{ borderColor: COLORS.WHITE, backgroundColor: activeTab === item.title ? COLORS.PRIMARY_COLOR : COLORS.BD_COLOR, width: width(25), height: height(4), borderRadius: 4 }} text={item.title} styleText={{ color: activeTab === item.title ? COLORS.WHITE : COLORS._2424, fontSize: 12, fontFamily: FONTS.URBAN_MEDIUM }} />
-            </Wrapper>)
-          }}
-        />
-      </Wrapper>
-      <Wrapper style={{ flexDirection: 'column', flex: 1 }}>
-        <FlatList
-          data={cards}
-          renderItem={({ item }) => {
-            return <HomeCard item={item} onClick={() => navigation.navigate(ROUTES.VIDEO_SCREEN, { item })} navigation={navigation} />;
-          }}
-        />
-      </Wrapper>
+      <ProfileCard navigation={navigation} type={'profile'} onPress={() => refRBSheet.current.open()} />
+      <TabNavbar routes={routes} tabs={tabs} tabStyles={tabStyles} />
       <Wrapper>
         <RBSheet
           ref={refRBSheet}
           closeOnDragDown={true}
           closeOnPressMask={true}
-          height={height(32)}
+          height={height(50)}
           customStyles={{
             container: {
               borderRadius: 10,
@@ -66,16 +57,13 @@ export const Home = ({ navigation }) => {
             }
           }}
         >
-          <Wrapper style={{ marginTop: 6, marginHorizontal: width(4), flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
-            <H3 style={{ color: COLORS._1E1F, fontSize: 17 }}>Verify your SkyyLytes account </H3>
-            <Text style={{ width: width(66), fontSize: 13, textAlign: 'center', fontFamily: FONTS.URBAN_MEDIUM }}>You must verify your account before you can
-              create any content.</Text>
-            <Text style={{ width: width(90), fontSize: 13, textAlign: "center", fontFamily: FONTS.URBAN_REGULAR }}>Verified accounts have a tick mark next to their names. This shows that SkyyLytes has confirmed that an account is the authentic presence of that content creator. This helps us to keep the application authentic and safe. </Text>
-            <PrimaryButton text={'Verify Account'} style={{ marginTop: width(2) }} onPress={() => navigation.navigate(ROUTES.CREATOR_PROFILE)} />
+          <Wrapper style={{ marginTop: 6, marginHorizontal: width(4), flexDirection: 'column' }}>
+            {sheetButton.map((item, index) => {
+              return <SocialButton onPress={item.click} key={index} style={{ height: height(4), borderColor: COLORS.WHITE, alignSelf: 'flex-start', }} icon={item.icon} text={item.title} styleText={{ lineHeight: 19, fontSize: 16, fontWeight: '500', fontFamily: FONTS.URBAN_REGULAR, marginLeft: 8 }} />
+            })}
           </Wrapper>
         </RBSheet>
       </Wrapper>
     </MainWrapper>
-  );
-};
-
+  )
+}
